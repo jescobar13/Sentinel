@@ -1,0 +1,72 @@
+﻿<Window x:Name="afegirClientWindow" x:Class="WarehouseSentinel.Viwers.Clients.AfegirClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WarehouseSentinel.Viwers.Clients"
+        mc:Ignorable="d"
+        Title="Formulari: Afegir Client" Height="380.111" Width="906.159" MinWidth="782.159" MinHeight="365.111" Loaded="afegirClientWindow_Loaded">
+    <Grid>
+        <Border BorderBrush="Silver" BorderThickness="1" Margin="5,5,5,0" Height="139" VerticalAlignment="Top">
+            <Grid Height="125" Margin="10,10,10,0" VerticalAlignment="Top" MinHeight="105" MinWidth="754" MaxHeight="754" MaxWidth="105">
+
+                <Label x:Name="label" Content="CIF: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="textBox_CIF" HorizontalAlignment="Left" Height="23" Margin="95,11,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+
+                <Label x:Name="label_Copy" Content="Empresa /&#xD;&#xA;Nom" HorizontalAlignment="Left" Margin="220,0,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="textBox_EmpresaNom" HorizontalAlignment="Left" Height="23" Margin="305,11,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="186" VerticalContentAlignment="Center"/>
+
+                <Label x:Name="label_Copy2" Content="Cognom:" HorizontalAlignment="Left" Margin="496,10,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="textBox_Cognom" HorizontalAlignment="Left" Height="23" Margin="581,11,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" VerticalContentAlignment="Center"/>
+
+                <Label x:Name="label_Copy3" Content="Adreça: " HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="textBox_Adreca" HorizontalAlignment="Left" Height="23" Margin="95,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="396" VerticalContentAlignment="Center"/>
+
+                <Label x:Name="label_Copy4" Content="Codi Postal: " HorizontalAlignment="Left" Margin="496,47,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="textBox_CodiPostal" HorizontalAlignment="Left" Height="23" Margin="581,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="85" VerticalContentAlignment="Center"/>
+
+                <Label x:Name="label_Copy5" Content="País: " HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="textBox_Pais" HorizontalAlignment="Left" Height="23" Margin="95,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+
+                <Border BorderBrush="Silver" BorderThickness="1" Margin="220,78,258,0" Height="33" VerticalAlignment="Top">
+                    <Grid Margin="0,0,0,0">
+                        <Label x:Name="label_Copy6" Content="Estat: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,1,0,0"/>
+                        <RadioButton x:Name="radioButton_estatActiu" GroupName="Estat" Content="Actiu" IsChecked="True" VerticalContentAlignment="Center" Height="26" Margin="85,1,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="65"/>
+                        <RadioButton x:Name="radioButton_estatDeshabilitat" GroupName="Estat" Content="Deshabilitat" IsChecked="False" Width="102" VerticalContentAlignment="Center" Margin="157,1,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Border BorderBrush="Silver" Padding="5,5,5,5" BorderThickness="1" Margin="5,149,5,55">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="641*"/>
+                    <ColumnDefinition Width="111*"/>
+                </Grid.ColumnDefinitions>
+
+                <ListView Grid.Column="0" Name="listView_contactes" ItemsSource="{Binding Source=list}"  Loaded="listView_contactes_Loaded">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn x:Name="Columna_Persona" Header="Persona" Width="120" DisplayMemberBinding="{Binding personaNom}"/>
+                            <GridViewColumn x:Name="Columna_Telf1" Header="Telf 1" Width="100" DisplayMemberBinding="{Binding telef}"/>
+                            <GridViewColumn x:Name="Columna_Telf2" Header="Telf 2" Width="100" DisplayMemberBinding="{Binding telef2}"/>
+                            <GridViewColumn x:Name="Columna_Mob1" Header="Mob 1" Width="100" DisplayMemberBinding="{Binding mob}"/>
+                            <GridViewColumn x:Name="Columna_Mob2" Header="Telf 1" Width="100" DisplayMemberBinding="{Binding mob2}"/>
+                            <GridViewColumn x:Name="Columna_correu" Header="Correu Electronic" Width="200" DisplayMemberBinding="{Binding correuElectronic}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+                <StackPanel Margin="10" Grid.Column="1">
+                    <Button x:Name="btn_afegirContacte" Content="Afegir" MaxWidth="150" MaxHeight="35" Click="btn_afegirContacte_Click"/>
+                    <Button x:Name="btn_modificarContacte" Content="Modificar" Margin="0,5" MaxWidth="150" MaxHeight="35" Click="btn_modificarContacte_Click"/>
+                    <Button x:Name="btn_eliminarContacte" Content="Eliminar" MaxWidth="150" MaxHeight="35" Click="btn_eliminarContacte_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        
+        <Button x:Name="btn_AfegirClient" Content="Afegir Client" Margin="0,0,10,10" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="150" Click="btn_AfegirClient_Click"/>
+        <Button x:Name="btn_AplicarCanvisClient" Content="Aplicar Canvis al Client" Margin="0,0,10,10" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="150" Click="btn_AplicarCanvisClient_Click"/>
+    </Grid>
+</Window>
