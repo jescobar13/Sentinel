@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ff0da16aea1c494ea9bc790ba4610005" Name="Diagram1">
+        <EntityTypeShape EntityType="SentinelWarehouseDB.albara" Width="1.5" PointX="5.625" PointY="4.25" />
+        <EntityTypeShape EntityType="SentinelWarehouseDB.client" Width="1.5" PointX="8.125" PointY="0.75" />
+        <EntityTypeShape EntityType="SentinelWarehouseDB.comanda" Width="1.5" PointX="5.75" PointY="0.875" />
+        <EntityTypeShape EntityType="SentinelWarehouseDB.contacte" Width="1.5" PointX="10.25" PointY="0.875" />
+        <EntityTypeShape EntityType="SentinelWarehouseDB.liniaalbara" Width="1.5" PointX="8.375" PointY="4.25" />
+        <EntityTypeShape EntityType="SentinelWarehouseDB.liniacomanda" Width="1.5" PointX="3.625" PointY="0.875" />
+        <EntityTypeShape EntityType="SentinelWarehouseDB.producte" Width="1.5" PointX="1.375" PointY="1.25" />
+        <AssociationConnector Association="SentinelWarehouseDB.fk_Albara_Comanda1" />
+        <AssociationConnector Association="SentinelWarehouseDB.fk_LiniaAlbara_Albara1" />
+        <AssociationConnector Association="SentinelWarehouseDB.fk_Comanda_Client1" />
+        <AssociationConnector Association="SentinelWarehouseDB.fk_Contacte_Client1" />
+        <AssociationConnector Association="SentinelWarehouseDB.fk_LiniaComanda_Comanda1" />
+        <AssociationConnector Association="SentinelWarehouseDB.fk_LiniaComanda_Producte1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

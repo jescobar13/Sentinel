@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SentinelWarehouseDBStoreContainer" CdmEntityContainer="SentinelDBEntities">
+    <EntitySetMapping Name="albara">
+      <EntityTypeMapping TypeName="SentinelWarehouseDB.albara">
+        <MappingFragment StoreEntitySet="albara">
+          <ScalarProperty Name="Comanda_Client_Contacte_id" ColumnName="Comanda_Client_Contacte_id" />
+          <ScalarProperty Name="Comanda_Client_CIF" ColumnName="Comanda_Client_CIF" />
+          <ScalarProperty Name="Comanda_codi" ColumnName="Comanda_codi" />
+          <ScalarProperty Name="dataEntrega" ColumnName="dataEntrega" />
+          <ScalarProperty Name="dataAlbara" ColumnName="dataAlbara" />
+          <ScalarProperty Name="codi" ColumnName="codi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="client">
+      <EntityTypeMapping TypeName="SentinelWarehouseDB.client">
+        <MappingFragment StoreEntitySet="client">
+          <ScalarProperty Name="actiu" ColumnName="actiu" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="codiPostal" ColumnName="codiPostal" />
+          <ScalarProperty Name="adreça" ColumnName="adreça" />
+          <ScalarProperty Name="cognom" ColumnName="cognom" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="CIF" ColumnName="CIF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comanda">
+      <EntityTypeMapping TypeName="SentinelWarehouseDB.comanda">
+        <MappingFragment StoreEntitySet="comanda">
+          <ScalarProperty Name="estat" ColumnName="estat" />
+          <ScalarProperty Name="Client_Contacte_id" ColumnName="Client_Contacte_id" />
+          <ScalarProperty Name="Client_CIF" ColumnName="Client_CIF" />
+          <ScalarProperty Name="dataEntrega" ColumnName="dataEntrega" />
+          <ScalarProperty Name="dataComanda" ColumnName="dataComanda" />
+          <ScalarProperty Name="codi" ColumnName="codi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contacte">
+      <EntityTypeMapping TypeName="SentinelWarehouseDB.contacte">
+        <MappingFragment StoreEntitySet="contacte">
+          <ScalarProperty Name="Client_CIF" ColumnName="Client_CIF" />
+          <ScalarProperty Name="correuElectronic" ColumnName="correuElectronic" />
+          <ScalarProperty Name="mob2" ColumnName="mob2" />
+          <ScalarProperty Name="mob" ColumnName="mob" />
+          <ScalarProperty Name="telef2" ColumnName="telef2" />
+          <ScalarProperty Name="telef" ColumnName="telef" />
+          <ScalarProperty Name="personaNom" ColumnName="personaNom" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="liniaalbara">
+      <EntityTypeMapping TypeName="SentinelWarehouseDB.liniaalbara">
+        <MappingFragment StoreEntitySet="liniaalbara">
+          <ScalarProperty Name="Albara_Comanda_Client_Contacte_id" ColumnName="Albara_Comanda_Client_Contacte_id" />
+          <ScalarProperty Name="Albara_Comanda_Client_CIF" ColumnName="Albara_Comanda_Client_CIF" />
+          <ScalarProperty Name="Albara_Comanda_codi" ColumnName="Albara_Comanda_codi" />
+          <ScalarProperty Name="Albara_codi" ColumnName="Albara_codi" />
+          <ScalarProperty Name="producteNom" ColumnName="producteNom" />
+          <ScalarProperty Name="codiTracabilitat" ColumnName="codiTracabilitat" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="liniacomanda">
+      <EntityTypeMapping TypeName="SentinelWarehouseDB.liniacomanda">
+        <MappingFragment StoreEntitySet="liniacomanda">
+          <ScalarProperty Name="Producte_id" ColumnName="Producte_id" />
+          <ScalarProperty Name="Comanda_Client_Contacte_id" ColumnName="Comanda_Client_Contacte_id" />
+          <ScalarProperty Name="Comanda_Client_CIF" ColumnName="Comanda_Client_CIF" />
+          <ScalarProperty Name="Comanda_codi" ColumnName="Comanda_codi" />
+          <ScalarProperty Name="quantitat" ColumnName="quantitat" />
+          <ScalarProperty Name="preuKg" ColumnName="preuKg" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="producte">
+      <EntityTypeMapping TypeName="SentinelWarehouseDB.producte">
+        <MappingFragment StoreEntitySet="producte">
+          <ScalarProperty Name="EAN13" ColumnName="EAN13" />
+          <ScalarProperty Name="unitatCaixa" ColumnName="unitatCaixa" />
+          <ScalarProperty Name="preuKg" ColumnName="preuKg" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

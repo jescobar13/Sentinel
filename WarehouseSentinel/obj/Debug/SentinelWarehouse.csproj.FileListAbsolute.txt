@@ -1,0 +1,56 @@
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\bin\Debug\WarehouseSentinel.exe.config
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\bin\Debug\WarehouseSentinel.exe
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\bin\Debug\WarehouseSentinel.pdb
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\bin\Debug\EntityFramework.dll
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\bin\Debug\EntityFramework.xml
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\MainWindow.g.cs
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\Viwers\Clients\AfegirClientWindow.g.cs
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\Viwers\Clients\ClientsWindow.g.cs
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\Viwers\Clients\ContacteWindow.g.cs
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\App.g.cs
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\WarehouseSentinel_Content.g.cs
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\WarehouseSentinel_MarkupCompile.cache
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\WarehouseSentinel_MarkupCompile.lref
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\MainWindow.baml
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\Viwers\Clients\AfegirClientWindow.baml
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\Viwers\Clients\ClientsWindow.baml
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\Viwers\Clients\ContacteWindow.baml
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\WarehouseSentinel.g.resources
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\WarehouseSentinel.Properties.Resources.resources
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\SentinelWarehouse.csproj.GenerateResource.Cache
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\WarehouseSentinel.exe
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\WarehouseSentinel.pdb
+C:\Users\Pekee\Documents\Visual Studio 2015\Projects\WarehouseSentinel\WarehouseSentinel\obj\Debug\SentinelWarehouse.csprojResolveAssemblyReference.cache
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\bin\Debug\WarehouseSentinel.exe.config
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\bin\Debug\WarehouseSentinel.exe
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\bin\Debug\WarehouseSentinel.pdb
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\bin\Debug\EntityFramework.dll
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\bin\Debug\EntityFramework.xml
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\MainWindow.g.cs
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\Viwers\Clients\AfegirClientWindow.g.cs
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\Viwers\Clients\ClientsWindow.g.cs
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\Viwers\Clients\ContacteWindow.g.cs
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\Viwers\Comanda\ComandaWindow.g.cs
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\Viwers\Comanda\SelecClientWindow.g.cs
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\Viwers\Producte\AfegirProducteWindow.g.cs
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\Viwers\Producte\ProducteWindow.g.cs
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\App.g.cs
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\WarehouseSentinel_Content.g.cs
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\WarehouseSentinel_MarkupCompile.cache
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\WarehouseSentinel_MarkupCompile.lref
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\MainWindow.baml
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\Viwers\Clients\AfegirClientWindow.baml
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\Viwers\Clients\ClientsWindow.baml
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\Viwers\Clients\ContacteWindow.baml
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\Viwers\Comanda\ComandaWindow.baml
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\Viwers\Comanda\SelecClientWindow.baml
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\Viwers\Producte\AfegirProducteWindow.baml
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\Viwers\Producte\ProducteWindow.baml
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\WarehouseSentinel.g.resources
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\WarehouseSentinel.Properties.Resources.resources
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\SentinelWarehouse.csproj.GenerateResource.Cache
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\WarehouseSentinel.exe
+C:\Users\Pekee\Documents\GitHub\SentinelWarehouse\WarehouseSentinel\obj\Debug\WarehouseSentinel.pdb
+C:\Users\Pekee\Documents\2DAM\Project\SentinelWarehouse\WarehouseSentinel\bin\Debug\WarehouseSentinel.exe.config
+C:\Users\Pekee\Documents\2DAM\Project\SentinelWarehouse\WarehouseSentinel\obj\Debug\WarehouseSentinel.exe
+C:\Users\Pekee\Documents\2DAM\Project\SentinelWarehouse\WarehouseSentinel\obj\Debug\WarehouseSentinel.pdb

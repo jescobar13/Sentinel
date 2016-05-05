@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{90949D29-57EF-408E-AE0E-965F99E4FE0A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WarehouseSentinel</RootNamespace>
+    <AssemblyName>WarehouseSentinel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controllers\Client-Contacte\AfegirClientWindowController.cs" />
+    <Compile Include="Controllers\Client-Contacte\ClientsWindowController.cs" />
+    <Compile Include="Controllers\Comanda\ComandesWindowController.cs" />
+    <Compile Include="Controllers\Client-Contacte\ContacteWindowController.cs" />
+    <Compile Include="Controllers\MainWindowController.cs" />
+    <Compile Include="Controllers\Producte\AfegirProducteWindowController.cs" />
+    <Compile Include="Controllers\Producte\ProducteWindowController.cs" />
+    <Compile Include="Models\albara.cs">
+      <DependentUpon>SentinelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\client.cs">
+      <DependentUpon>SentinelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\comanda.cs">
+      <DependentUpon>SentinelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\contacte.cs">
+      <DependentUpon>SentinelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\liniaalbara.cs">
+      <DependentUpon>SentinelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\liniacomanda.cs">
+      <DependentUpon>SentinelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\producte.cs">
+      <DependentUpon>SentinelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SentinelDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SentinelDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SentinelDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SentinelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SentinelDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SentinelDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TClient.cs" />
+    <Compile Include="Models\TComanda.cs" />
+    <Compile Include="Models\TContacte.cs" />
+    <Compile Include="Models\TLiniaComanda.cs" />
+    <Compile Include="Models\TProducte.cs" />
+    <Compile Include="Viwers\Clients\AfegirClientWindow.xaml.cs">
+      <DependentUpon>AfegirClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Viwers\Clients\ClientsWindow.xaml.cs">
+      <DependentUpon>ClientsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Viwers\Clients\ContacteWindow.xaml.cs">
+      <DependentUpon>ContacteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Viwers\Comanda\ComandaWindow.xaml.cs">
+      <DependentUpon>ComandaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Viwers\Comanda\SelecClientWindow.xaml.cs">
+      <DependentUpon>SelecClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Viwers\Producte\AfegirProducteWindow.xaml.cs">
+      <DependentUpon>AfegirProducteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Viwers\Producte\ProducteWindow.xaml.cs">
+      <DependentUpon>ProducteWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Viwers\Clients\AfegirClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Viwers\Clients\ClientsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Viwers\Clients\ContacteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Viwers\Comanda\ComandaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Viwers\Comanda\SelecClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Viwers\Producte\AfegirProducteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Viwers\Producte\ProducteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Models\SentinelDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SentinelDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\SentinelDB.edmx.diagram">
+      <DependentUpon>SentinelDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddContact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DelContact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ModContact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\SentinelDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SentinelDB.edmx</DependentUpon>
+      <LastGenOutput>SentinelDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SentinelDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SentinelDB.edmx</DependentUpon>
+      <LastGenOutput>SentinelDB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
