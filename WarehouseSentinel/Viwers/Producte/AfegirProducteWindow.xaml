@@ -11,14 +11,14 @@
 
             <Border BorderBrush="Silver" BorderThickness="1"/>
 
-            <Label x:Name="label" Content="Producte:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="95"/>
+            <Label x:Name="label" Content="Product:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="95"/>
             <TextBox x:Name="textBox_nomProducte" HorizontalAlignment="Left" Height="23" Margin="110,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
-            <Label x:Name="label_Copy" Content="Preu per Kg:" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" Width="95"/>
+            <Label x:Name="label_Copy" Content="Price per Kg:" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" Width="95"/>
             <TextBox x:Name="textBox_preuKg" HorizontalAlignment="Left" Height="23" Margin="110,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <Label x:Name="label_Copy1" Content=".€" HorizontalAlignment="Left" Margin="230,54,0,0" VerticalAlignment="Top" Width="25"/>
 
-            <Label x:Name="label_Copy2" Content="Unitats per Caixa:" HorizontalAlignment="Left" Margin="260,54,0,0" VerticalAlignment="Top" Width="102"/>
+            <Label x:Name="label_Copy2" Content="Units per Box:" HorizontalAlignment="Left" Margin="260,54,0,0" VerticalAlignment="Top" Width="102"/>
             <TextBox x:Name="textBox_unitatsCaixa" HorizontalAlignment="Left" Height="23" Margin="367,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53"/>
             <Label x:Name="label_Copy3" Content="u." HorizontalAlignment="Left" Margin="420,57,0,0" VerticalAlignment="Top" Width="25"/>
 
@@ -27,7 +27,7 @@
 
 
         </Grid>
-        <Button x:Name="btn_afegirProducte" Content="Afegir Producte" Margin="0,0,10,10" Click="btn_afegirProducte_Click" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="116" d:IsHidden="True"/>
-        <Button x:Name="btn_modificarProducte" Content="Aplicar canvis al Producte" Margin="0,0,10,10" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="148" Click="btn_modificarProducte_Click"/>
+        <Button x:Name="btn_afegirProducte" Content="Add Product" Margin="0,0,10,10" Click="btn_afegirProducte_Click" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="116" d:IsHidden="True"/>
+        <Button x:Name="btn_modificarProducte" Content="Apply Changes" Margin="0,0,10,10" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="148" Click="btn_modificarProducte_Click"/>
     </Grid>
 </Window>

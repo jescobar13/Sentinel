@@ -53,16 +53,39 @@ namespace WarehouseSentinel.Viwers.Comanda
             label_pais.Content = client.pais;
         }
 
-        private void btn_acceptarComanda_Click(object sender, RoutedEventArgs e)
+        private void btn_acceptarCapcaleraComanda_Click(object sender, RoutedEventArgs e)
         {
             comanda.dataComanda = Convert.ToDateTime(string.Format("{0:MM/dd/yyyy}", datePicker_dataComanda));
             comanda.dataEntrega = Convert.ToDateTime(string.Format("{0:MM/dd/yyyy}", datePicker_dataEntrega));
             comanda.Client_CIF = client.CIF;
 
             string retorna = controller.guardaComanda(comanda);
-            Close();
+
+            listView_liniesComanda.IsEnabled = true;
+            btn_novaLiniaComanda.IsEnabled = true;
+            btn_eliminarLiniaComanda.IsEnabled = true;
+            btn_acceptarComanda.IsEnabled = true;
+
             MessageBox.Show(retorna, "Informació", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void btn_novaLiniaComanda_Click(object sender, RoutedEventArgs e)
+        {
+            NovaLiniaComandaWindow novaLinia = new NovaLiniaComandaWindow(controller, comanda);
+            novaLinia.ShowDialog();
+        }
+
+        private void btn_eliminarLiniaComanda_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_acceptarComanda_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+
     }
 }
 

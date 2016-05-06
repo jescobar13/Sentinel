@@ -12,7 +12,7 @@
             <Border DockPanel.Dock="Top" Margin="0,0,0,5"
                     BorderBrush="Silver" BorderThickness="1">
                 <Menu x:Name="menu" Margin="0,0,0,0" Padding="4">
-                    <MenuItem x:Name="menuItem_tencarProductes" Header="Tencar Productes" Click="menuItem_tencarProductes_Click"/>
+                    <MenuItem x:Name="menuItem_tencarProductes" Header="Close Products" Click="menuItem_tencarProductes_Click"/>
                 </Menu>
             </Border>
 
@@ -21,20 +21,20 @@
 
                 <ToolBar Name="barradHeines" >
 
-                    <Button Name="btn_AfegirProducte" Content="Afegir Producte" Click="btn_AfegirProducte_Click">
+                    <Button Name="btn_AfegirProducte" Content="Add Product" Click="btn_AfegirProducte_Click">
 
                     </Button>
 
                     <Separator/>
 
-                    <Button Name="btn_DeshabilitarProducte" Content="Deshabilitar Producte">
+                    <Button Name="btn_DeshabilitarProducte" Content="Disable Product">
 
                     </Button>
 
                     <Separator/>
                     <Separator/>
 
-                    <Button Name="btn_NetejaFiltres" Content="Netejar Filtres">
+                    <Button Name="btn_NetejaFiltres" Content="Clean Filters">
 
                     </Button>
 
@@ -43,15 +43,15 @@
             </Border>
             <Grid DockPanel.Dock="Top" Height="71" Margin="5,5,5,5">
 
-                <Grid Margin="0,10,10,10" HorizontalAlignment="Right" Width="481">
+                <Grid Margin="0,10,10,10" HorizontalAlignment="Right" Width="520">
                     <Border BorderBrush="Silver" BorderThickness="1" />
 
                     <TextBox x:Name="textBox_filtre" Height="30" Margin="0,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="textBox_filtre_TextChanged" HorizontalAlignment="Right" Width="197"/>
-                    <Label x:Name="label" Content="Filtra per:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="68" FontStyle="Italic"/>
+                    <Label x:Name="label" Content="Filter by:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="68" FontStyle="Italic"/>
 
-                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtreNom" Content="Nom" Margin="83,16,0,12" HorizontalAlignment="Left" Width="51"/>
-                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtrePreuKg" Content="Preu kg." Margin="139,16,0,12" HorizontalAlignment="Left" Width="68"/>
-                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtreUnitatCaixa" Content="Unitat per Caixa" Margin="212,16,0,12" HorizontalAlignment="Left" Width="53"/>
+                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtreNom" Content="Name" Margin="83,16,0,12" HorizontalAlignment="Left" Width="51"/>
+                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtrePreuKg" Content="Price kg." Margin="139,16,0,12" HorizontalAlignment="Left" Width="68"/>
+                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtreUnitatCaixa" Content="Unit per box" Margin="212,16,0,12" HorizontalAlignment="Left" Width="96"/>
                 </Grid>
 
                 <!--<Grid HorizontalAlignment="Left" Margin="10,10,0,10" Width="301">
@@ -76,9 +76,9 @@
 
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="NOM" Binding="{Binding nom}"/>
-                    <DataGridTextColumn Header="Preu (Kg.)" Binding="{Binding preuKg}"/>
-                    <DataGridTextColumn Header="Unitats (per Caixa)" Binding="{Binding unitatCaixa}"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding nom}"/>
+                    <DataGridTextColumn Header="Price (Kg.)" Binding="{Binding preuKg}"/>
+                    <DataGridTextColumn Header="Units (per Box)" Binding="{Binding unitatCaixa}"/>
                     <DataGridTextColumn Header="EAN13" Binding="{Binding EAN13}"/>
 
                 </DataGrid.Columns>
@@ -95,7 +95,7 @@
                                     <ColumnDefinition Width="771*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Button x:Name="btn_ModificarProducte" Grid.Column="0" Margin="5,10,5,5" VerticalAlignment="Top" Content="Modificar" Height="30" Click="btn_ModificarProducte_Click"/>
+                                <Button x:Name="btn_ModificarProducte" Grid.Column="0" Margin="5,10,5,5" VerticalAlignment="Top" Content="Modify" Height="30" Click="btn_ModificarProducte_Click"/>
                                 
                             </Grid>
                         </Border>

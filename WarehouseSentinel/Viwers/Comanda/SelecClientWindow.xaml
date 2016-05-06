@@ -14,17 +14,17 @@
 
             <DataGrid.Columns>
 
-                <DataGridTextColumn Header="CIF" Binding="{Binding CIF}"/>
-                <DataGridTextColumn Header="NOM" Binding="{Binding nom}"/>
-                <DataGridTextColumn Header="COGNOM" Binding="{Binding cognom}"/>
-                <DataGridTextColumn Header="ADREÇA" Binding="{Binding adreça}"/>
-                <DataGridTextColumn Header="CODI POSTAL" Binding="{Binding codiPostal}"/>
-                <DataGridTextColumn Header="PAÍS" Binding="{Binding pais}"/>
+                <DataGridTextColumn Header="VAT" Binding="{Binding CIF}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding nom}"/>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding cognom}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding adreça}"/>
+                <DataGridTextColumn Header="ZIP" Binding="{Binding codiPostal}"/>
+                <DataGridTextColumn Header="Country" Binding="{Binding pais}"/>
 
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="btn_seleccionaClient" Height="25" Content="Seleccionar" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="114" Click="btn_seleccionaClient_Click"/>
+        <Button x:Name="btn_seleccionaClient" Height="25" Content="Select" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="114" Click="btn_seleccionaClient_Click"/>
 
     </Grid>
 

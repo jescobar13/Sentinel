@@ -1,0 +1,32 @@
+﻿<Window x:Class="WarehouseSentinel.Viwers.Comanda.NovaLiniaComandaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WarehouseSentinel.Viwers.Comanda"
+        mc:Ignorable="d"
+        Title="NovaLiniaComandaWindow" Height="318.206" Width="588.127" Loaded="Window_Loaded">
+    <Grid>
+        <Grid Margin="10,10,10,40">
+            <Border BorderBrush="Silver" BorderThickness="1" />
+
+            <TextBox x:Name="textBox_filtreNom" HorizontalAlignment="Left" Height="23" Margin="103,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged"/>
+            <Label x:Name="label" Content="Search (name):" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+
+            <Label x:Name="label_Copy" Content="Selected Product: " HorizontalAlignment="Right" Margin="0,10,211,0" VerticalAlignment="Top"/>
+            <Label x:Name="label_producteSeleccionat" Content="" Margin="0,10,10,0" FontWeight="Bold" HorizontalAlignment="Right" Width="201" Height="26" VerticalAlignment="Top"/>
+
+            <DataGrid x:Name="dataGrid_productes" Margin="10,41,10,45" SelectionChanged="dataGrid_productes_SelectionChanged" Loaded="dataGrid_productes_Loaded"/>
+
+            <Label x:Name="label1" Content="Price kg.: " HorizontalAlignment="Left" Margin="10,0,0,14" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="txtbox_preuKg" HorizontalAlignment="Left" Height="23" Margin="75,0,0,13" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="57"/>
+            <Label x:Name="label3" Content=".€" HorizontalAlignment="Left" Margin="137,0,0,14" VerticalAlignment="Bottom"/>
+
+            <Label x:Name="label2" Content="Amount:" HorizontalAlignment="Left" Margin="176,0,0,14" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="textBox_quantitat" HorizontalAlignment="Left" Height="23" Margin="236,0,0,13" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="57"/>
+
+        </Grid>
+
+        <Button x:Name="btn_add" Content="Add" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Height="25" Click="btn_add_Click"/>
+    </Grid>
+</Window>

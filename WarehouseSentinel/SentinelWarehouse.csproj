@@ -123,6 +123,9 @@
     <Compile Include="Viwers\Comanda\ComandaWindow.xaml.cs">
       <DependentUpon>ComandaWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Viwers\Comanda\NovaLiniaComandaWindow.xaml.cs">
+      <DependentUpon>NovaLiniaComandaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Viwers\Comanda\SelecClientWindow.xaml.cs">
       <DependentUpon>SelecClientWindow.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Viwers\Comanda\ComandaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Viwers\Comanda\NovaLiniaComandaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

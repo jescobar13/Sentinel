@@ -10,30 +10,30 @@
         <Grid Height="184" Margin="10,10,10,0" VerticalAlignment="Top">
             <Border BorderBrush="Silver" BorderThickness="1" Margin="0,41,0,5"/>
 
-            <Label x:Name="label" Content="Contacte de:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" Height="31"/>
+            <Label x:Name="label" Content="Contact of:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" Height="31"/>
             <Label x:Name="label_nomEmpresa" Content="" HorizontalAlignment="Left" Margin="94,10,0,0" VerticalAlignment="Top" Width="240" Height="31" HorizontalContentAlignment="Center" FontSize="14.667" FontWeight="Bold"/>
 
-            <Label x:Name="label1" Content="Telefon Fix 1:" HorizontalAlignment="Left" Margin="19,111,0,0" VerticalAlignment="Top" Width="112"/>
+            <Label x:Name="label1" Content="Landline 1:" HorizontalAlignment="Left" Margin="19,111,0,0" VerticalAlignment="Top" Width="112"/>
             <TextBox x:Name="textBox_telef1" HorizontalAlignment="Left" Height="23" Margin="136,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" HorizontalContentAlignment="Right"/>
 
-            <Label x:Name="label1_Copy" Content="Telefon Fix 2:" HorizontalAlignment="Left" Margin="19,142,0,0" VerticalAlignment="Top" Width="112"/>
+            <Label x:Name="label1_Copy" Content="Landline 2:" HorizontalAlignment="Left" Margin="19,142,0,0" VerticalAlignment="Top" Width="112"/>
             <TextBox x:Name="textBox_telef2" HorizontalAlignment="Left" Height="23" Margin="136,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" HorizontalContentAlignment="Right"/>
 
-            <Label x:Name="label1_Copy1" Content="Telefon Mobil 1:" HorizontalAlignment="Left" Margin="326,111,0,0" VerticalAlignment="Top" Width="112"/>
+            <Label x:Name="label1_Copy1" Content="Mobil 1:" HorizontalAlignment="Left" Margin="326,111,0,0" VerticalAlignment="Top" Width="112"/>
             <TextBox x:Name="textBox_mobil1" HorizontalAlignment="Left" Height="23" Margin="443,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" HorizontalContentAlignment="Right"/>
 
-            <Label x:Name="label1_Copy2" Content="Telefon Mobil 2:" HorizontalAlignment="Left" Margin="326,142,0,0" VerticalAlignment="Top" Width="112"/>
+            <Label x:Name="label1_Copy2" Content="Mobil 2:" HorizontalAlignment="Left" Margin="326,142,0,0" VerticalAlignment="Top" Width="112"/>
             <TextBox x:Name="textBox_mobil2" HorizontalAlignment="Left" Height="23" Margin="443,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" HorizontalContentAlignment="Right"/>
 
-            <Label x:Name="label2" Content="Correu Electrònic:" HorizontalAlignment="Left" Margin="19,81,0,0" VerticalAlignment="Top" Width="112"/>
+            <Label x:Name="label2" Content="E-Mail:" HorizontalAlignment="Left" Margin="19,81,0,0" VerticalAlignment="Top" Width="112"/>
             <TextBox x:Name="textBox_correuElectronic" HorizontalAlignment="Left" Height="23" Margin="136,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="444" HorizontalContentAlignment="Left"/>
             
-            <Label x:Name="label1_Copy3" Content="Nom del Contacte:" HorizontalAlignment="Left" Margin="19,50,0,0" VerticalAlignment="Top" Width="112"/>
+            <Label x:Name="label1_Copy3" Content="Contact Name:" HorizontalAlignment="Left" Margin="19,50,0,0" VerticalAlignment="Top" Width="112"/>
             <TextBox x:Name="textBox_nomContacte" HorizontalAlignment="Left" Height="23" Margin="136,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" HorizontalContentAlignment="Right"/>
 
         </Grid>
 
-        <Button x:Name="btn_AfegirContacte" Content="Afegir Contacte" Margin="0,0,10,10" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="150" Click="btn_AfegirClient_Click"/>
-        <Button x:Name="btn_AplicarCanvisContacte" Content="Aplicar Canvis al Contacte" Margin="0,0,10,10" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="150" Click="btn_AplicarCanvisClient_Click"/>
+        <Button x:Name="btn_AfegirContacte" Content="Add Contact" Margin="0,0,10,10" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="150" Click="btn_AfegirClient_Click"/>
+        <Button x:Name="btn_AplicarCanvisContacte" Content="Apply Changes" Margin="0,0,10,10" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="150" Click="btn_AplicarCanvisClient_Click"/>
     </Grid>
 </Window>

@@ -13,7 +13,7 @@
             <Border DockPanel.Dock="Top" Margin="0,0,0,5"
                     BorderBrush="Silver" BorderThickness="1">
                 <Menu x:Name="menu" Margin="0,0,0,0" Padding="4">
-                    <MenuItem x:Name="menuItem_tencarClients" Header="Tencar Clients" Click="menuItem_tencarClients_Click"/>
+                    <MenuItem x:Name="menuItem_tencarClients" Header="Close Clients" Click="menuItem_tencarClients_Click"/>
                 </Menu>
             </Border>
 
@@ -22,27 +22,27 @@
 
                 <ToolBar Name="barradHeines" >
 
-                    <Button Name="btn_AfegirClient" Content="Afegir Client" Click="btn_AfegirClient_Click">
+                    <Button Name="btn_AfegirClient" Content="Add Customer" Click="btn_AfegirClient_Click">
 
                     </Button>
 
                     <Separator/>
 
-                    <Button Name="btn_DeshabilitarClient" Content="Deshabilitar Client" Click="btn_DeshabilitarClient_Click">
-
-                    </Button>
-
-                    <Separator/>
-                    <Separator/>
-
-                    <Button Name="btn_AfegirContacte" Content="Afegir Contacte">
+                    <Button Name="btn_DeshabilitarClient" Content="Disable Customer" Click="btn_DeshabilitarClient_Click">
 
                     </Button>
 
                     <Separator/>
                     <Separator/>
 
-                    <Button Name="btn_NetejaFiltres" Content="Netejar Filtres" Click="btn_NetejaFiltres_Click">
+                    <Button Name="btn_AfegirContacte" Content="Add Contact">
+
+                    </Button>
+
+                    <Separator/>
+                    <Separator/>
+
+                    <Button Name="btn_NetejaFiltres" Content="Clean Filters" Click="btn_NetejaFiltres_Click">
 
                     </Button>
 
@@ -55,22 +55,22 @@
                     <Border BorderBrush="Silver" BorderThickness="1" />
 
                     <TextBox x:Name="textBox_filtre" Height="30" Margin="0,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="textBox_filtre_TextChanged" HorizontalAlignment="Right" Width="197"/>
-                    <Label x:Name="label" Content="Filtra per:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="68" FontStyle="Italic"/>
+                    <Label x:Name="label" Content="Filter by:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="68" FontStyle="Italic"/>
 
-                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtreNom" Content="Nom" Margin="83,16,0,12" HorizontalAlignment="Left" Width="51"/>
-                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtreCognom" Content="Cognom" Margin="139,16,0,12" HorizontalAlignment="Left" Width="72"/>
-                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtreCIF" Content="CIF" Margin="216,16,0,12" HorizontalAlignment="Left" Width="46" IsChecked="True"/>
-                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtreCodiPostal" Content="Codi Postal" Margin="267,16,0,12" HorizontalAlignment="Left" Width="91"/>
-                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtrePais" Content="País" Margin="363,16,0,12" HorizontalAlignment="Left" Width="53"/>
+                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtreNom" Content="Name" Margin="83,16,0,12" HorizontalAlignment="Left" Width="51"/>
+                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtreCognom" Content="Last Name" Margin="139,16,0,12" HorizontalAlignment="Left" Width="72"/>
+                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtreCIF" Content="VAT" Margin="216,16,0,12" HorizontalAlignment="Left" Width="46" IsChecked="True"/>
+                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtreCodiPostal" Content="ZIP" Margin="267,16,0,12" HorizontalAlignment="Left" Width="62"/>
+                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtrePais" Content="Country" Margin="334,16,0,12" HorizontalAlignment="Left" Width="82"/>
                 </Grid>
 
                 <Grid HorizontalAlignment="Left" Margin="10,10,0,10" Width="301">
                     <Border BorderBrush="Silver" BorderThickness="1"/>
 
-                    <Label x:Name="label_Copy" Content="Visualitza:" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="68" FontStyle="Italic" Margin="10,11,0,0"/>
-                    <RadioButton GroupName="Visualitza" x:Name="radioButton_visualitzaActius" Content="Actiu" Margin="88,17,0,11" HorizontalAlignment="Left" Width="52" Checked="radioButton_visualitzaActius_Checked"/>
-                    <RadioButton GroupName="Visualitza" x:Name="radioButton_visualitzaDeshabilitats" Content="Deshabilitats" Margin="145,17,0,11" HorizontalAlignment="Left" Width="89" Checked="radioButton_visualitzaDeshabilitats_Checked"/>
-                    <RadioButton GroupName="Visualitza" x:Name="radioButton_visualitzaTots" Content="Tots" Margin="239,17,0,11" HorizontalAlignment="Left" Width="52" Checked="radioButton_visualitzaTots_Checked"/>
+                    <Label x:Name="label_Copy" Content="View:" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="68" FontStyle="Italic" Margin="10,11,0,0"/>
+                    <RadioButton GroupName="Visualitza" x:Name="radioButton_visualitzaActius" Content="Active" Margin="88,17,0,11" HorizontalAlignment="Left" Width="52" Checked="radioButton_visualitzaActius_Checked"/>
+                    <RadioButton GroupName="Visualitza" x:Name="radioButton_visualitzaDeshabilitats" Content="Disabled" Margin="145,17,0,11" HorizontalAlignment="Left" Width="89" Checked="radioButton_visualitzaDeshabilitats_Checked"/>
+                    <RadioButton GroupName="Visualitza" x:Name="radioButton_visualitzaTots" Content="All" Margin="239,17,0,11" HorizontalAlignment="Left" Width="52" Checked="radioButton_visualitzaTots_Checked"/>
 
                 </Grid>
             </Grid>
@@ -86,12 +86,12 @@
 
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="CIF" Binding="{Binding CIF}"/>
-                    <DataGridTextColumn Header="NOM" Binding="{Binding nom}"/>
-                    <DataGridTextColumn Header="COGNOM" Binding="{Binding cognom}"/>
-                    <DataGridTextColumn Header="ADREÇA" Binding="{Binding adreça}"/>
-                    <DataGridTextColumn Header="CODI POSTAL" Binding="{Binding codiPostal}"/>
-                    <DataGridTextColumn Header="PAÍS" Binding="{Binding pais}"/>
+                    <DataGridTextColumn Header="VAT" Binding="{Binding CIF}"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding nom}"/>
+                    <DataGridTextColumn Header="Last Name" Binding="{Binding cognom}"/>
+                    <DataGridTextColumn Header="Address" Binding="{Binding adreça}"/>
+                    <DataGridTextColumn Header="ZIP" Binding="{Binding codiPostal}"/>
+                    <DataGridTextColumn Header="Country" Binding="{Binding pais}"/>
 
                 </DataGrid.Columns>
 
@@ -110,19 +110,19 @@
 
                                     <ListView.View>
                                         <GridView>
-                                            <GridViewColumn x:Name="Columna_Persona" Header="Persona" Width="120" DisplayMemberBinding="{Binding personaNom}"/>
-                                            <GridViewColumn x:Name="Columna_Telf1" Header="Telf 1" Width="100" DisplayMemberBinding="{Binding telef}"/>
-                                            <GridViewColumn x:Name="Columna_Telf2" Header="Telf 2" Width="100" DisplayMemberBinding="{Binding telef2}"/>
+                                            <GridViewColumn x:Name="Columna_Persona" Header="Person" Width="120" DisplayMemberBinding="{Binding personaNom}"/>
+                                            <GridViewColumn x:Name="Columna_Telf1" Header="Landline 1" Width="100" DisplayMemberBinding="{Binding telef}"/>
+                                            <GridViewColumn x:Name="Columna_Telf2" Header="Landline 2" Width="100" DisplayMemberBinding="{Binding telef2}"/>
                                             <GridViewColumn x:Name="Columna_Mob1" Header="Mob 1" Width="100" DisplayMemberBinding="{Binding mob}"/>
-                                            <GridViewColumn x:Name="Columna_Mob2" Header="Telf 1" Width="100" DisplayMemberBinding="{Binding mob2}"/>
-                                            <GridViewColumn x:Name="Columna_correu" Header="Correu Electronic" Width="100" DisplayMemberBinding="{Binding correuElectronic}"/>
+                                            <GridViewColumn x:Name="Columna_Mob2" Header="Mob 2" Width="100" DisplayMemberBinding="{Binding mob2}"/>
+                                            <GridViewColumn x:Name="Columna_correu" Header="e-mail" Width="100" DisplayMemberBinding="{Binding correuElectronic}"/>
                                         </GridView>
                                     </ListView.View>
 
                                 </ListView>
 
                                 <Button x:Name="btn_ModificarClient" Grid.Column="1" Margin="5,0,5,5" VerticalAlignment="Top" Content="Modificar" Height="30" Click="btn_ModificarClient_Click"/>
-                                
+
                             </Grid>
                         </Border>
                     </DataTemplate>
