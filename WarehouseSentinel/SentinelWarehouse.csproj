@@ -202,6 +202,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SentinelDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="DOCS BD\esquema.mwb" />
+    <None Include="DOCS BD\esquema.mwb.bak" />
     <None Include="Models\SentinelDB.edmx.diagram">
       <DependentUpon>SentinelDB.edmx</DependentUpon>
     </None>
@@ -216,7 +218,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DOC\" />
     <Folder Include="Models\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +230,7 @@
     <None Include="Resources\ModContact.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DOCS BD\scriptSentinelWarehouseDB.sql" />
     <Content Include="Models\SentinelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SentinelDB.edmx</DependentUpon>
