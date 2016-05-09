@@ -19,7 +19,7 @@
             <DataGrid x:Name="dataGrid_productes" Margin="10,41,10,45" SelectionChanged="dataGrid_productes_SelectionChanged" Loaded="dataGrid_productes_Loaded"/>
 
             <Label x:Name="label1" Content="Price kg.: " HorizontalAlignment="Left" Margin="10,0,0,14" VerticalAlignment="Bottom"/>
-            <TextBox x:Name="txtbox_preuKg" HorizontalAlignment="Left" Height="23" Margin="75,0,0,13" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="57"/>
+            <TextBox x:Name="textbox_preuKg" HorizontalAlignment="Left" Height="23" Margin="75,0,0,13" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="57"/>
             <Label x:Name="label3" Content=".€" HorizontalAlignment="Left" Margin="137,0,0,14" VerticalAlignment="Bottom"/>
 
             <Label x:Name="label2" Content="Amount:" HorizontalAlignment="Left" Margin="176,0,0,14" VerticalAlignment="Bottom"/>

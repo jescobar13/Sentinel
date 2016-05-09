@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,14 @@ namespace WarehouseSentinel.Models
         {
             context.liniacomanda.Remove(lc);
             context.SaveChanges();
+        }
+
+        internal IEnumerable getAll(int comandaID)
+        {
+            return (from tLiniacomanda in context.liniacomanda
+                    where tLiniacomanda.Comanda_codi == comandaID
+                    select tLiniacomanda)
+                    .ToList();
         }
     }
 }

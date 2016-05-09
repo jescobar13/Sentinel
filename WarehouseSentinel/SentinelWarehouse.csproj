@@ -216,6 +216,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DOC\" />
     <Folder Include="Models\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>

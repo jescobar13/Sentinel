@@ -23,6 +23,7 @@ namespace WarehouseSentinel.Viwers.Comanda
     {
         private comanda comanda;
         private ComandesWindowController controller;
+        private producte producteSelected;
 
         public NovaLiniaComandaWindow(ComandesWindowController controller, comanda comanda)
         {
@@ -49,12 +50,28 @@ namespace WarehouseSentinel.Viwers.Comanda
 
         private void dataGrid_productes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (dataGrid_productes.SelectedItems.Count != 1) return;
 
+            producteSelected = null;
+            producteSelected = dataGrid_productes.SelectedItem as producte;
+
+            textbox_preuKg.Text = producteSelected.preuKg.ToString();
         }
 
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
+            liniacomanda novaLinia = new liniacomanda();
+            novaLinia.preuKg = Convert.ToDouble(textbox_preuKg.Text);
+            novaLinia.quantitat = Convert.ToInt32(textBox_quantitat.Text);
+            novaLinia.Comanda_codi = comanda.codi;
+            novaLinia.Comanda_Client_CIF = comanda.Client_CIF;
+            novaLinia.Comanda_Client_Contacte_id = comanda.Client_Contacte_id;
+            novaLinia.Producte_id = producteSelected.id;
 
+            string retorna = controller.guardaLiniaComanda(novaLinia);
+
+            MessageBox.Show(retorna, "Informació", MessageBoxButton.OK, MessageBoxImage.Information);
+            Close();
         }
     }
 }

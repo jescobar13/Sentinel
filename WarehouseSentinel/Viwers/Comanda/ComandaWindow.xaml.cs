@@ -41,6 +41,12 @@ namespace WarehouseSentinel.Viwers.Comanda
 
         }
 
+        private void actualitzaLiniesComanda(comanda c)
+        {
+            listView_liniesComanda.ItemsSource = null;
+            listView_liniesComanda.ItemsSource = controller.donemLiniesComanda(c.codi);
+        }
+
         private void btn_selecClient_Click(object sender, RoutedEventArgs e)
         {
             SelecClientWindow selecClientWindow = new SelecClientWindow(controller, this);
@@ -55,6 +61,13 @@ namespace WarehouseSentinel.Viwers.Comanda
 
         private void btn_acceptarCapcaleraComanda_Click(object sender, RoutedEventArgs e)
         {
+            if (datePicker_dataComanda.Text.Equals("") || datePicker_dataEntrega.Text.Equals(""))
+            {
+                MessageBox.Show("Selecciona les dates corresponents.", "Informacio",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
             comanda.dataComanda = Convert.ToDateTime(string.Format("{0:MM/dd/yyyy}", datePicker_dataComanda));
             comanda.dataEntrega = Convert.ToDateTime(string.Format("{0:MM/dd/yyyy}", datePicker_dataEntrega));
             comanda.Client_CIF = client.CIF;
@@ -66,6 +79,8 @@ namespace WarehouseSentinel.Viwers.Comanda
             btn_eliminarLiniaComanda.IsEnabled = true;
             btn_acceptarComanda.IsEnabled = true;
 
+            actualitzaLiniesComanda(comanda);
+
             MessageBox.Show(retorna, "Informació", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -73,6 +88,7 @@ namespace WarehouseSentinel.Viwers.Comanda
         {
             NovaLiniaComandaWindow novaLinia = new NovaLiniaComandaWindow(controller, comanda);
             novaLinia.ShowDialog();
+            actualitzaLiniesComanda(comanda);
         }
 
         private void btn_eliminarLiniaComanda_Click(object sender, RoutedEventArgs e)
@@ -82,7 +98,7 @@ namespace WarehouseSentinel.Viwers.Comanda
 
         private void btn_acceptarComanda_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
 

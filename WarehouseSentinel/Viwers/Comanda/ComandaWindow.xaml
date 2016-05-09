@@ -49,7 +49,9 @@
                           ItemsSource="{Binding Source=list}" IsEnabled="False">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn x:Name="Columna_Persona" Header="Person" Width="120" DisplayMemberBinding="{Binding personaNom}"/>
+                            <GridViewColumn x:Name="Columna_Persona" Header="Product" Width="120" DisplayMemberBinding="{Binding producte.nom}"/>
+                            <GridViewColumn x:Name="Columna_Quantitat" Header="Quantity Demand" Width="120" DisplayMemberBinding="{Binding quantitat}"/>
+                            <GridViewColumn Header="Price" Width="120" DisplayMemberBinding="{Binding preuKg}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

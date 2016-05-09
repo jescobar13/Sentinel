@@ -14,12 +14,14 @@ namespace WarehouseSentinel.Controllers
         private SentinelDBEntities context;
 
         private TComanda tComanda;
+        private TLiniaComanda tLiniaComanda;
         private List<producte> memoriaProducte;
 
         public ComandesWindowController(SentinelDBEntities context)
         {
             this.context = context;
             tComanda = new TComanda(context);
+            tLiniaComanda = new TLiniaComanda(context);
         }
 
         internal IEnumerable donemClients()
@@ -39,6 +41,24 @@ namespace WarehouseSentinel.Controllers
             {
                 return "La comanda del client " + comanda.client.nom + "no s'ha pogut guardar.";
             }
+        }
+
+        internal string guardaLiniaComanda(liniacomanda liniaComanda)
+        {
+            try
+            {
+                tLiniaComanda.add(liniaComanda);
+                return "It has been added correctly.";
+            }
+            catch (Exception ex)
+            {
+                return "It has not been able to add.";
+            }
+        }
+
+        internal IEnumerable donemLiniesComanda(int comandaID)
+        {
+            return tLiniaComanda.getAll(comandaID);
         }
 
         internal IEnumerable donemProductes()
