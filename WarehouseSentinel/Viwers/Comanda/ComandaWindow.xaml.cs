@@ -89,6 +89,7 @@ namespace WarehouseSentinel.Viwers.Comanda
             NovaLiniaComandaWindow novaLinia = new NovaLiniaComandaWindow(controller, comanda);
             novaLinia.ShowDialog();
             actualitzaLiniesComanda(comanda);
+            //hola
         }
 
         private void btn_eliminarLiniaComanda_Click(object sender, RoutedEventArgs e)
