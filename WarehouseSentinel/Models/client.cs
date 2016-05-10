@@ -23,7 +23,7 @@ namespace WarehouseSentinel.Models
         public string CIF { get; set; }
         public string nom { get; set; }
         public string cognom { get; set; }
-        public string adreça { get; set; }
+        public string adreca { get; set; }
         public string codiPostal { get; set; }
         public string pais { get; set; }
         public Nullable<bool> actiu { get; set; }

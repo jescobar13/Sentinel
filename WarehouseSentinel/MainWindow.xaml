@@ -58,9 +58,9 @@
 
                     <DataGrid.Columns>
 
-                        <DataGridTextColumn Header="Client" Binding="{Binding client.nom}"/>
-                        <DataGridTextColumn Header="Data Comanda" Binding="{Binding dataComanda}"/>
-                        <DataGridTextColumn Header="Data Entrega" Binding="{Binding dataEntrega}"/>
+                        <DataGridTextColumn Header="Client" Binding="{Binding Client_CIF}"/>
+                        <DataGridTextColumn Header="Data Comanda" Binding="{Binding dataComanda, StringFormat={}{0:dd.MM.yyyy}}"/>
+                        <DataGridTextColumn Header="Data Entrega" Binding="{Binding dataEntrega, StringFormat={}{0:dd.MM.yyyy}}"/>
                         <DataGridTextColumn Header="Estat" Binding="{Binding estat}"/>
 
                     </DataGrid.Columns>

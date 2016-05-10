@@ -31,10 +31,7 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dataSetSentinel = new WarehouseSentinel.DataSetSentinel();
             this.comandaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comandaTableAdapter = new WarehouseSentinel.DataSetSentinelTableAdapters.comandaTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetSentinel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comandaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,17 +49,13 @@
             // 
             // dataSetSentinel
             // 
-            this.dataSetSentinel.DataSetName = "DataSetSentinel";
-            this.dataSetSentinel.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // comandaBindingSource
             // 
             this.comandaBindingSource.DataMember = "comanda";
-            this.comandaBindingSource.DataSource = this.dataSetSentinel;
             // 
             // comandaTableAdapter
             // 
-            this.comandaTableAdapter.ClearBeforeFill = true;
             // 
             // ReportView
             // 
@@ -73,7 +66,6 @@
             this.Name = "ReportView";
             this.Text = "ReportView";
             this.Load += new System.EventHandler(this.ReportView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetSentinel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comandaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -82,8 +74,6 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private DataSetSentinel dataSetSentinel;
         private System.Windows.Forms.BindingSource comandaBindingSource;
-        private DataSetSentinelTableAdapters.comandaTableAdapter comandaTableAdapter;
     }
 }

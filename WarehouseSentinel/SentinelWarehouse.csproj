@@ -79,11 +79,6 @@
     <Compile Include="Controllers\MainWindowController.cs" />
     <Compile Include="Controllers\Producte\AfegirProducteWindowController.cs" />
     <Compile Include="Controllers\Producte\ProducteWindowController.cs" />
-    <Compile Include="DataSetSentinel1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetSentinel1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Models\albara.cs">
       <DependentUpon>SentinelDB.tt</DependentUpon>
     </Compile>
@@ -226,17 +221,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SentinelDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DataSetSentinel1.xsc">
-      <DependentUpon>DataSetSentinel1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetSentinel1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetSentinel1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSetSentinel1.xss">
-      <DependentUpon>DataSetSentinel1.xsd</DependentUpon>
-    </None>
     <None Include="DOCS BD\esquema.mwb" />
     <None Include="DOCS BD\esquema.mwb.bak" />
     <None Include="Models\SentinelDB.edmx.diagram">

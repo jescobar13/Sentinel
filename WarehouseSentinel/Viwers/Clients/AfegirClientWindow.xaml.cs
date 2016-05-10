@@ -41,7 +41,7 @@ namespace WarehouseSentinel.Viwers.Clients
             textBox_CIF.Text = client.CIF;
             textBox_EmpresaNom.Text = client.nom;
             textBox_Cognom.Text = client.cognom;
-            textBox_Adreca.Text = client.adreça;
+            textBox_Adreca.Text = client.adreca;
             textBox_CodiPostal.Text = client.codiPostal;
             textBox_Pais.Text = client.pais;
 
@@ -77,7 +77,7 @@ namespace WarehouseSentinel.Viwers.Clients
         {
             client.nom = textBox_EmpresaNom.Text;
             client.cognom = textBox_Cognom.Text;
-            client.adreça = textBox_Adreca.Text;
+            client.adreca = textBox_Adreca.Text;
             client.codiPostal = textBox_CodiPostal.Text;
             client.pais = textBox_Pais.Text;
 
@@ -97,7 +97,7 @@ namespace WarehouseSentinel.Viwers.Clients
             client.CIF = textBox_CIF.Text;
             client.nom = textBox_EmpresaNom.Text;
             client.cognom = textBox_Cognom.Text;
-            client.adreça = textBox_Adreca.Text;
+            client.adreca = textBox_Adreca.Text;
             client.codiPostal = textBox_CodiPostal.Text;
             client.pais = textBox_Pais.Text;
 

@@ -26,7 +26,7 @@
           <Property Name="CIF" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="nom" Type="varchar" MaxLength="45" />
           <Property Name="cognom" Type="varchar" MaxLength="45" />
-          <Property Name="adreça" Type="varchar" MaxLength="45" />
+          <Property Name="adreca" Type="varchar" MaxLength="45" />
           <Property Name="codiPostal" Type="varchar" MaxLength="45" />
           <Property Name="pais" Type="varchar" MaxLength="45" />
           <Property Name="actiu" Type="bool" />
@@ -47,16 +47,15 @@
         <EntityType Name="contacte">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="Client_CIF" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="personaNom" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="personaNom" Type="varchar" MaxLength="45" />
           <Property Name="telef" Type="varchar" MaxLength="10" />
           <Property Name="telef2" Type="varchar" MaxLength="10" />
           <Property Name="mob" Type="varchar" MaxLength="10" />
           <Property Name="mob2" Type="varchar" MaxLength="10" />
           <Property Name="correuElectronic" Type="varchar" MaxLength="45" />
-          <Property Name="Client_CIF" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Client_CIF" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="liniaalbara">
           <Key>
@@ -129,7 +128,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Contacte_Client1">
-          <End Role="client" Type="Self.client" Multiplicity="1" />
+          <End Role="client" Type="Self.client" Multiplicity="0..1" />
           <End Role="contacte" Type="Self.contacte" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="client">
@@ -279,7 +278,7 @@
           <Property Name="CIF" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="cognom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="adreça" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="adreca" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="codiPostal" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="pais" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="actiu" Type="Boolean" />
@@ -305,16 +304,15 @@
         <EntityType Name="contacte">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="Client_CIF" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="personaNom" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="personaNom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="telef" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="telef2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="mob" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="mob2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="correuElectronic" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="Client_CIF" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Client_CIF" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="client" Relationship="SentinelWarehouseDB.fk_Contacte_Client1" FromRole="contacte" ToRole="client" />
         </EntityType>
         <EntityType Name="liniaalbara">
@@ -410,7 +408,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Contacte_Client1">
-          <End Type="SentinelWarehouseDB.client" Role="client" Multiplicity="1" />
+          <End Type="SentinelWarehouseDB.client" Role="client" Multiplicity="0..1" />
           <End Type="SentinelWarehouseDB.contacte" Role="contacte" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="client">
@@ -473,7 +471,7 @@
                 <ScalarProperty Name="actiu" ColumnName="actiu" />
                 <ScalarProperty Name="pais" ColumnName="pais" />
                 <ScalarProperty Name="codiPostal" ColumnName="codiPostal" />
-                <ScalarProperty Name="adreça" ColumnName="adreça" />
+                <ScalarProperty Name="adreca" ColumnName="adreca" />
                 <ScalarProperty Name="cognom" ColumnName="cognom" />
                 <ScalarProperty Name="nom" ColumnName="nom" />
                 <ScalarProperty Name="CIF" ColumnName="CIF" />
