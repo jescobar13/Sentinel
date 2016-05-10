@@ -16,6 +16,7 @@ using WarehouseSentinel.Controllers;
 using WarehouseSentinel.Viwers;
 using WarehouseSentinel.Viwers.Comanda;
 using WarehouseSentinel.Viwers.Producta;
+using WarehouseSentinel.Viwers.Reports;
 
 namespace WarehouseSentinel
 {
@@ -61,6 +62,12 @@ namespace WarehouseSentinel
             ComandaWindow comandaWindow = new ComandaWindow(controller.getBaseContext(), new Models.comanda());
             comandaWindow.ShowDialog();
             actualitzaCapcaleresComandes();
+        }
+
+        private void btn_report_Click(object sender, RoutedEventArgs e)
+        {
+            ReportView rw = new ReportView();
+            rw.Show();
         }
     }
 }

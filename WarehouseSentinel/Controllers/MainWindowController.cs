@@ -30,5 +30,12 @@ namespace WarehouseSentinel.Controllers
         {
             return tComanda.getAll();
         }
+
+        internal IEnumerable donemComandesByCif(string cif)
+        {
+            cif = "S3959337A";
+
+            return tComanda.getByCIFClient(cif);
+        }
     }
 }

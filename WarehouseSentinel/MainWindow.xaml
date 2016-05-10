@@ -25,6 +25,7 @@
                 <ToolBar Name="barradHeines" >
 
                     <Button x:Name="btn_novaComanda" Content="Nova Comanda" Click="btn_novaComanda_Click"/>
+                    <Button x:Name="btn_report" Content="Report" Click="btn_report_Click"/>
 
                     <Separator/>
 

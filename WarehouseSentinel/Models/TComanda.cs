@@ -38,6 +38,14 @@ namespace WarehouseSentinel.Models
             return (from taulaComandes in context.comanda
                     select taulaComandes).ToList();
         }
+
+        public IEnumerable getByCIFClient(string cif)
+        {
+            return (from tComanda in context.comanda
+                    where tComanda.Client_CIF.Equals(cif)
+                    select tComanda)
+                    .ToList();
+        }
     }
 }
 
