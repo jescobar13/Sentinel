@@ -47,9 +47,6 @@
             this.reportViewer1.Size = new System.Drawing.Size(746, 381);
             this.reportViewer1.TabIndex = 0;
             // 
-            // dataSetSentinel
-            // 
-            // 
             // comandaBindingSource
             // 
             this.comandaBindingSource.DataMember = "comanda";
