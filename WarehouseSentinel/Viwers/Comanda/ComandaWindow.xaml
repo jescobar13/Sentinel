@@ -25,7 +25,6 @@
                 <Label x:Name="label2" Content="Customer Data:" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" FontStyle="Oblique" FontSize="13.333"/>
 
                 <Button x:Name="btn_selecClient" Content="Select Customer" Margin="0,10,10,0" Height="37" VerticalAlignment="Top" HorizontalAlignment="Right" Width="103" Click="btn_selecClient_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Button x:Name="btn_acceptarCapcaleraComanda" Content="Accept Order" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Height="37" Width="103" Click="btn_acceptarCapcaleraComanda_Click"/>
 
                 <Label x:Name="label1" Content="VAT:" HorizontalAlignment="Left" Margin="19,40,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label_CIF" Content="---" HorizontalAlignment="Left" Margin="53,40,0,0" VerticalAlignment="Top" Width="145" FontWeight="Bold"/>

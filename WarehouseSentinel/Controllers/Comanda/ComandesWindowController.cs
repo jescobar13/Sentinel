@@ -30,16 +30,18 @@ namespace WarehouseSentinel.Controllers
             return tClient.getClientsActius();
         }
 
-        internal string guardaComanda(comanda comanda)
+        internal bool guardaComanda(comanda comanda)
         {
             try
             {
                 tComanda.add(comanda);
-                return "La comanda del client " + comanda.client.nom + " s'ha guardat correctament.";
+                //return "La comanda del client " + comanda.client.nom + " s'ha guardat correctament.";
+                return true;
             }
             catch (Exception ex)
             {
-                return "La comanda del client " + comanda.client.nom + "no s'ha pogut guardar.";
+                return false;
+               // return "La comanda del client " + comanda.client.nom + "no s'ha pogut guardar.";
             }
         }
 
