@@ -20,7 +20,10 @@ namespace WarehouseSentinel.Controllers
             tComanda = new TComanda(context);
             tLiniaComanda = new TLiniaComanda(context);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public SentinelDBEntities getBaseContext()
         {
             return context;
