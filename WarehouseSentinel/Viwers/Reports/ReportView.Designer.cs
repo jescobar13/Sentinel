@@ -30,10 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.comandaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.comandaBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // comandaBindingSource
+            // 
+            this.comandaBindingSource.DataMember = "comanda";
             // 
             // reportViewer1
             // 
@@ -46,13 +50,6 @@
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(746, 381);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // comandaBindingSource
-            // 
-            this.comandaBindingSource.DataMember = "comanda";
-            // 
-            // comandaTableAdapter
-            // 
             // 
             // ReportView
             // 
