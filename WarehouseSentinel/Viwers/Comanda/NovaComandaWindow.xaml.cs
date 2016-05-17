@@ -26,6 +26,11 @@ namespace WarehouseSentinel.Viwers.Comanda
 
         public client client { get; set; }
 
+        public ComandaWindow()
+        {
+            InitializeComponent();
+        }
+
         public ComandaWindow(SentinelDBEntities context, comanda comanda)
         {
             InitializeComponent();

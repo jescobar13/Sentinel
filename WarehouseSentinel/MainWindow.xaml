@@ -5,86 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarehouseSentinel"
         mc:Ignorable="d"
-        Title="Sentinel: Comandes" Height="800" Width="1150" WindowState="Maximized" Loaded="Window_Loaded">
+        Title="LogInWindow" Height="347.101" Width="346.699">
     <Grid>
-        <DockPanel LastChildFill="False" Margin="5">
+        <Label x:Name="label" Content="User:" HorizontalAlignment="Left" Margin="74,173,0,0" VerticalAlignment="Top" Width="59" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <Label x:Name="label_Copy" Content="Password:" HorizontalAlignment="Left" Margin="74,204,0,0" VerticalAlignment="Top" Width="59" HorizontalContentAlignment="Right"/>
 
-            <Border DockPanel.Dock="Top" Margin="0,0,0,5"
-                    BorderBrush="Silver" BorderThickness="1">
-                <Menu x:Name="menu" Margin="0,0,0,0" Padding="4">
+        <TextBox x:Name="textBox_user" HorizontalAlignment="Left" Height="23" Margin="138,174,0,0" TextWrapping="Wrap" Text="jescobar" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <PasswordBox x:Name="passwordBox" Height="23" HorizontalAlignment="Left" Margin="138,205,0,0" VerticalAlignment="Top" Width="120" Password="patata" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-                    <MenuItem x:Name="menuItem_obrirClients" Header="Clients" Click="MenuItem_Click" />
-                    <MenuItem x:Name="menuItem_obrirProductes" Header="Productes" Click="menuItem_obrirProductes_Click"/>
-
-                </Menu>
-            </Border>
-
-            <Border DockPanel.Dock="Top"
-                    BorderBrush="Silver" BorderThickness="1" Height="50">
-
-                <ToolBar Name="barradHeines" >
-
-                    <Button x:Name="btn_novaComanda" Content="Nova Comanda" Click="btn_novaComanda_Click"/>
-                    <Button x:Name="btn_report" Content="Report" Click="btn_report_Click"/>
-
-                    <Separator/>
-
-                </ToolBar>
-
-            </Border>
-
-            <Border DockPanel.Dock="Top" Margin="0,5"
-                    BorderBrush="Silver" BorderThickness="1" Height="50">
-
-
-
-            </Border>
-
-        </DockPanel>
-
-        <Grid Margin="5,150,5,5">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="677*"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="441*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Background="#FFE5E5E5">
-
-                <DataGrid x:Name="dataGrid_capcaleraComandes" Margin="0,0,0,0"
-                          ItemsSource="{Binding Source=list}" AutoGenerateColumns="False"
-                          CanUserResizeColumns="True" MinColumnWidth="70" IsReadOnly="True"
-                          AlternatingRowBackground="#FFE0E3F0">
-
-                    <DataGrid.Columns>
-
-                        <DataGridTextColumn Header="Client" Binding="{Binding Client_CIF}"/>
-                        <DataGridTextColumn Header="Data Comanda" Binding="{Binding dataComanda, StringFormat={}{0:dd.MM.yyyy}}"/>
-                        <DataGridTextColumn Header="Data Entrega" Binding="{Binding dataEntrega, StringFormat={}{0:dd.MM.yyyy}}"/>
-                        <DataGridTextColumn Header="Estat" Binding="{Binding estat}"/>
-
-                    </DataGrid.Columns>
-
-                </DataGrid>
-
-            </Grid>
-
-            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Margin="0" />
-
-            <DataGrid x:Name="dataGrid_productes" Grid.Column="2" Margin="5,0,0,0" Grid.ColumnSpan="2" >
-
-                <DataGrid.Columns>
-
-                    <DataGridTextColumn Header="Producte"/>
-                    <DataGridTextColumn Header="Preu/Kg"/>
-                    <DataGridTextColumn Header="Quantitat"/>
-
-                </DataGrid.Columns>
-
-            </DataGrid>
-
-        </Grid>
-
+        <Button x:Name="btn_logIn" Content="Connect" HorizontalAlignment="Left" Margin="47,250,0,0" VerticalAlignment="Top" Width="240" Height="32" Click="btn_logIn_Click"/>
+        <Label x:Name="label1" Content="Log In:" HorizontalAlignment="Left" Margin="47,134,0,0" VerticalAlignment="Top" Width="86" Height="34" FontSize="14" FontStyle="Italic"/>
 
     </Grid>
 </Window>

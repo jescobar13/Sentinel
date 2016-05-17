@@ -24,7 +24,7 @@ namespace WarehouseSentinel.Viwers.Reports
             //this.comandaTableAdapter.FillByCIFClient(this.dataSetSentinel.comanda, "S3959337A");
             //com
 
-            comandaBindingSource.DataSource = new MainWindowController().donemComandesByCif("S3959337A");
+            comandaBindingSource.DataSource = new GestorComandesWindowController().donemComandesByCif("S3959337A");
 
             this.reportViewer1.RefreshReport();
         }

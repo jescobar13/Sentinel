@@ -25,49 +25,35 @@ namespace WarehouseSentinel
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainWindowController controller;
+        MainWindowController controller;
 
         public MainWindow()
         {
+            controller = new MainWindowController(this);
+            
             InitializeComponent();
-
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            controller = new MainWindowController();
-            actualitzaCapcaleresComandes();
+            //GestorComandesWindow gestorComandes = new GestorComandesWindow();
+            //gestorComandes.Show();
+
+
         }
 
-        public void actualitzaCapcaleresComandes()
+        private void btn_logIn_Click(object sender, RoutedEventArgs e)
         {
-            dataGrid_capcaleraComandes.ItemsSource = null;
-            dataGrid_capcaleraComandes.ItemsSource = controller.donemComandes();
-        }
+            if (textBox_user.Text.Equals("jescobar"))
+            {
+                GestorComandesWindow gestorComandes = new GestorComandesWindow();
+                gestorComandes.Show();
+                this.Hide();
+            }else
+            {
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            ClientsWindow clientsWindow = new ClientsWindow();
-            clientsWindow.Show();
-        }
-
-        private void menuItem_obrirProductes_Click(object sender, RoutedEventArgs e)
-        {
-            ProducteWindow producteWindow = new ProducteWindow();
-            producteWindow.Show();
-        }
-
-        private void btn_novaComanda_Click(object sender, RoutedEventArgs e)
-        {
-            ComandaWindow comandaWindow = new ComandaWindow(controller.getBaseContext(), new Models.comanda());
-            comandaWindow.ShowDialog();
-            actualitzaCapcaleresComandes();
-        }
-
-        private void btn_report_Click(object sender, RoutedEventArgs e)
-        {
-            ReportView rw = new ReportView();
-            rw.Show();
+            }
+                
         }
     }
 }

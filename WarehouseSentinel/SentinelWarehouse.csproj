@@ -76,6 +76,7 @@
     <Compile Include="Controllers\Client-Contacte\ClientsWindowController.cs" />
     <Compile Include="Controllers\Comanda\ComandesWindowController.cs" />
     <Compile Include="Controllers\Client-Contacte\ContacteWindowController.cs" />
+    <Compile Include="Controllers\Comanda\GestorComandesWindowController.cs" />
     <Compile Include="Controllers\MainWindowController.cs" />
     <Compile Include="Controllers\Producte\AfegirProducteWindowController.cs" />
     <Compile Include="Controllers\Producte\ProducteWindowController.cs" />
@@ -120,6 +121,9 @@
     <Compile Include="Models\TContacte.cs" />
     <Compile Include="Models\TLiniaComanda.cs" />
     <Compile Include="Models\TProducte.cs" />
+    <Compile Include="Viwers\Albara\GestorAlbaraWindow.xaml.cs">
+      <DependentUpon>GestorAlbaraWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Viwers\Clients\AfegirClientWindow.xaml.cs">
       <DependentUpon>AfegirClientWindow.xaml</DependentUpon>
     </Compile>
@@ -129,8 +133,11 @@
     <Compile Include="Viwers\Clients\ContacteWindow.xaml.cs">
       <DependentUpon>ContacteWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Viwers\Comanda\ComandaWindow.xaml.cs">
-      <DependentUpon>ComandaWindow.xaml</DependentUpon>
+    <Compile Include="Viwers\Comanda\GestorComandesWindow.xaml.cs">
+      <DependentUpon>GestorComandesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Viwers\Comanda\NovaComandaWindow.xaml.cs">
+      <DependentUpon>NovaComandaWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Viwers\Comanda\NovaLiniaComandaWindow.xaml.cs">
       <DependentUpon>NovaLiniaComandaWindow.xaml</DependentUpon>
@@ -162,6 +169,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Viwers\Albara\GestorAlbaraWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Viwers\Clients\AfegirClientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,7 +185,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Viwers\Comanda\ComandaWindow.xaml">
+    <Page Include="Viwers\Comanda\GestorComandesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Viwers\Comanda\NovaComandaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,6 +253,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\NewFolder1\" />
+    <Folder Include="Viwers\Personal\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AddContact.png" />
