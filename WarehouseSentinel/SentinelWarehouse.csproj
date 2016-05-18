@@ -72,6 +72,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\Albara\GestorAlbaraWindowController.cs" />
     <Compile Include="Controllers\Client-Contacte\AfegirClientWindowController.cs" />
     <Compile Include="Controllers\Client-Contacte\ClientsWindowController.cs" />
     <Compile Include="Controllers\Comanda\ComandesWindowController.cs" />

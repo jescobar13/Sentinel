@@ -60,18 +60,26 @@ namespace WarehouseSentinel.Viwers.Comanda
 
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
-            liniacomanda novaLinia = new liniacomanda();
-            novaLinia.preuKg = Convert.ToDouble(textbox_preuKg.Text);
-            novaLinia.quantitat = Convert.ToInt32(textBox_quantitat.Text);
-            novaLinia.Comanda_codi = comanda.codi;
-            novaLinia.Comanda_Client_CIF = comanda.Client_CIF;
-            novaLinia.Comanda_Client_Contacte_id = comanda.Client_Contacte_id;
-            novaLinia.Producte_id = producteSelected.id;
+            try
+            {
+                liniacomanda novaLinia = new liniacomanda();
+                novaLinia.preuKg = Convert.ToDouble(textbox_preuKg.Text);
+                novaLinia.quantitat = Convert.ToInt32(textBox_quantitat.Text);
+                novaLinia.Comanda_codi = comanda.codi;
+                novaLinia.Comanda_Client_CIF = comanda.Client_CIF;
+                novaLinia.Comanda_Client_Contacte_id = comanda.Client_Contacte_id;
+                novaLinia.Producte_id = producteSelected.id;
 
-            string retorna = controller.guardaLiniaComanda(novaLinia);
+                string retorna = controller.guardaLiniaComanda(novaLinia);
 
-            MessageBox.Show(retorna, "Informació", MessageBoxButton.OK, MessageBoxImage.Information);
-            Close();
+                MessageBox.Show(retorna, "Informació", MessageBoxButton.OK, MessageBoxImage.Information);
+                Close();
+            }
+            catch
+            {
+                MessageBox.Show("You must fill in all the boxes.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            
         }
     }
 }

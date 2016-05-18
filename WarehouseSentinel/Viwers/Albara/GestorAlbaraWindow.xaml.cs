@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WarehouseSentinel.Controllers.Albara;
 
 namespace WarehouseSentinel.Viwers.Albara
 {
@@ -19,9 +20,12 @@ namespace WarehouseSentinel.Viwers.Albara
     /// </summary>
     public partial class GestorAlbaraWindow : Window
     {
+        GestorAlbaraWindowController controller;
+
         public GestorAlbaraWindow()
         {
             InitializeComponent();
+            controller = new GestorAlbaraWindowController(this);
         }
     }
 }

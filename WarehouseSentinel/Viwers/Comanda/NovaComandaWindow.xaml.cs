@@ -100,6 +100,7 @@ namespace WarehouseSentinel.Viwers.Comanda
             comanda.dataComanda = Convert.ToDateTime(string.Format("{0:MM/dd/yyyy}", datePicker_dataComanda));
             comanda.dataEntrega = Convert.ToDateTime(string.Format("{0:MM/dd/yyyy}", datePicker_dataEntrega));
             comanda.Client_CIF = client.CIF;
+            comanda.estat = "construccio";
 
             if (controller.guardaComanda(comanda))
             {
@@ -129,7 +130,14 @@ namespace WarehouseSentinel.Viwers.Comanda
 
         private void btn_acceptarComanda_Click(object sender, RoutedEventArgs e)
         {
+            if (comanda.estat.Equals("construccio")){
+                if(MessageBox.Show("The order is the pending queue.", "Information", 
+                    MessageBoxButton.OKCancel, MessageBoxImage.Information) 
+                    == MessageBoxResult.Cancel) return;
 
+                comanda.estat = "pendent";
+                Close();
+            }
         }
 
 

@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarehouseSentinel.Viwers.Albara"
         mc:Ignorable="d"
-        Title="GestorAlbaraWindow" Height="300" Width="300">
+        Title="GestorAlbaraWindow" Height="303.166" Width="323.747">
     <Grid>
-        
+        <Grid Background="#FFE5E5E5">
+
+            <DataGrid x:Name="dataGrid_capcaleraComandes" Margin="0,0,0,0"
+                          ItemsSource="{Binding Source=list}" AutoGenerateColumns="False"
+                          CanUserResizeColumns="True" MinColumnWidth="70" IsReadOnly="True"
+                          AlternatingRowBackground="#FFE0E3F0">
+
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="Client" Binding="{Binding Client_CIF}"/>
+                    <DataGridTextColumn Header="Data Comanda" Binding="{Binding dataComanda, StringFormat={}{0:dd.MM.yyyy}}"/>
+                    <DataGridTextColumn Header="Data Entrega" Binding="{Binding dataEntrega, StringFormat={}{0:dd.MM.yyyy}}"/>
+
+                    <DataGridTemplateColumn Width="90" Header="">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btn_playComanda" Height="25" Padding="3" Margin="3" VerticalAlignment="Center"  HorizontalAlignment="Center" HorizontalContentAlignment="Center" Content="Play" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </Grid>
     </Grid>
 </Window>

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WarehouseSentinel.Controllers;
 using WarehouseSentinel.Viwers;
+using WarehouseSentinel.Viwers.Albara;
 using WarehouseSentinel.Viwers.Comanda;
 using WarehouseSentinel.Viwers.Producta;
 using WarehouseSentinel.Viwers.Reports;
@@ -51,7 +52,8 @@ namespace WarehouseSentinel
                 this.Hide();
             }else
             {
-
+                GestorAlbaraWindow gestorComandes = new GestorAlbaraWindow();
+                this.Hide();
             }
                 
         }
