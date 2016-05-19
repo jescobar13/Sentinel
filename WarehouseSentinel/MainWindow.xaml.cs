@@ -26,6 +26,9 @@ namespace WarehouseSentinel
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Controller de la vista Main
+        /// </summary>
         MainWindowController controller;
 
         public MainWindow()
@@ -43,6 +46,12 @@ namespace WarehouseSentinel
 
         }
 
+        /// <summary>
+        /// Valida s'hi l'usuari existeix i si es que si obre la vista corresponent.
+        /// Fa un petit control d'usuaris.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_logIn_Click(object sender, RoutedEventArgs e)
         {
             if (textBox_user.Text.Equals("jescobar"))

@@ -22,25 +22,44 @@ namespace WarehouseSentinel.Viwers.Producta
     /// </summary>
     public partial class ProducteWindow : Window
     {
+        /// <summary>
+        /// Controller de la vista ProducteWindow.
+        /// </summary>
         private ProducteWindowController controller;
 
+        /// <summary>
+        /// Constructor de la vista Producte.
+        /// </summary>
         public ProducteWindow()
         {
             InitializeComponent();
             controller = new ProducteWindowController();
         }
 
+        /// <summary>
+        /// Carrega els productes a la vista.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             actualitzaProductes();
         }
 
+        /// <summary>
+        /// Carrega els productes en el DataGrid productes.
+        /// </summary>
         private void actualitzaProductes()
         {
             dataGrid_productes.ItemsSource = null;
             dataGrid_productes.ItemsSource = controller.donemProductes();
         }
 
+        /// <summary>
+        /// Afegeix el producte.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_AfegirProducte_Click(object sender, RoutedEventArgs e)
         {
             AfegirProducteWindow afegirProducteWindow = new AfegirProducteWindow(
@@ -50,6 +69,11 @@ namespace WarehouseSentinel.Viwers.Producta
             actualitzaProductes();
         }
 
+        /// <summary>
+        /// Tenca la vista de productes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void menuItem_tencarProductes_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -60,6 +84,11 @@ namespace WarehouseSentinel.Viwers.Producta
 
         }
 
+        /// <summary>
+        /// Aplica els canvis fets en el producte i els guarda a la BD.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_ModificarProducte_Click(object sender, RoutedEventArgs e)
         {
             AfegirProducteWindow modificaProducteWindow = new AfegirProducteWindow(

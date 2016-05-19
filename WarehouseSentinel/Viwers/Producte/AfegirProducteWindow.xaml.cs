@@ -21,10 +21,27 @@ namespace WarehouseSentinel.Viwers.Producte
     /// </summary>
     public partial class AfegirProducteWindow : Window
     {
+        /// <summary>
+        /// Referencia obj. producte.
+        /// </summary>
         private producte producte;
+
+        /// <summary>
+        /// Controler de la vista Afegir Producte
+        /// </summary>
         private AfegirProducteWindowController controller;
+
+        /// <summary>
+        /// Mode del Controller
+        /// </summary>
         private modeControllerProducte mode;
 
+        /// <summary>
+        /// Constructor de la vista Afegir Producte
+        /// </summary>
+        /// <param name="context">Context de la base de dades</param>
+        /// <param name="producte">Obj. Producte</param>
+        /// <param name="mode">Mode del controller</param>
         public AfegirProducteWindow(SentinelDBEntities context, producte producte, modeControllerProducte mode)
         {
             InitializeComponent();
@@ -33,6 +50,11 @@ namespace WarehouseSentinel.Viwers.Producte
             this.mode = mode;
         }
 
+        /// <summary>
+        /// Carrega les dades del producte.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             textBox_nomProducte.Text = producte.nom;
@@ -55,6 +77,11 @@ namespace WarehouseSentinel.Viwers.Producte
             }
         }
 
+        /// <summary>
+        /// Afegeix el nou producte a la BD.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_afegirProducte_Click(object sender, RoutedEventArgs e)
         {
             producte.nom = textBox_nomProducte.Text;
@@ -66,6 +93,11 @@ namespace WarehouseSentinel.Viwers.Producte
             MessageBox.Show(retorna, "Informació", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
+        /// <summary>
+        /// Modifica el producte i aplica els canvis a la BD.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_modificarProducte_Click(object sender, RoutedEventArgs e)
         {
             producte.nom = textBox_nomProducte.Text;
