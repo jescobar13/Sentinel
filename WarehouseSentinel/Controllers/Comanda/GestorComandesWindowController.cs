@@ -11,30 +11,54 @@ namespace WarehouseSentinel.Controllers
 {
     public class GestorComandesWindowController
     {
+        /// <summary>
+        /// Context de la base de dades.
+        /// </summary>
         private SentinelDBEntities context;
+        /// <summary>
+        /// Referencia al obj TComanda que permet accedir a la taula Comandes
+        /// de la base de dades.
+        /// </summary>
         private TComanda tComanda;
+        /// <summary>
+        /// Referencia al obj TLiniaComanda que permet accedir a la taula 
+        /// LiniesComanda de la base de dades.
+        /// </summary>
         private TLiniaComanda tLiniaComanda;
 
+        /// <summary>
+        /// Constructor del controller Gestor de Comandes. Constructor.
+        /// </summary>
         public GestorComandesWindowController()
         {
             context = new SentinelDBEntities();
             tComanda = new TComanda(context);
             tLiniaComanda = new TLiniaComanda(context);
         }
+
         /// <summary>
-        /// 
+        /// Serveix el context de la base de dades.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Context de la base de dades.</returns>
         public SentinelDBEntities getBaseContext()
         {
             return context;
         }
 
+        /// <summary>
+        /// Retorna les comandes de la base de dades.
+        /// </summary>
+        /// <returns>Llista de comandes.</returns>
         internal IEnumerable donemComandes()
         {
             return tComanda.getAll();
         }
 
+        /// <summary>
+        /// Retorna les comandes de la base de dades segons el CIF d'un client.
+        /// </summary>
+        /// <param name="cif">Cif d'un client</param>
+        /// <returns>Llista de Comandes.</returns>
         internal IEnumerable donemComandesByCif(string cif)
         {
             cif = "S3959337A";

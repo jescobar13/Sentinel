@@ -8,8 +8,15 @@ namespace WarehouseSentinel.Controllers
 {
     public class MainWindowController
     {
+        /// <summary>
+        /// Referencia a la pantalla principal
+        /// </summary>
         MainWindow mainWindow;
 
+        /// <summary>
+        /// Constructor de la classe. Controlador.
+        /// </summary>
+        /// <param name="mainWindow"></param>
         public MainWindowController(MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;
