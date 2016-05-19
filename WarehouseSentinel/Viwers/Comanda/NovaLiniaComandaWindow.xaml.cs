@@ -21,10 +21,24 @@ namespace WarehouseSentinel.Viwers.Comanda
     /// </summary>
     public partial class NovaLiniaComandaWindow : Window
     {
+        /// <summary>
+        /// Referencia obj. comanda
+        /// </summary>
         private comanda comanda;
+        /// <summary>
+        /// Controlador de la vista Comandes.
+        /// </summary>
         private ComandesWindowController controller;
+        /// <summary>
+        /// Referencia obj. producte seleccionat.
+        /// </summary>
         private producte producteSelected;
 
+        /// <summary>
+        /// Constructor de la vista Nova Linia Comanda.
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="comanda"></param>
         public NovaLiniaComandaWindow(ComandesWindowController controller, comanda comanda)
         {
             InitializeComponent();
@@ -37,17 +51,32 @@ namespace WarehouseSentinel.Viwers.Comanda
 
         }
 
+        /// <summary>
+        /// Actualitza el dataGrid de Productes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGrid_productes_Loaded(object sender, RoutedEventArgs e)
         {
             dataGrid_productes.ItemsSource = controller.donemProductes();
         }
 
+        /// <summary>
+        /// Executa el filtrat i actualitza el DataGrid amb les coincidencies.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             dataGrid_productes.ItemsSource = null;
             dataGrid_productes.ItemsSource = controller.donemProductesByPattern(textBox_filtreNom.Text);
         }
 
+        /// <summary>
+        /// Selecciona un producte.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGrid_productes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (dataGrid_productes.SelectedItems.Count != 1) return;
@@ -58,6 +87,11 @@ namespace WarehouseSentinel.Viwers.Comanda
             textbox_preuKg.Text = producteSelected.preuKg.ToString();
         }
 
+        /// <summary>
+        /// Afegeix la nova linia de comandes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
             try

@@ -21,9 +21,18 @@ namespace WarehouseSentinel.Viwers.Comanda
     /// </summary>
     public partial class ComandaWindow : Window
     {
+        /// <summary>
+        /// Controlador de la vista Comandes
+        /// </summary>
         private ComandesWindowController controller;
+        /// <summary>
+        /// Referencia obj. comanda.
+        /// </summary>
         private comanda comanda;
 
+        /// <summary>
+        /// Referencia obj. Client.
+        /// </summary>
         public client client { get; set; }
 
         public ComandaWindow()
@@ -31,6 +40,11 @@ namespace WarehouseSentinel.Viwers.Comanda
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Constructor de la vista de Comandes
+        /// </summary>
+        /// <param name="context">Contexte de la base de dades.</param>
+        /// <param name="comanda">Obj. comanda</param>
         public ComandaWindow(SentinelDBEntities context, comanda comanda)
         {
             InitializeComponent();
@@ -38,6 +52,11 @@ namespace WarehouseSentinel.Viwers.Comanda
             this.comanda = comanda;
         }
 
+        /// <summary>
+        /// Carrega les dates a la vista.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -46,12 +65,22 @@ namespace WarehouseSentinel.Viwers.Comanda
 
         }
 
+        /// <summary>
+        /// Actualitza les linies d'una comanda
+        /// </summary>
+        /// <param name="c">obj. comanda</param>
         private void actualitzaLiniesComanda(comanda c)
         {
             listView_liniesComanda.ItemsSource = null;
             listView_liniesComanda.ItemsSource = controller.donemLiniesComanda(c.codi);
         }
 
+        /// <summary>
+        /// Event que sexecuta al clicar el button seleccionar Client. 
+        /// Controla el fet de seleccionar un client.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_selecClient_Click(object sender, RoutedEventArgs e)
         {
             listView_liniesComanda.IsEnabled = false;
@@ -72,6 +101,10 @@ namespace WarehouseSentinel.Viwers.Comanda
             }
         }
 
+        /// <summary>
+        /// Obre la vista de seleccio del client i carrega les seves dades.
+        /// </summary>
+        /// <returns>TRUE si s'ha seleccionat, FALSE si no s'ha seleccionat un client.</returns>
         private bool seleccionaClient()
         {
             SelecClientWindow selecClientWindow = new SelecClientWindow(controller, this);
@@ -95,6 +128,10 @@ namespace WarehouseSentinel.Viwers.Comanda
             }
         }
 
+        /// <summary>
+        /// Guarda la capçalera de la comanda.
+        /// </summary>
+        /// <returns>TRUE s'hi s'ha pogut guardar.</returns>
         private bool confirmarComandaCapcalera()
         {
             comanda.dataComanda = Convert.ToDateTime(string.Format("{0:MM/dd/yyyy}", datePicker_dataComanda));
@@ -116,6 +153,11 @@ namespace WarehouseSentinel.Viwers.Comanda
             return false;
         }
 
+        /// <summary>
+        /// Obre la vista per introduir una nova linia de comanda.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_novaLiniaComanda_Click(object sender, RoutedEventArgs e)
         {
             NovaLiniaComandaWindow novaLinia = new NovaLiniaComandaWindow(controller, comanda);
@@ -123,11 +165,21 @@ namespace WarehouseSentinel.Viwers.Comanda
             actualitzaLiniesComanda(comanda);
         }
 
+        /// <summary>
+        /// Elimina la comanda seleccionada.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_eliminarLiniaComanda_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Confirma la comanda construida i surt de la vista.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_acceptarComanda_Click(object sender, RoutedEventArgs e)
         {
             if (comanda.estat.Equals("construccio")){

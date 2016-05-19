@@ -22,6 +22,9 @@ namespace WarehouseSentinel.Viwers.Comanda
     /// </summary>
     public partial class GestorComandesWindow : Window
     {
+        /// <summary>
+        /// Controlador del gestor de comandes
+        /// </summary>
         private GestorComandesWindowController controller;
 
 
@@ -30,30 +33,53 @@ namespace WarehouseSentinel.Viwers.Comanda
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Carrega les comandes de la base de dades.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             controller = new GestorComandesWindowController();
             actualitzaCapcaleresComandes();
         }
 
+        /// <summary>
+        /// Actualitza les dades del DataGrid de comandes.
+        /// </summary>
         public void actualitzaCapcaleresComandes()
         {
             dataGrid_capcaleraComandes.ItemsSource = null;
             dataGrid_capcaleraComandes.ItemsSource = controller.donemComandes();
         }
 
+        /// <summary>
+        /// Obre la vista de administració de clients.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             ClientsWindow clientsWindow = new ClientsWindow();
             clientsWindow.Show();
         }
 
+        /// <summary>
+        /// Obre la vista d'administració de productes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void menuItem_obrirProductes_Click(object sender, RoutedEventArgs e)
         {
             ProducteWindow producteWindow = new ProducteWindow();
             producteWindow.Show();
         }
 
+        /// <summary>
+        /// Obre la vista per entrar una nova comanda.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_novaComanda_Click(object sender, RoutedEventArgs e)
         {
             ComandaWindow comandaWindow = new ComandaWindow(controller.getBaseContext(), new Models.comanda());
