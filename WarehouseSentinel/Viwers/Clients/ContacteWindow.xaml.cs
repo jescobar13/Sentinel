@@ -21,11 +21,30 @@ namespace WarehouseSentinel.Viwers.Clients
     /// </summary>
     public partial class ContacteWindow : Window
     {
+        /// <summary>
+        /// Referencia obj. client.
+        /// </summary>
         private client client;
+        /// <summary>
+        /// Referencia obj. contacte.
+        /// </summary>
         private contacte contacte;
+        /// <summary>
+        /// Controller de la vista Contacte.
+        /// </summary>
         private ContacteWindowController controller;
+        /// <summary>
+        /// Mode del controller.
+        /// </summary>
         private modeControllerContacte mode;
 
+        /// <summary>
+        /// Constructor de la vista Contacte Window.
+        /// </summary>
+        /// <param name="context">Context de la base de dades.</param>
+        /// <param name="c">obj. client</param>
+        /// <param name="con">obj. contacte</param>
+        /// <param name="mode"></param>
         public ContacteWindow(SentinelDBEntities context, client c, contacte con, modeControllerContacte mode)
         {
             InitializeComponent();
@@ -35,6 +54,12 @@ namespace WarehouseSentinel.Viwers.Clients
             controller = new ContacteWindowController(context);
         }
 
+        /// <summary>
+        /// Carrega el contingut dels objectes client i contactes a la vista segons el mode 
+        /// en què s'ha obert la vista.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             label_nomEmpresa.Content = client.nom;
@@ -58,6 +83,11 @@ namespace WarehouseSentinel.Viwers.Clients
             }
         }
 
+        /// <summary>
+        /// Afegeix el client a la base de dades.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_AfegirClient_Click(object sender, RoutedEventArgs e)
         {
             contacte.personaNom = textBox_nomContacte.Text;
@@ -72,6 +102,11 @@ namespace WarehouseSentinel.Viwers.Clients
             MessageBox.Show(retorna, "Informació", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
+        /// <summary>
+        /// Aplica les modificacions al contacte carregat.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_AplicarCanvisClient_Click(object sender, RoutedEventArgs e)
         {
             contacte.personaNom = textBox_nomContacte.Text;

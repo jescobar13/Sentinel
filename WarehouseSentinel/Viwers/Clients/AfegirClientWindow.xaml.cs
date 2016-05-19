@@ -21,12 +21,29 @@ namespace WarehouseSentinel.Viwers.Clients
     /// </summary>
     public partial class AfegirClientWindow : Window
     {
-        //Prova de commentari
+        /// <summary>
+        /// Referencia obj. client
+        /// </summary>
         private client client;
+        /// <summary>
+        /// Controlador de la vista Afegir Client.
+        /// </summary>
         private AfegirClientWindowController controller;
+        /// <summary>
+        /// Mode del Controlador.
+        /// </summary>
         modeControllerClient mode;
+        /// <summary>
+        /// Context de la base de dades.
+        /// </summary>
         private SentinelDBEntities context;
 
+        /// <summary>
+        /// Constructor de la vista Afegir Client
+        /// </summary>
+        /// <param name="c">obj. client</param>
+        /// <param name="mode">mode en el que s'obre la vista.</param>
+        /// <param name="context">Context de la base de dades.</param>
         public AfegirClientWindow(client c, modeControllerClient mode, SentinelDBEntities context)
         {
             InitializeComponent();
@@ -36,6 +53,9 @@ namespace WarehouseSentinel.Viwers.Clients
             this.context = context;
         }
 
+        /// <summary>
+        /// Event que actua al carregar la vista.
+        /// </summary>
         private void afegirClientWindow_Loaded(object sender, RoutedEventArgs e)
         {
             textBox_CIF.Text = client.CIF;
@@ -62,17 +82,30 @@ namespace WarehouseSentinel.Viwers.Clients
             }
         }
 
+        /// <summary>
+        /// Event que actua cada vegada que es carrega la ListView de contactes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listView_contactes_Loaded(object sender, RoutedEventArgs e)
         {
             actualitzaLlistaContactes();
         }
 
+        /// <summary>
+        /// Actualitza els contactes de la listView Contactes.
+        /// </summary>
         private void actualitzaLlistaContactes()
         {
             listView_contactes.ItemsSource = null;
             listView_contactes.ItemsSource = controller.donemContactes(client);
         }
 
+        /// <summary>
+        /// Event que actua al fer clic al butto d'aplicar els canvis.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_AplicarCanvisClient_Click(object sender, RoutedEventArgs e)
         {
             client.nom = textBox_EmpresaNom.Text;
@@ -92,6 +125,12 @@ namespace WarehouseSentinel.Viwers.Clients
             Close();
         }
 
+        /// <summary>
+        /// Event que actua al clic del button Afegir Client, executa l'accio de afegir
+        /// el client nou a la base de dades.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_AfegirClient_Click(object sender, RoutedEventArgs e)
         {
             client.CIF = textBox_CIF.Text;
@@ -113,6 +152,11 @@ namespace WarehouseSentinel.Viwers.Clients
             Close();
         }
 
+        /// <summary>
+        /// Event que s'associa al button afegri Contacte.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_afegirContacte_Click(object sender, RoutedEventArgs e)
         {
             ContacteWindow contacteWindow = new ContacteWindow(
@@ -121,6 +165,11 @@ namespace WarehouseSentinel.Viwers.Clients
             actualitzaLlistaContactes();
         }
 
+        /// <summary>
+        /// Event que s'associa al button modificar Contacte.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_modificarContacte_Click(object sender, RoutedEventArgs e)
         {
             if(listView_contactes.SelectedItems.Count == 1)
@@ -137,6 +186,11 @@ namespace WarehouseSentinel.Viwers.Clients
             }
         }
 
+        /// <summary>
+        /// Event que s'associa al button eliminar Contacte.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_eliminarContacte_Click(object sender, RoutedEventArgs e)
         {
             if(listView_contactes.SelectedItems.Count == 1)

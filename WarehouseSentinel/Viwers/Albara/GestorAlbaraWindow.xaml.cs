@@ -20,8 +20,14 @@ namespace WarehouseSentinel.Viwers.Albara
     /// </summary>
     public partial class GestorAlbaraWindow : Window
     {
+        /// <summary>
+        /// Controlador de la vista.
+        /// </summary>
         GestorAlbaraWindowController controller;
 
+        /// <summary>
+        /// Constructor de la vista Gestor Albara.
+        /// </summary>
         public GestorAlbaraWindow()
         {
             InitializeComponent();
