@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,11 @@ namespace WarehouseSentinel.Viwers.Albara
         {
             InitializeComponent();
             controller = new GestorAlbaraWindowController(this);
+        }
+
+        private void btn_playComanda_Click(object sender, RoutedEventArgs e)
+        {
+            controller.obreBascula();
         }
     }
 }

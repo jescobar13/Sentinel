@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,8 @@ namespace WarehouseSentinel.Controllers.Albara
         /// </summary>
         TComanda tComanda;
 
+        public delegate void SetTextDeleg(string text);
+
         /// <summary>
         /// Constructor. Controller de la vista Gestor Albara
         /// </summary>
@@ -37,6 +40,12 @@ namespace WarehouseSentinel.Controllers.Albara
             this.gestorAlbaraWindow.Show();
 
             tComanda = new TComanda(context);
+        }
+
+        internal void obreBascula()
+        {
+            BasculaR232 basculaR232 = new BasculaR232("COM4", 9600, Parity.None, 8, StopBits.One, this);
+            basculaR232.connect();
         }
 
         List<string> valors;
@@ -69,6 +78,17 @@ namespace WarehouseSentinel.Controllers.Albara
             Console.WriteLine("\r");
             Console.WriteLine(valors.Count);
             Console.WriteLine("\r");
+
+            if (!valors[0].Equals("0"))
+                primerValor = valors[0];
+
+            bool iguals = valors.TrueForAll(EndsWithSaurus);
+
+            if (iguals)
+                gestorAlbaraWindow.label_pesBascula.Content = primerValor;
+
+            Console.WriteLine("======== {0} ========", primerValor);
+            Console.WriteLine("======== {0} ========", iguals);
         }
 
         public void comencaPesar()
@@ -76,7 +96,7 @@ namespace WarehouseSentinel.Controllers.Albara
             Timer aTimer = new Timer();
             aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
             aTimer.Interval = 100;
-            aTimer.Enabled = true;
+            //aTimer.Enabled = true;
         }
 
         string primerValor = "5";

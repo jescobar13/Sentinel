@@ -5,6 +5,7 @@ using System.Threading;
 using System.Collections;
 using System.Timers;
 using System.Collections.Generic;
+using static WarehouseSentinel.Controllers.Albara.GestorAlbaraWindowController;
 
 namespace WarehouseSentinel.Controllers.Albara
 {
@@ -13,14 +14,13 @@ namespace WarehouseSentinel.Controllers.Albara
         private SerialPort serialPort;
         GestorAlbaraWindowController controller;
 
-        private int BaudRate { get; set; }
-        private int DataBits { get; set; }
-        private Handshake Handshake { get; set; }
-        private Parity Parity { get; set; }
-        private string PortName { get; set; }
-        private StopBits StopBits { get; set; }
+        public int BaudRate { get; set; }
+        public int DataBits { get; set; }
+        public Handshake Handshake { get; set; }
+        public Parity Parity { get; set; }
+        public string PortName { get; set; }
+        public StopBits StopBits { get; set; }
 
-        public delegate void SetTextDeleg(string text);
 
         public string Data { get; set; }
 
@@ -48,6 +48,11 @@ namespace WarehouseSentinel.Controllers.Albara
             serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
             serialPort.Open();
             controller.comencaPesar();
+        }
+
+        public void disconnect()
+        {
+            serialPort.Close();
         }
 
         void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
