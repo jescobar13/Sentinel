@@ -58,11 +58,11 @@ namespace WarehouseSentinel
             {
                 GestorComandesWindow gestorComandes = new GestorComandesWindow();
                 gestorComandes.Show();
-                this.Hide();
+                Hide();
             }else
             {
                 GestorAlbaraWindow gestorComandes = new GestorAlbaraWindow();
-                this.Hide();
+                Hide();
             }
                 
         }
