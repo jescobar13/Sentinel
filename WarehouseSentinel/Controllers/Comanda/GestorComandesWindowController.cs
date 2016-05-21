@@ -26,14 +26,23 @@ namespace WarehouseSentinel.Controllers
         /// </summary>
         private TLiniaComanda tLiniaComanda;
 
+        private GestorComandesWindow gestorComandesWindow;
+
+        public GestorComandesWindowController()
+        {
+
+        }
+
         /// <summary>
         /// Constructor del controller Gestor de Comandes. Constructor.
         /// </summary>
-        public GestorComandesWindowController()
+        public GestorComandesWindowController(GestorComandesWindow gestorComandesWindow)
         {
             context = new SentinelDBEntities();
             tComanda = new TComanda(context);
             tLiniaComanda = new TLiniaComanda(context);
+            this.gestorComandesWindow = gestorComandesWindow;
+            this.gestorComandesWindow.Show();
         }
 
         /// <summary>

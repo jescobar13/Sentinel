@@ -83,6 +83,16 @@ namespace WarehouseSentinel.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap img_btnPlay {
+            get {
+                object obj = ResourceManager.GetObject("img_btnPlay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ModContact {
             get {
                 object obj = ResourceManager.GetObject("ModContact", resourceCulture);

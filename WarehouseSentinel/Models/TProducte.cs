@@ -61,5 +61,13 @@ namespace WarehouseSentinel.Models
             return (from taulaProducte in context.producte
                     select taulaProducte).ToList();
         }
+
+        internal producte getByID(int producte_id)
+        {
+            return (from tProducte in context.producte
+                    where tProducte.id == producte_id
+                    select tProducte)
+                    .FirstOrDefault();
+        }
     }
 }

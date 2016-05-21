@@ -22,5 +22,9 @@ namespace WarehouseSentinel.Controllers
             this.mainWindow = mainWindow;
         }
 
+        public void visualitzaMainWindow()
+        {
+            mainWindow.Visibility = System.Windows.Visibility.Visible;
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace WarehouseSentinel
         public MainWindow()
         {
             controller = new MainWindowController(this);
-            
+
             InitializeComponent();
         }
 
@@ -56,15 +56,23 @@ namespace WarehouseSentinel
         {
             if (textBox_user.Text.Equals("jescobar"))
             {
-                GestorComandesWindow gestorComandes = new GestorComandesWindow();
-                gestorComandes.Show();
-                Hide();
-            }else
-            {
-                GestorAlbaraWindow gestorComandes = new GestorAlbaraWindow();
+                GestorComandesWindow gestorComandes = new GestorComandesWindow(controller);
                 Hide();
             }
-                
+            else
+            {
+                GestorAlbaraWindow gestorComandes = new GestorAlbaraWindow(controller);
+                Hide();
+            }
+
+        }
+
+        private void btn_cancel_Click(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Are you shure exit?", "Information", MessageBoxButton.YesNo, MessageBoxImage.Hand) == MessageBoxResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }

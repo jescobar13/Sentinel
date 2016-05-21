@@ -26,11 +26,16 @@ namespace WarehouseSentinel.Viwers.Comanda
         /// Controlador del gestor de comandes
         /// </summary>
         private GestorComandesWindowController controller;
+        /// <summary>
+        /// Controlador del MainWindow
+        /// </summary>
+        private MainWindowController mainWindowController;
 
-
-        public GestorComandesWindow()
+        public GestorComandesWindow(MainWindowController mainWindowController)
         {
             InitializeComponent();
+            controller = new GestorComandesWindowController(this);
+            this.mainWindowController = mainWindowController;
         }
 
         /// <summary>
@@ -40,7 +45,6 @@ namespace WarehouseSentinel.Viwers.Comanda
         /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            controller = new GestorComandesWindowController();
             actualitzaCapcaleresComandes();
         }
 
@@ -91,6 +95,11 @@ namespace WarehouseSentinel.Viwers.Comanda
         {
             ReportView rw = new ReportView();
             rw.Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mainWindowController.visualitzaMainWindow();
         }
     }
 }

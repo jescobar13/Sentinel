@@ -188,6 +188,7 @@ namespace WarehouseSentinel.Viwers.Comanda
                     == MessageBoxResult.Cancel) return;
 
                 comanda.estat = "pendent";
+                controller.modificaComanda(comanda);
                 Close();
             }
         }

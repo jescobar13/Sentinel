@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarehouseSentinel.Viwers.Albara"
         mc:Ignorable="d"
-        Title="GestorAlbaraWindow" Height="819.678" Width="1246.016" WindowState="Maximized">
+        Title="GestorAlbaraWindow" Height="819.678" Width="1246.016" WindowState="Maximized" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
@@ -28,21 +28,16 @@
                 <DataGrid x:Name="dataGrid_capcaleraComandes" Margin="10"
                           ItemsSource="{Binding Source=list}" AutoGenerateColumns="False"
                           CanUserResizeColumns="True" MinColumnWidth="70" IsReadOnly="True"
-                          AlternatingRowBackground="#FFE0E3F0" FontSize="24">
+                          AlternatingRowBackground="#FFE0E3F0" FontSize="24" Loaded="dataGrid_capcaleraComandes_Loaded" SelectionChanged="dataGrid_capcaleraComandes_SelectionChanged">
 
                     <DataGrid.Columns>
 
-                        <DataGridTextColumn Header="Client" Binding="{Binding Client_CIF}"/>
-                        <DataGridTextColumn Header="Data Comanda" Binding="{Binding dataComanda, StringFormat={}{0:dd.MM.yyyy}}"/>
-                        <DataGridTextColumn Header="Data Entrega" Binding="{Binding dataEntrega, StringFormat={}{0:dd.MM.yyyy}}"/>
+                        <DataGridTextColumn Width="100" Header="Order ID" Binding="{Binding ComandaID}"/>
+                        <DataGridTextColumn Width="100" Header="Client ID" Binding="{Binding ClientCIF}"/>
+                        <DataGridTextColumn Width="200" Header="Client" Binding="{Binding ClientNom}"/>
+                        <DataGridTextColumn Width="300" Header="Desti" Binding="{Binding Localitat}"/>
 
-                        <DataGridTemplateColumn Width="90" Header="">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button x:Name="btn_playComanda" Height="45" Padding="3" Margin="3" VerticalAlignment="Center"  HorizontalAlignment="Center" HorizontalContentAlignment="Center" Content="Play" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                        
 
                     </DataGrid.Columns>
 
@@ -53,21 +48,25 @@
                 <DataGrid x:Name="dataGrid_LiniesComandes" Margin="10"
                           ItemsSource="{Binding Source=list}" AutoGenerateColumns="False"
                           CanUserResizeColumns="True" MinColumnWidth="70" IsReadOnly="True"
-                          AlternatingRowBackground="#FFE0E3F0">
+                          AlternatingRowBackground="#FFE0E3F0" FontSize="24">
 
                     <DataGrid.Columns>
-
-                        <DataGridTextColumn Header="Client" Binding="{Binding Client_CIF}"/>
-                        <DataGridTextColumn Header="Data Comanda" Binding="{Binding dataComanda, StringFormat={}{0:dd.MM.yyyy}}"/>
-                        <DataGridTextColumn Header="Data Entrega" Binding="{Binding dataEntrega, StringFormat={}{0:dd.MM.yyyy}}"/>
 
                         <DataGridTemplateColumn Width="90" Header="">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button x:Name="btn_playComanda" Height="25" Padding="3" Margin="3" VerticalAlignment="Center"  HorizontalAlignment="Center" HorizontalContentAlignment="Center" Content="Play" Click="btn_playComanda_Click" />
+                                    <Button x:Name="btn_playComanda" Width="45" Height="45" Padding="3" Margin="3" VerticalAlignment="Center"  HorizontalAlignment="Center" HorizontalContentAlignment="Center" Content="" Click="btn_playComanda_Click" >
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/img_btnPlay.png" Stretch="None" TileMode="Tile"/>
+                                        </Button.Background>
+                                    </Button>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
+                        
+                        <DataGridTextColumn Header="Prod ID" Binding="{Binding Producte_id}"/>
+                        <DataGridTextColumn Header="Product" Binding="{Binding producte.nom}"/>
+                        <DataGridTextColumn Width="100" Header="QTY" Binding="{Binding quantitat}"/>
 
                     </DataGrid.Columns>
 
@@ -94,7 +93,7 @@
 
             <!--#region Tituls Labels dreta superior-->
             <Grid Background="#FFE5E5E5" Grid.Row="0" Margin="0" Grid.ColumnSpan="3">
-                <Label Margin="0" x:Name="label_nomProducte" Content="FUET" HorizontalAlignment="Center" VerticalAlignment="Center" Height="135" Width="768" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="90"/>
+                <Label Margin="0" x:Name="lbl_nomProducte" Content="Product Name" HorizontalAlignment="Center" VerticalAlignment="Center" Height="135" Width="768" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="90"/>
             </Grid>
 
             <Grid Background="#FFE5E5E5" Grid.Row="1"  Grid.Column="0" Margin="2" Grid.ColumnSpan="3">
@@ -102,11 +101,11 @@
             </Grid>
 
             <Grid Background="#FFE5E5E5" Grid.Row="2"  Grid.Column="0" Margin="2">
-                <Label Margin="0" x:Name="label_0" Content="U. Pendents" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40"/>
+                <Label Margin="0" x:Name="label_0" Content="Pending U." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40"/>
             </Grid>
 
             <Grid Background="#FFE5E5E5" Grid.Row="2"  Grid.Column="1" Margin="2" Grid.RowSpan="1">
-                <Label Margin="0" x:Name="label_1" Content="U. Fetes" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40"/>
+                <Label Margin="0" x:Name="label_1" Content="Finished U." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40"/>
             </Grid>
 
             <Grid Background="#FFE5E5E5" Grid.Row="4"  Grid.Column="1" Margin="0" Grid.ColumnSpan="2">
@@ -118,10 +117,10 @@
                 <Label Grid.Row="1" x:Name="label_pesBascula" Content="X.XXX" Grid.Column="2" Margin="0,0,0,0" VerticalContentAlignment="Center" FontSize="55" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold"/>
             </Grid>
             
-            <Label x:Name="label" Content="X" Grid.Column="0" Margin="0,0,0,0" Grid.Row="3" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center"/>
-            <Label x:Name="label2" Content="X" Grid.Column="1" Margin="0,0,0,0" Grid.Row="3" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lbl_caixa_unitatsPendents" Content="X" Grid.Column="0" Margin="0,0,0,0" Grid.Row="3" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lbl_caixa_unitatsFetes" Content="X" Grid.Column="1" Margin="0,0,0,0" Grid.Row="3" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center"/>
 
-            <Label x:Name="label4" Content="X.XXX" Grid.Column="1" Margin="0,0,0,0" Grid.Row="5" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+            <Label x:Name="lbl_caixa_pesTotal" Content="X.XXX" Grid.Column="1" Margin="0,0,0,0" Grid.Row="5" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
         </Grid>
 
         <Grid Margin="0" Grid.Column="1" Grid.Row="1">
@@ -167,12 +166,12 @@
             </Grid>
             <!--#endregion-->
 
-            <Label x:Name="label222" Content="X" Grid.Column="0" Margin="0,0,0,0" Grid.Row="2" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center"/>
-            <Label x:Name="label22222" Content="X" Grid.Column="1" Margin="0,0,0,0" Grid.Row="2" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center"/>
-            <Label x:Name="label3222" Content="X" Grid.Column="2" Margin="0,0,0,0" Grid.Row="2" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center"/>
-            <Label x:Name="label32223" Content="X" Grid.Column="3" Margin="0,0,0,0" Grid.Row="2" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lbl_t_unitatsPendents" Content="X" Grid.Column="0" Margin="0,0,0,0" Grid.Row="2" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lbl_t_unitatsFetes" Content="X" Grid.Column="1" Margin="0,0,0,0" Grid.Row="2" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lbl_t_caixesPendents" Content="X" Grid.Column="2" Margin="0,0,0,0" Grid.Row="2" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lbl_t_caixesFetes" Content="X" Grid.Column="3" Margin="0,0,0,0" Grid.Row="2" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center"/>
 
-            <Label x:Name="label224" Content="X.XXX" Grid.Column="2" Margin="0,0,0,0" Grid.Row="5" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"/>
+            <Label x:Name="lbl_t_pesTotal" Content="X.XXX" Grid.Column="2" Margin="0,0,0,0" Grid.Row="5" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"/>
         </Grid>
     </Grid>
 </Window>

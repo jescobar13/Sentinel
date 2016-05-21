@@ -85,6 +85,7 @@
     <Compile Include="Models\albara.cs">
       <DependentUpon>SentinelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CapComanda.cs" />
     <Compile Include="Models\client.cs">
       <DependentUpon>SentinelDB.tt</DependentUpon>
     </Compile>
@@ -275,6 +276,9 @@
       <DependentUpon>SentinelDB.edmx</DependentUpon>
       <LastGenOutput>SentinelDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\img_btnPlay.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

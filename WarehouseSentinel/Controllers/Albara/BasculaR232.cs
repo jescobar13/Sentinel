@@ -47,7 +47,6 @@ namespace WarehouseSentinel.Controllers.Albara
             serialPort.RtsEnable = true;
             serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
             serialPort.Open();
-            controller.comencaPesar();
         }
 
         public void disconnect()

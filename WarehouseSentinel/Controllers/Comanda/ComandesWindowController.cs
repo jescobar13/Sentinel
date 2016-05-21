@@ -51,6 +51,19 @@ namespace WarehouseSentinel.Controllers
             return tClient.getClientsActius();
         }
 
+        internal bool modificaComanda(comanda c)
+        {
+            try
+            {
+                tComanda.modify(c);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         /// <summary>
         /// Guarda una comanda a la base de dades.
         /// </summary>
