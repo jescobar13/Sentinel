@@ -27,5 +27,10 @@ namespace WarehouseSentinel.Models
             context.registre.Add(reg);
             context.SaveChanges();
         }
+
+        internal void modify(registre registreSessio)
+        {
+            context.SaveChanges();
+        }
     }
 }

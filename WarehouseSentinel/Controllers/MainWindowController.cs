@@ -42,6 +42,7 @@ namespace WarehouseSentinel.Controllers
         }
 
         private log_in usuariLogat;
+        private registre registreSessio;
 
         public void visualitzaMainWindow()
         {
@@ -64,21 +65,32 @@ namespace WarehouseSentinel.Controllers
                 {
                     if (usuariLogat.password.Equals(password))
                     {
-                        registre reg = new registre();
-                        reg.dataEntrada = DateTime.Now;
-                        reg.log_in = usuariLogat;
+                        registreSessio = null;
+                        registreSessio = new registre();
+                        registreSessio.dataEntrada = DateTime.Now;
+                        registreSessio.log_in = usuariLogat;
 
-                        tRegistre.add(reg);
+                        tRegistre.add(registreSessio);
                         return true;
                     }
                 }
 
                 return false;
             }
-            catch
+            catch (Exception ex)
             {
+
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Registra la sortida del usuari logajat.
+        /// </summary>
+        internal void registreSortida()
+        {
+            registreSessio.dataSortida = DateTime.Now;
+            tRegistre.modify(registreSessio);
         }
 
         /// <summary>
@@ -97,5 +109,7 @@ namespace WarehouseSentinel.Controllers
                 mainWindow.Hide();
             }
         }
+
+
     }
 }

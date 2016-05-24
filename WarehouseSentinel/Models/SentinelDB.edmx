@@ -113,7 +113,7 @@
             <PropertyRef Name="id" />
             <PropertyRef Name="Log-In_id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="dataEntrada" Type="datetime" Precision="0" />
           <Property Name="dataSortida" Type="datetime" Precision="0" />
           <Property Name="Log-In_id" Type="int" Nullable="false" />
@@ -419,7 +419,7 @@
             <PropertyRef Name="id" />
             <PropertyRef Name="Log_In_id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="dataEntrada" Type="DateTime" />
           <Property Name="dataSortida" Type="DateTime" />
           <Property Name="Log_In_id" Type="Int32" Nullable="false" />

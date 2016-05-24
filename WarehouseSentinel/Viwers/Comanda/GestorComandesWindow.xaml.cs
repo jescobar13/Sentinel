@@ -99,6 +99,7 @@ namespace WarehouseSentinel.Viwers.Comanda
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            mainWindowController.registreSortida();
             mainWindowController.visualitzaMainWindow();
         }
     }
