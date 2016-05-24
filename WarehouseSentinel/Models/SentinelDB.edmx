@@ -96,6 +96,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="usuari" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="permisos" Type="varchar" MaxLength="15" Nullable="false" />
         </EntityType>
         <EntityType Name="producte">
           <Key>
@@ -399,6 +400,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="usuari" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="password" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="permisos" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="registre" Relationship="SentinelWarehouseDB.fk_Registre_Log_In1" FromRole="log_in" ToRole="registre" />
         </EntityType>
         <EntityType Name="producte">
@@ -607,6 +609,7 @@
           <EntitySetMapping Name="log_in">
             <EntityTypeMapping TypeName="SentinelWarehouseDB.log_in">
               <MappingFragment StoreEntitySet="log-in">
+                <ScalarProperty Name="permisos" ColumnName="permisos" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="usuari" ColumnName="usuari" />
                 <ScalarProperty Name="id" ColumnName="id" />

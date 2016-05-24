@@ -40,9 +40,6 @@ namespace WarehouseSentinel
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //GestorComandesWindow gestorComandes = new GestorComandesWindow();
-            //gestorComandes.Show();
-
 
         }
 
@@ -54,22 +51,19 @@ namespace WarehouseSentinel
         /// <param name="e"></param>
         private void btn_logIn_Click(object sender, RoutedEventArgs e)
         {
-            if (textBox_user.Text.Equals("jescobar"))
+            if (controller.isRegistry(textBox_user.Text, passwordBox.Password))
             {
-                GestorComandesWindow gestorComandes = new GestorComandesWindow(controller);
-                Hide();
+                controller.obreFinestre();
             }
             else
             {
-                GestorAlbaraWindow gestorComandes = new GestorAlbaraWindow(controller);
-                Hide();
+                MessageBox.Show("The user or password are incorrect or do not exist.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-
         }
 
         private void btn_cancel_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Are you shure exit?", "Information", MessageBoxButton.YesNo, MessageBoxImage.Hand) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Are you shure exit?", "Information", MessageBoxButton.YesNo, MessageBoxImage.Hand) == MessageBoxResult.Yes)
             {
                 Close();
             }

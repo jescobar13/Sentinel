@@ -31,6 +31,8 @@ namespace WarehouseSentinel.Models
         public DbSet<contacte> contacte { get; set; }
         public DbSet<liniaalbara> liniaalbara { get; set; }
         public DbSet<liniacomanda> liniacomanda { get; set; }
+        public DbSet<log_in> log_in { get; set; }
         public DbSet<producte> producte { get; set; }
+        public DbSet<registre> registre { get; set; }
     }
 }

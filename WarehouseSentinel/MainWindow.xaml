@@ -5,17 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarehouseSentinel"
         mc:Ignorable="d"
-        Title="LogInWindow" Height="377.101" Width="346.699" WindowStartupLocation="CenterScreen">
+        Title="LogInWindow" Height="560.101" Width="454.699" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label x:Name="label" Content="User:" HorizontalAlignment="Left" Margin="74,173,0,0" VerticalAlignment="Top" Width="59" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-        <Label x:Name="label_Copy" Content="Password:" HorizontalAlignment="Left" Margin="74,204,0,0" VerticalAlignment="Top" Width="59" HorizontalContentAlignment="Right"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="280" Margin="104,28,0,0" VerticalAlignment="Top" Width="283" Source="pack://siteoforigin:,,,/Resources/sense logo.png"/>
 
-        <TextBox x:Name="textBox_user" HorizontalAlignment="Left" Height="23" Margin="138,174,0,0" TextWrapping="Wrap" Text="jescobar" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <PasswordBox x:Name="passwordBox" Height="23" HorizontalAlignment="Left" Margin="138,205,0,0" VerticalAlignment="Top" Width="120" Password="patata" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="label" Content="User:" HorizontalAlignment="Left" Margin="131,332,0,0" VerticalAlignment="Top" Width="59" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <Label x:Name="label_Copy" Content="Password:" HorizontalAlignment="Left" Margin="131,363,0,0" VerticalAlignment="Top" Width="59" HorizontalContentAlignment="Right"/>
 
-        <Button x:Name="btn_logIn" Content="Connect" HorizontalAlignment="Left" Margin="47,250,0,0" VerticalAlignment="Top" Width="240" Height="32" Click="btn_logIn_Click"/>
-        <Label x:Name="label1" Content="Log In:" HorizontalAlignment="Left" Margin="47,134,0,0" VerticalAlignment="Top" Width="86" Height="34" FontSize="14" FontStyle="Italic"/>
-        <Button x:Name="btn_cancel" Content="Cancel / Exit" HorizontalAlignment="Left" Margin="47,287,0,0" VerticalAlignment="Top" Width="240" Height="32" Click="btn_cancel_Click"/>
+        <TextBox x:Name="textBox_user" HorizontalAlignment="Left" Height="23" Margin="195,333,0,0" TextWrapping="Wrap" Text="jescobar" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <PasswordBox x:Name="passwordBox" Height="23" HorizontalAlignment="Left" Margin="195,364,0,0" VerticalAlignment="Top" Width="120" Password="patata" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+        <Button x:Name="btn_logIn" Content="Connect" HorizontalAlignment="Left" Margin="104,409,0,0" VerticalAlignment="Top" Width="240" Height="32" Click="btn_logIn_Click"/>
+        <Label x:Name="label1" Content="Log In:" HorizontalAlignment="Left" Margin="104,293,0,0" VerticalAlignment="Top" Width="86" Height="34" FontSize="14" FontStyle="Italic"/>
+        <Button x:Name="btn_cancel" Content="Cancel / Exit" HorizontalAlignment="Left" Margin="104,446,0,0" VerticalAlignment="Top" Width="240" Height="32" Click="btn_cancel_Click"/>
 
     </Grid>
 </Window>

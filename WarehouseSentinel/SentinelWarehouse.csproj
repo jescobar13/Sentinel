@@ -101,7 +101,13 @@
     <Compile Include="Models\liniacomanda.cs">
       <DependentUpon>SentinelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\log_in.cs">
+      <DependentUpon>SentinelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\producte.cs">
+      <DependentUpon>SentinelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\registre.cs">
       <DependentUpon>SentinelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SentinelDB.Context.cs">
@@ -123,7 +129,9 @@
     <Compile Include="Models\TComanda.cs" />
     <Compile Include="Models\TContacte.cs" />
     <Compile Include="Models\TLiniaComanda.cs" />
+    <Compile Include="Models\TLog-In.cs" />
     <Compile Include="Models\TProducte.cs" />
+    <Compile Include="Models\TRegistre.cs" />
     <Compile Include="Viwers\Albara\GestorAlbaraWindow.xaml.cs">
       <DependentUpon>GestorAlbaraWindow.xaml</DependentUpon>
     </Compile>
@@ -276,6 +284,9 @@
       <DependentUpon>SentinelDB.edmx</DependentUpon>
       <LastGenOutput>SentinelDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\sense logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\img_btnPlay.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
