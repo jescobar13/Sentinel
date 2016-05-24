@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WarehouseSentinel.App" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAEAAAAAAAggAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WarehouseSentinel.Controllers.Albara.BasculaR232" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAABEAgAAAAAgAAAAAABAAAoAEAAAUgAA=</HashCode>
+      <FileName>Controllers\Albara\BasculaR232.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Controllers.Albara.GestorAlbaraWindowController" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAiBgggGAAAAAgRwQAAEQIAaABAhEADAQgYAAEYAIE=</HashCode>
+      <FileName>Controllers\Albara\GestorAlbaraWindowController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Controllers.AfegirClientWindowController" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAIAAAAAAAAAAAAEAJAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Controllers\Client-Contacte\AfegirClientWindowController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Controllers.ClientsWindowController" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACAAEAACAAAAAAAAAAAAAAEABAAAAAAAEACAAIAAA=</HashCode>
+      <FileName>Controllers\Client-Contacte\ClientsWindowController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Controllers.ContacteWindowController" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAACAAAAAAAAAggBAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\Client-Contacte\ContacteWindowController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Controllers.ComandesWindowController" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAAgAAAAAAAAAAACAAQAASAAQAAAQAAEAAAAAAIA=</HashCode>
+      <FileName>Controllers\Comanda\ComandesWindowController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Controllers.GestorComandesWindowController" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAIACAQAAAAAAAEAAAAQAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Controllers\Comanda\GestorComandesWindowController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Controllers.MainWindowController" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABQEAAAAAAAACAIAAAAABQAAAAQAAAAABAAAAAA=</HashCode>
+      <FileName>Controllers\MainWindowController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Controllers.Producte.AfegirProducteWindowController" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAIAAAAAAAAAAAAAAIAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Controllers\Producte\AfegirProducteWindowController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Controllers.Producte.ProducteWindowController" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Controllers\Producte\ProducteWindowController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.CapComanda" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAgAAEAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Models\CapComanda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.SentinelDBEntities" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgABQAAAAgAEAAAAAAABAAAEAAAAAAAAAAABAAQABA=</HashCode>
+      <FileName>Models\SentinelDB.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.albara" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIBAAABAAAAAAAAAIAAAAAAAACAAAAAAAACAAAABA=</HashCode>
+      <FileName>Models\albara.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.client" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAABAAAQIAAAAAEAAAAIAAAIAAAAAAAAAAAAAAQAEA=</HashCode>
+      <FileName>Models\client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.comanda" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgKAAAAIAAAEAAAAAAAAAAAAAACABAAAAAABABAAAA=</HashCode>
+      <FileName>Models\comanda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.contacte" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAABAAAAAAAEAAAAAAABABAAgA=</HashCode>
+      <FileName>Models\contacte.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.liniaalbara" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAgAAAEAAAAAEAAACgAAAAAAAAAAAQAAAAAgA=</HashCode>
+      <FileName>Models\liniaalbara.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.liniacomanda" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABQAABAgAAAAAABAAAAAAAAAAAAACAAAACAAAAhA=</HashCode>
+      <FileName>Models\liniacomanda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.log_in" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAgAAAAAAAAAgAAAgA=</HashCode>
+      <FileName>Models\log_in.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.producte" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAACAAAAAAAAAABAAIAAAAAAAAAAAAAAAEAAAAgA=</HashCode>
+      <FileName>Models\producte.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.registre" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABAAAAAAAgAAAAAAAAAAAAAAAABAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\registre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.TClient" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAABEAAAACAAAAAAAAAAAAAAAAAICAAA=</HashCode>
+      <FileName>Models\TClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.TComanda" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAEAAAgAAAAAAAAAAAAAAAAAAICAAA=</HashCode>
+      <FileName>Models\TComanda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.TContacte" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCAAAAACAAAAAEAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Models\TContacte.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.TLiniaComanda" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAEAAAAAAAAAAAAAAAAAAAAAAICAAA=</HashCode>
+      <FileName>Models\TLiniaComanda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.TLog_In" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Models\TLog-In.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.TProducte" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAEAAAAAAAAAAAAAAAAAAAAAAICAIA=</HashCode>
+      <FileName>Models\TProducte.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Models.TRegistre" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Models\TRegistre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Properties.Resources" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAgAhEAAAAQAAAQAAAAAAAAAAAIE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Properties.Settings" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WarehouseSentinel.Viwers.Albara.GestorAlbaraWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAEQABAAAAAAAAAAAAAgAIAAMAAMAAA=</HashCode>
+      <FileName>Viwers\Albara\GestorAlbaraWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WarehouseSentinel.Viwers.Clients.AfegirClientWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAEAAAAAAGAAAAAAQEAAAgAAAACYAAABAAAAAA=</HashCode>
+      <FileName>Viwers\Clients\AfegirClientWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WarehouseSentinel.Viwers.Clients.ContacteWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAGAAAAAAAgAAAAAAAAAIAAABAAQAAA=</HashCode>
+      <FileName>Viwers\Clients\ContacteWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WarehouseSentinel.Viwers.ClientsWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACEARAgAAAACAAGAAAAAACgAAAAAAAECABAAAAABAAA=</HashCode>
+      <FileName>Viwers\Clients\ClientsWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WarehouseSentinel.Viwers.Comanda.GestorComandesWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAABEAAggAAAAAEAQAAIAAAAAAAAA=</HashCode>
+      <FileName>Viwers\Comanda\GestorComandesWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WarehouseSentinel.Viwers.Comanda.ComandaWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAABAAAAAAAAAEACAAAAQggAAAAAAAAAAACBAAEQAA=</HashCode>
+      <FileName>Viwers\Comanda\NovaComandaWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WarehouseSentinel.Viwers.Comanda.NovaLiniaComandaWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQBAAAACIAAAEAAAAAAAgAACAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Viwers\Comanda\NovaLiniaComandaWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WarehouseSentinel.Viwers.Comanda.SelecClientWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAEAAAAAgAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Viwers\Comanda\SelecClientWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WarehouseSentinel.Viwers.Producte.AfegirProducteWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAIAAAAAAGAAAAAAQgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Viwers\Producte\AfegirProducteWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WarehouseSentinel.Viwers.Producta.ProducteWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAEAAAAgAAgAAAgAAQAAAAAAAAAAACA=</HashCode>
+      <FileName>Viwers\Producte\ProducteWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WarehouseSentinel.Viwers.Reports.ReportView" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAiAEAAAAAACAAAACAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Viwers\Reports\ReportView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="WarehouseSentinel.Controllers.modeControllerClient" Collapsed="true">
+    <Position X="2.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\Client-Contacte\AfegirClientWindowController.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="WarehouseSentinel.Controllers.FiltratPer" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAYCBAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAEA=</HashCode>
+      <FileName>Controllers\Client-Contacte\ClientsWindowController.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="WarehouseSentinel.Controllers.ModeVisualitzacioClients" Collapsed="true">
+    <Position X="7.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\Client-Contacte\ClientsWindowController.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="WarehouseSentinel.Controllers.modeControllerContacte" Collapsed="true">
+    <Position X="4" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAIAAA=</HashCode>
+      <FileName>Controllers\Client-Contacte\ContacteWindowController.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="WarehouseSentinel.Controllers.Producte.modeControllerProducte" Collapsed="true">
+    <Position X="5.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAIAAA=</HashCode>
+      <FileName>Controllers\Producte\ProducteWindowController.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\WarehouseSentinel.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -247,6 +248,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SentinelDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
     <None Include="DOCS BD\esquema.mwb" />
     <None Include="DOCS BD\esquema.mwb.bak" />
     <None Include="Models\SentinelDB.edmx.diagram">
@@ -262,7 +264,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\AddContact.png" />
   </ItemGroup>

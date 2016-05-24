@@ -166,7 +166,6 @@ namespace WarehouseSentinel.Controllers.Albara
                 }
                 else
                 {
-                    Caixa_QuantitatFalta--;
                     Caixa_QuantitatFet++;
                     Caixa_pesTotal += pes;
                 }
@@ -210,8 +209,10 @@ namespace WarehouseSentinel.Controllers.Albara
         private int caixaQuantitatFalta;
         private int caixaQuantitatFet;
         private decimal caixa_pesTotal;
-        private int caixa_unitatsFalta;
 
+        /// <summary>
+        /// Quantitat de productes que falten pesar per caixa.
+        /// </summary>
         public int Caixa_QuantitatFalta
         {
             get { return caixaQuantitatFalta; }
@@ -222,16 +223,23 @@ namespace WarehouseSentinel.Controllers.Albara
             }
         }
 
+        /// <summary>
+        /// Quantitat de produtes que s'han pesat per caixa.
+        /// </summary>
         private int Caixa_QuantitatFet
         {
             get { return caixaQuantitatFet; }
             set
             {
                 caixaQuantitatFet = value;
+                Caixa_QuantitatFalta--;
                 OnValorsGestorAlbaraChanged(new EventArgs());
             }
         }
 
+        /// <summary>
+        /// Pes de la caixa en total.
+        /// </summary>
         private decimal Caixa_pesTotal
         {
             get { return caixa_pesTotal; }
@@ -242,22 +250,15 @@ namespace WarehouseSentinel.Controllers.Albara
             }
         }
 
-        private int Caixa_unitatsFalta
-        {
-            get { return caixa_unitatsFalta; }
-            set
-            {
-                caixa_unitatsFalta = value;
-                OnValorsGestorAlbaraChanged(new EventArgs());
-            }
-        }
-
         private int total_QuantitatPendent;
         private int total_QuantitatFet;
         private decimal total_PesTotal;
         private int total_CaixesFetes;
         private int total_CaixesPendents;
 
+        /// <summary>
+        /// Total de caixes pendents que falta per fer.
+        /// </summary>
         public int Total_CaixesPendents
         {
             get { return total_CaixesPendents; }
@@ -267,7 +268,10 @@ namespace WarehouseSentinel.Controllers.Albara
                 OnValorsGestorAlbaraChanged(new EventArgs());
             }
         }
-
+        
+        /// <summary>
+        /// Total de caixes fetes.
+        /// </summary>
         public int Total_CaixesFetes
         {
             get { return total_CaixesFetes; }
@@ -278,6 +282,9 @@ namespace WarehouseSentinel.Controllers.Albara
             }
         }
 
+        /// <summary>
+        /// Pes total de les caixes.
+        /// </summary>
         public decimal Total_PesTotal
         {
             get { return total_PesTotal; }
@@ -288,6 +295,9 @@ namespace WarehouseSentinel.Controllers.Albara
             }
         }
 
+        /// <summary>
+        /// Quantitat d'unitats fetes en total.
+        /// </summary>
         public int Total_QuantitatFet
         {
             get { return total_QuantitatFet; }
@@ -298,6 +308,9 @@ namespace WarehouseSentinel.Controllers.Albara
             }
         }
 
+        /// <summary>
+        /// Quantitat d'unitats pendents en total.
+        /// </summary>
         public int Total_QuantitatPendent
         {
             get { return total_QuantitatPendent; }
@@ -334,7 +347,9 @@ namespace WarehouseSentinel.Controllers.Albara
 
             //Caixa
 
-            if (p.unitatCaixa < quantitat.GetValueOrDefault())
+            Caixa_QuantitatFet = 0;
+
+            if (p.unitatCaixa <= quantitat.GetValueOrDefault())
             {
                 Caixa_QuantitatFalta = p.unitatCaixa.GetValueOrDefault();
             }
@@ -342,8 +357,6 @@ namespace WarehouseSentinel.Controllers.Albara
             {
                 Caixa_QuantitatFalta = quantitat.GetValueOrDefault();
             }
-
-            Caixa_QuantitatFet = 0;
 
             Caixa_pesTotal = 0;
         }
