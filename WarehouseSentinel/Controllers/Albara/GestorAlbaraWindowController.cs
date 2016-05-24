@@ -54,10 +54,26 @@ namespace WarehouseSentinel.Controllers.Albara
             gestorAlbaraWindow.Close();
         }
 
+        BasculaR232 basculaR232;
+
         internal void obreBascula()
         {
-            BasculaR232 basculaR232 = new BasculaR232("COM6", 9600, Parity.None, 8, StopBits.One, this);
-            basculaR232.connect();
+            if (basculaR232 == null)
+            {
+                basculaR232 = new BasculaR232("COM6", 9600, Parity.None, 8, StopBits.One, this);
+                basculaR232.connect();
+            }
+            else
+            {
+                basculaR232.close();
+                basculaR232 = null;
+                obreBascula();
+            }
+        }
+
+        internal void tancaBascula()
+        {
+            basculaR232.close();
         }
 
         internal IEnumerable donemCapcaleresComandes()
@@ -117,7 +133,9 @@ namespace WarehouseSentinel.Controllers.Albara
 
             if (iguals)
             {
-                gestorAlbaraWindow.label_pesBascula.Content = string.Format("{0}", (Convert.ToDecimal(primerValor) / 1000).ToString());
+                decimal pesada = (Convert.ToDecimal(primerValor) / 1000);
+
+                novaPesada(pesada);
             }
 
 
@@ -126,6 +144,49 @@ namespace WarehouseSentinel.Controllers.Albara
             Console.WriteLine("======== {0} ========", iguals);
         }
 
+        private bool zeroPesat { get; set; }
+        private decimal ultimPes { get; set; }
+
+        private int caixesTotals { get; set; }
+
+        private void novaPesada(decimal pes)
+        {
+            if (pes == 0)
+            {
+                zeroPesat = true;
+                gestorAlbaraWindow.label_pesBascula.Content = string.Format("- {0} -", pes.ToString());
+                return;
+            }
+
+            if (zeroPesat)
+            {
+                if (Caixa_QuantitatFalta == 0)
+                {
+                    
+                }
+                else
+                {
+                    Caixa_QuantitatFalta--;
+                    Caixa_QuantitatFet++;
+                    Caixa_pesTotal += pes;
+                }
+
+                
+
+
+                Total_PesTotal += pes;
+
+                gestorAlbaraWindow.label_pesBascula.Content = string.Format("{0}", pes.ToString());
+
+                ultimPes = pes;
+                zeroPesat = false;
+            }
+
+
+        }
+
+        private liniacomanda liniaComandaActual;
+
         /// <summary>
         /// Actua sobre la Linia de comanda Seleccionada i comença el proces de pesatge; També actualitza
         /// els labels de la pantalla.
@@ -133,7 +194,15 @@ namespace WarehouseSentinel.Controllers.Albara
         /// <param name="liniaComandaSeleccionada">Linia de comanda Seleccionada per executar.</param>
         internal int processaLiniaComanda(liniacomanda liniaComandaSeleccionada)
         {
+            if (liniaComandaSeleccionada == null) return 1;
+
+            gestorAlbaraWindow.dataGrid_LiniesComandes.IsEnabled = false;
+
+            liniaComandaActual = liniaComandaSeleccionada;
+
             calculaValors(liniaComandaSeleccionada.quantitat, liniaComandaSeleccionada.Producte_id);
+
+            obreBascula();
 
             return 0;
         }
@@ -239,29 +308,6 @@ namespace WarehouseSentinel.Controllers.Albara
             }
         }
 
-        /// <summary>
-        /// Es produeix quan els valors de la linia de comanda canvien.
-        /// </summary>
-        public event EventHandler ValorsGestorAlbaraChanged;
-
-        /// <summary>
-        /// Genera el event ValorsGestorAlbaraChanged
-        /// </summary>
-        protected virtual void OnValorsGestorAlbaraChanged(EventArgs e)
-        {
-            ValorsGestorAlbaraChanged?.Invoke(this, e);
-
-            gestorAlbaraWindow.lbl_t_unitatsPendents.Content = Total_QuantitatPendent.ToString();
-            gestorAlbaraWindow.lbl_t_unitatsFetes.Content = Total_QuantitatFet.ToString();
-            gestorAlbaraWindow.lbl_t_pesTotal.Content = Total_PesTotal.ToString();
-            gestorAlbaraWindow.lbl_t_caixesFetes.Content = Total_CaixesFetes.ToString();
-            gestorAlbaraWindow.lbl_t_caixesPendents.Content = Total_CaixesPendents.ToString();
-
-            gestorAlbaraWindow.lbl_caixa_unitatsPendents.Content = Caixa_QuantitatFalta.ToString();
-            gestorAlbaraWindow.lbl_caixa_pesTotal.Content = Caixa_pesTotal.ToString();
-            gestorAlbaraWindow.lbl_caixa_unitatsFetes.Content = Caixa_QuantitatFet.ToString();
-        }
-
         private void calculaValors(int? quantitat, int producte_id)
         {
             producte p = new TProducte(context).getByID(producte_id);
@@ -275,17 +321,16 @@ namespace WarehouseSentinel.Controllers.Albara
             Total_PesTotal = 0;
             Total_CaixesFetes = 0;
 
-            
-
             if (quantitat % p.unitatCaixa == 0)
             {
                 Total_CaixesPendents = quantitat.GetValueOrDefault() / p.unitatCaixa.GetValueOrDefault();
+                caixesTotals = Total_CaixesPendents;
             }
             else
             {
                 Total_CaixesPendents = quantitat.GetValueOrDefault() / p.unitatCaixa.GetValueOrDefault() + 1;
+                caixesTotals = Total_CaixesPendents;
             }
-
 
             //Caixa
 
@@ -308,6 +353,29 @@ namespace WarehouseSentinel.Controllers.Albara
         private bool EndsWithSaurus(string s)
         {
             return s.ToLower().EndsWith(primerValor);
+        }
+
+        /// <summary>
+        /// Es produeix quan els valors de la linia de comanda canvien.
+        /// </summary>
+        public event EventHandler ValorsGestorAlbaraChanged;
+
+        /// <summary>
+        /// Genera el event ValorsGestorAlbaraChanged
+        /// </summary>
+        protected virtual void OnValorsGestorAlbaraChanged(EventArgs e)
+        {
+            ValorsGestorAlbaraChanged?.Invoke(this, e);
+
+            gestorAlbaraWindow.lbl_t_unitatsPendents.Content = Total_QuantitatPendent.ToString();
+            gestorAlbaraWindow.lbl_t_unitatsFetes.Content = Total_QuantitatFet.ToString();
+            gestorAlbaraWindow.lbl_t_pesTotal.Content = Total_PesTotal.ToString();
+            gestorAlbaraWindow.lbl_t_caixesFetes.Content = Total_CaixesFetes.ToString();
+            gestorAlbaraWindow.lbl_t_caixesPendents.Content = Total_CaixesPendents.ToString();
+
+            gestorAlbaraWindow.lbl_caixa_unitatsPendents.Content = Caixa_QuantitatFalta.ToString();
+            gestorAlbaraWindow.lbl_caixa_pesTotal.Content = Caixa_pesTotal.ToString();
+            gestorAlbaraWindow.lbl_caixa_unitatsFetes.Content = Caixa_QuantitatFet.ToString();
         }
     }
 }

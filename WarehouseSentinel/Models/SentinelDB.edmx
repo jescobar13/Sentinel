@@ -89,6 +89,14 @@
           <Property Name="Comanda_Client_Contacte_id" Type="int" Nullable="false" />
           <Property Name="Producte_id" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="log-in">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuari" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="8" Nullable="false" />
+        </EntityType>
         <EntityType Name="producte">
           <Key>
             <PropertyRef Name="id" />
@@ -98,6 +106,16 @@
           <Property Name="preuKg" Type="double" />
           <Property Name="unitatCaixa" Type="int" />
           <Property Name="EAN13" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="registre">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Log-In_id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="dataEntrada" Type="datetime" Precision="0" />
+          <Property Name="dataSortida" Type="datetime" Precision="0" />
+          <Property Name="Log-In_id" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="fk_Albara_Comanda1">
           <End Role="comanda" Type="Self.comanda" Multiplicity="1" />
@@ -185,6 +203,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_Registre_Log-In1">
+          <End Role="log-in" Type="Self.log-in" Multiplicity="1" />
+          <End Role="registre" Type="Self.registre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="log-in">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="registre">
+              <PropertyRef Name="Log-In_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SentinelWarehouseDBStoreContainer">
           <EntitySet Name="albara" EntityType="Self.albara" Schema="sentinelwarehousedb" store:Type="Tables" />
           <EntitySet Name="client" EntityType="Self.client" Schema="sentinelwarehousedb" store:Type="Tables" />
@@ -192,7 +222,9 @@
           <EntitySet Name="contacte" EntityType="Self.contacte" Schema="sentinelwarehousedb" store:Type="Tables" />
           <EntitySet Name="liniaalbara" EntityType="Self.liniaalbara" Schema="sentinelwarehousedb" store:Type="Tables" />
           <EntitySet Name="liniacomanda" EntityType="Self.liniacomanda" Schema="sentinelwarehousedb" store:Type="Tables" />
+          <EntitySet Name="log-in" EntityType="Self.log-in" Schema="sentinelwarehousedb" store:Type="Tables" />
           <EntitySet Name="producte" EntityType="Self.producte" Schema="sentinelwarehousedb" store:Type="Tables" />
+          <EntitySet Name="registre" EntityType="Self.registre" Schema="sentinelwarehousedb" store:Type="Tables" />
           <AssociationSet Name="fk_Albara_Comanda1" Association="Self.fk_Albara_Comanda1">
             <End Role="comanda" EntitySet="comanda" />
             <End Role="albara" EntitySet="albara" />
@@ -217,6 +249,10 @@
             <End Role="producte" EntitySet="producte" />
             <End Role="liniacomanda" EntitySet="liniacomanda" />
           </AssociationSet>
+          <AssociationSet Name="fk_Registre_Log-In1" Association="Self.fk_Registre_Log-In1">
+            <End Role="log-in" EntitySet="log-in" />
+            <End Role="registre" EntitySet="registre" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -229,7 +265,9 @@
           <EntitySet Name="contacte" EntityType="SentinelWarehouseDB.contacte" />
           <EntitySet Name="liniaalbara" EntityType="SentinelWarehouseDB.liniaalbara" />
           <EntitySet Name="liniacomanda" EntityType="SentinelWarehouseDB.liniacomanda" />
+          <EntitySet Name="log_in" EntityType="SentinelWarehouseDB.log_in" />
           <EntitySet Name="producte" EntityType="SentinelWarehouseDB.producte" />
+          <EntitySet Name="registre" EntityType="SentinelWarehouseDB.registre" />
           <AssociationSet Name="fk_Albara_Comanda1" Association="SentinelWarehouseDB.fk_Albara_Comanda1">
             <End Role="comanda" EntitySet="comanda" />
             <End Role="albara" EntitySet="albara" />
@@ -253,6 +291,10 @@
           <AssociationSet Name="fk_LiniaComanda_Producte1" Association="SentinelWarehouseDB.fk_LiniaComanda_Producte1">
             <End Role="producte" EntitySet="producte" />
             <End Role="liniacomanda" EntitySet="liniacomanda" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Registre_Log_In1" Association="SentinelWarehouseDB.fk_Registre_Log_In1">
+            <End Role="log_in" EntitySet="log_in" />
+            <End Role="registre" EntitySet="registre" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="albara">
@@ -350,6 +392,15 @@
           <NavigationProperty Name="comanda" Relationship="SentinelWarehouseDB.fk_LiniaComanda_Comanda1" FromRole="liniacomanda" ToRole="comanda" />
           <NavigationProperty Name="producte" Relationship="SentinelWarehouseDB.fk_LiniaComanda_Producte1" FromRole="liniacomanda" ToRole="producte" />
         </EntityType>
+        <EntityType Name="log_in">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuari" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="registre" Relationship="SentinelWarehouseDB.fk_Registre_Log_In1" FromRole="log_in" ToRole="registre" />
+        </EntityType>
         <EntityType Name="producte">
           <Key>
             <PropertyRef Name="id" />
@@ -360,6 +411,17 @@
           <Property Name="unitatCaixa" Type="Int32" />
           <Property Name="EAN13" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="liniacomanda" Relationship="SentinelWarehouseDB.fk_LiniaComanda_Producte1" FromRole="producte" ToRole="liniacomanda" />
+        </EntityType>
+        <EntityType Name="registre">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Log_In_id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="dataEntrada" Type="DateTime" />
+          <Property Name="dataSortida" Type="DateTime" />
+          <Property Name="Log_In_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="log_in" Relationship="SentinelWarehouseDB.fk_Registre_Log_In1" FromRole="registre" ToRole="log_in" />
         </EntityType>
         <Association Name="fk_Albara_Comanda1">
           <End Type="SentinelWarehouseDB.comanda" Role="comanda" Multiplicity="1" />
@@ -447,6 +509,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_Registre_Log_In1">
+          <End Type="SentinelWarehouseDB.log_in" Role="log_in" Multiplicity="1" />
+          <End Type="SentinelWarehouseDB.registre" Role="registre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="log_in">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="registre">
+              <PropertyRef Name="Log_In_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -530,6 +604,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="log_in">
+            <EntityTypeMapping TypeName="SentinelWarehouseDB.log_in">
+              <MappingFragment StoreEntitySet="log-in">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="usuari" ColumnName="usuari" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="producte">
             <EntityTypeMapping TypeName="SentinelWarehouseDB.producte">
               <MappingFragment StoreEntitySet="producte">
@@ -537,6 +620,16 @@
                 <ScalarProperty Name="unitatCaixa" ColumnName="unitatCaixa" />
                 <ScalarProperty Name="preuKg" ColumnName="preuKg" />
                 <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="registre">
+            <EntityTypeMapping TypeName="SentinelWarehouseDB.registre">
+              <MappingFragment StoreEntitySet="registre">
+                <ScalarProperty Name="Log_In_id" ColumnName="Log-In_id" />
+                <ScalarProperty Name="dataSortida" ColumnName="dataSortida" />
+                <ScalarProperty Name="dataEntrada" ColumnName="dataEntrada" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

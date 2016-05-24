@@ -11,7 +11,7 @@ namespace WarehouseSentinel.Controllers.Albara
 {
     public class BasculaR232
     {
-        private SerialPort serialPort;
+        public SerialPort serialPort;
         GestorAlbaraWindowController controller;
 
         public int BaudRate { get; set; }
@@ -49,7 +49,7 @@ namespace WarehouseSentinel.Controllers.Albara
             serialPort.Open();
         }
 
-        public void disconnect()
+        internal void close()
         {
             serialPort.Close();
         }
@@ -69,5 +69,7 @@ namespace WarehouseSentinel.Controllers.Albara
                 Console.WriteLine(ex.Message);
             }
         }
+
+
     }
 }

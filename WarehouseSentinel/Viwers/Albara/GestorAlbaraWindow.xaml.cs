@@ -72,7 +72,7 @@ namespace WarehouseSentinel.Viwers.Albara
                 MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
             {
                 CapComandaSelected = dataGrid_capcaleraComandes.SelectedItem as CapComanda;
-                //dataGrid_capcaleraComandes.IsEnabled = false;
+                dataGrid_capcaleraComandes.IsEnabled = false;
                 actualitzaLiniesComanda(CapComandaSelected);
             }
         }
