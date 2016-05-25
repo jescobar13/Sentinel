@@ -21,6 +21,7 @@ namespace WarehouseSentinel.Models
         public int Albara_Comanda_codi { get; set; }
         public string Albara_Comanda_Client_CIF { get; set; }
         public int Albara_Comanda_Client_Contacte_id { get; set; }
+        public Nullable<int> caixa { get; set; }
     
         public virtual albara albara { get; set; }
     }

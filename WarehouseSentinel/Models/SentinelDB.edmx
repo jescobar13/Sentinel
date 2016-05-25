@@ -72,6 +72,7 @@
           <Property Name="Albara_Comanda_codi" Type="int" Nullable="false" />
           <Property Name="Albara_Comanda_Client_CIF" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Albara_Comanda_Client_Contacte_id" Type="int" Nullable="false" />
+          <Property Name="caixa" Type="int" />
         </EntityType>
         <EntityType Name="liniacomanda">
           <Key>
@@ -373,6 +374,7 @@
           <Property Name="Albara_Comanda_codi" Type="Int32" Nullable="false" />
           <Property Name="Albara_Comanda_Client_CIF" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Albara_Comanda_Client_Contacte_id" Type="Int32" Nullable="false" />
+          <Property Name="caixa" Type="Int32" />
           <NavigationProperty Name="albara" Relationship="SentinelWarehouseDB.fk_LiniaAlbara_Albara1" FromRole="liniaalbara" ToRole="albara" />
         </EntityType>
         <EntityType Name="liniacomanda">
@@ -583,6 +585,7 @@
           <EntitySetMapping Name="liniaalbara">
             <EntityTypeMapping TypeName="SentinelWarehouseDB.liniaalbara">
               <MappingFragment StoreEntitySet="liniaalbara">
+                <ScalarProperty Name="caixa" ColumnName="caixa" />
                 <ScalarProperty Name="Albara_Comanda_Client_Contacte_id" ColumnName="Albara_Comanda_Client_Contacte_id" />
                 <ScalarProperty Name="Albara_Comanda_Client_CIF" ColumnName="Albara_Comanda_Client_CIF" />
                 <ScalarProperty Name="Albara_Comanda_codi" ColumnName="Albara_Comanda_codi" />

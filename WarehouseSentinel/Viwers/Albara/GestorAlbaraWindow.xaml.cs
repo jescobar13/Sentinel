@@ -75,6 +75,7 @@ namespace WarehouseSentinel.Viwers.Albara
                 CapComandaSelected = dataGrid_capcaleraComandes.SelectedItem as CapComanda;
                 dataGrid_capcaleraComandes.IsEnabled = false;
                 actualitzaLiniesComanda(CapComandaSelected);
+                controller.comandaSelec(CapComandaSelected.ComandaID);
             }
         }
 

@@ -62,6 +62,14 @@ namespace WarehouseSentinel.Models
                     select taulaComandes).ToList();
         }
 
+        internal comanda getByIDComanda(int comandaID)
+        {
+            return (from tComanda in context.comanda
+                    where tComanda.codi == comandaID
+                    select tComanda)
+                    .FirstOrDefault();
+        }
+
         /// <summary>
         /// Llista les comandes d'un client concret.
         /// </summary>

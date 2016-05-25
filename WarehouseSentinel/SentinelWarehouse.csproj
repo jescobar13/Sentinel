@@ -126,9 +126,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SentinelDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\TAlbara.cs" />
     <Compile Include="Models\TClient.cs" />
     <Compile Include="Models\TComanda.cs" />
     <Compile Include="Models\TContacte.cs" />
+    <Compile Include="Models\TLiniaAlbara.cs" />
     <Compile Include="Models\TLiniaComanda.cs" />
     <Compile Include="Models\TLog-In.cs" />
     <Compile Include="Models\TProducte.cs" />

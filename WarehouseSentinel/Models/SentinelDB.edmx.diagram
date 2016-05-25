@@ -5,15 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ff0da16aea1c494ea9bc790ba4610005" Name="Diagram1">
-        <EntityTypeShape EntityType="SentinelWarehouseDB.albara" Width="1.5" PointX="5.25" PointY="10" />
-        <EntityTypeShape EntityType="SentinelWarehouseDB.client" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="SentinelWarehouseDB.comanda" Width="1.5" PointX="3" PointY="6.5" />
+        <EntityTypeShape EntityType="SentinelWarehouseDB.albara" Width="1.5" PointX="3.625" PointY="6.375" />
+        <EntityTypeShape EntityType="SentinelWarehouseDB.client" Width="1.5" PointX="0.75" PointY="3.125" />
+        <EntityTypeShape EntityType="SentinelWarehouseDB.comanda" Width="1.5" PointX="0.625" PointY="6.375" />
         <EntityTypeShape EntityType="SentinelWarehouseDB.contacte" Width="1.5" PointX="3" PointY="3" />
-        <EntityTypeShape EntityType="SentinelWarehouseDB.liniaalbara" Width="1.5" PointX="7.5" PointY="10" />
-        <EntityTypeShape EntityType="SentinelWarehouseDB.liniacomanda" Width="1.5" PointX="5.25" PointY="6.5" />
-        <EntityTypeShape EntityType="SentinelWarehouseDB.log_in" Width="1.5" PointX="5.75" PointY="0.875" />
-        <EntityTypeShape EntityType="SentinelWarehouseDB.producte" Width="1.5" PointX="3" PointY="10.75" />
-        <EntityTypeShape EntityType="SentinelWarehouseDB.registre" Width="1.5" PointX="8" PointY="0.875" />
+        <EntityTypeShape EntityType="SentinelWarehouseDB.liniaalbara" Width="1.5" PointX="6.25" PointY="6.25" />
+        <EntityTypeShape EntityType="SentinelWarehouseDB.liniacomanda" Width="1.5" PointX="0.75" PointY="9.625" />
+        <EntityTypeShape EntityType="SentinelWarehouseDB.log_in" Width="1.5" PointX="5.625" PointY="3.5" />
+        <EntityTypeShape EntityType="SentinelWarehouseDB.producte" Width="1.5" PointX="3.125" PointY="9.75" />
+        <EntityTypeShape EntityType="SentinelWarehouseDB.registre" Width="1.5" PointX="8" PointY="3.5" />
         <AssociationConnector Association="SentinelWarehouseDB.fk_Albara_Comanda1" />
         <AssociationConnector Association="SentinelWarehouseDB.fk_LiniaAlbara_Albara1" />
         <AssociationConnector Association="SentinelWarehouseDB.fk_Comanda_Client1" />

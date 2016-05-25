@@ -33,6 +33,10 @@ namespace WarehouseSentinel.Controllers.Albara
         /// </summary>
         TLiniaComanda tLiniaComanda;
 
+        TAlbara tAlbara;
+
+        TLiniaAlbara tLiniaAlbara;
+
         public delegate void SetTextDeleg(string text);
 
         /// <summary>
@@ -47,6 +51,8 @@ namespace WarehouseSentinel.Controllers.Albara
 
             tComanda = new TComanda(context);
             tLiniaComanda = new TLiniaComanda(context);
+            tAlbara = new TAlbara(context);
+            tLiniaAlbara = new TLiniaAlbara(context);
         }
 
         internal void closeGestorAlbaraWindow()
@@ -54,26 +60,17 @@ namespace WarehouseSentinel.Controllers.Albara
             gestorAlbaraWindow.Close();
         }
 
-        BasculaR232 basculaR232;
 
-        internal void obreBascula()
+        internal void comandaSelec(int comandaID)
         {
-            if (basculaR232 == null)
-            {
-                basculaR232 = new BasculaR232("COM6", 9600, Parity.None, 8, StopBits.One, this);
-                basculaR232.connect();
-            }
-            else
-            {
-                basculaR232.close();
-                basculaR232 = null;
-                obreBascula();
-            }
-        }
+            comandaActual = tComanda.getByIDComanda(comandaID);
 
-        internal void tancaBascula()
-        {
-            basculaR232.close();
+            albaraActual = new albara();
+            albaraActual.comanda = comandaActual;
+            albaraActual.dataAlbara = DateTime.Now;
+            albaraActual.dataEntrega = comandaActual.dataEntrega;
+
+            tAlbara.add(albaraActual);
         }
 
         internal IEnumerable donemCapcaleresComandes()
@@ -96,115 +93,18 @@ namespace WarehouseSentinel.Controllers.Albara
             return tLiniaComanda.getAll(codiComanda);
         }
 
+        BasculaR232 basculaR232;
         List<string> valors;
 
-        public void tactamentPesBascula(string data)
-        {
-            string[] pesos;
-            valors = new List<string>();
-
-            Console.WriteLine("\r");
-            Console.WriteLine(valors.Count);
-            Console.WriteLine("\r");
-
-            //textBox_detall.Text = Data + "\r \n";
-            pesos = data.Split(new[] { '\r', '\u0002', '\u0003' });
-
-            foreach (string s in pesos)
-            {
-                if (s.Length > 6)
-                {
-                    string pes = s.Remove(0, 1);
-                    pes = pes.Remove(pes.Length - 1);
-                    pes = pes.Replace(" ", "");
-                    valors.Add(pes);
-                    Console.WriteLine(pes);
-                }
-            }
-
-
-            Console.WriteLine("\r");
-            Console.WriteLine(valors.Count);
-            Console.WriteLine("\r");
-
-            primerValor = valors[0];
-
-            bool iguals = valors.TrueForAll(EndsWithSaurus);
-
-            if (iguals)
-            {
-                decimal pesada = (Convert.ToDecimal(primerValor) / 1000);
-
-                novaPesada(pesada);
-            }
-
-
-
-            Console.WriteLine("======== {0} ========", primerValor);
-            Console.WriteLine("======== {0} ========", iguals);
-        }
-
         private bool zeroPesat { get; set; }
-        private decimal ultimPes { get; set; }
-
         private int caixesTotals { get; set; }
 
-        private void novaPesada(decimal pes)
-        {
-            if (pes == 0)
-            {
-                zeroPesat = true;
-                gestorAlbaraWindow.label_pesBascula.Content = string.Format("- {0} -", pes.ToString());
-                return;
-            }
-
-            if (zeroPesat)
-            {
-                if (Caixa_QuantitatFalta == 0)
-                {
-                    
-                }
-                else
-                {
-                    Caixa_QuantitatFet++;
-                    Caixa_pesTotal += pes;
-                }
-
-                
-
-
-                Total_PesTotal += pes;
-
-                gestorAlbaraWindow.label_pesBascula.Content = string.Format("{0}", pes.ToString());
-
-                ultimPes = pes;
-                zeroPesat = false;
-            }
-
-
-        }
-
+        private comanda comandaActual;
         private liniacomanda liniaComandaActual;
-
-        /// <summary>
-        /// Actua sobre la Linia de comanda Seleccionada i comença el proces de pesatge; També actualitza
-        /// els labels de la pantalla.
-        /// </summary>
-        /// <param name="liniaComandaSeleccionada">Linia de comanda Seleccionada per executar.</param>
-        internal int processaLiniaComanda(liniacomanda liniaComandaSeleccionada)
-        {
-            if (liniaComandaSeleccionada == null) return 1;
-
-            gestorAlbaraWindow.dataGrid_LiniesComandes.IsEnabled = false;
-
-            liniaComandaActual = liniaComandaSeleccionada;
-
-            calculaValors(liniaComandaSeleccionada.quantitat, liniaComandaSeleccionada.Producte_id);
-
-            obreBascula();
-
-            return 0;
-        }
+        private producte producteSeleccionat;
+        private albara albaraActual;
+        private liniaalbara liniaAlbaraActual;
+        private int codiCaixa { get; set; }
 
         private int caixaQuantitatFalta;
         private int caixaQuantitatFet;
@@ -268,7 +168,7 @@ namespace WarehouseSentinel.Controllers.Albara
                 OnValorsGestorAlbaraChanged(new EventArgs());
             }
         }
-        
+
         /// <summary>
         /// Total de caixes fetes.
         /// </summary>
@@ -278,6 +178,7 @@ namespace WarehouseSentinel.Controllers.Albara
             set
             {
                 total_CaixesFetes = value;
+                Total_CaixesPendents--;
                 OnValorsGestorAlbaraChanged(new EventArgs());
             }
         }
@@ -304,6 +205,7 @@ namespace WarehouseSentinel.Controllers.Albara
             set
             {
                 total_QuantitatFet = value;
+                Total_QuantitatPendent--;
                 OnValorsGestorAlbaraChanged(new EventArgs());
             }
         }
@@ -321,11 +223,153 @@ namespace WarehouseSentinel.Controllers.Albara
             }
         }
 
+        internal void obreBascula()
+        {
+            if (basculaR232 == null)
+            {
+                basculaR232 = new BasculaR232("COM6", 9600, Parity.None, 8, StopBits.One, this);
+                basculaR232.connect();
+            }
+            else
+            {
+                basculaR232.close();
+                basculaR232 = null;
+                obreBascula();
+            }
+        }
+
+        /// <summary>
+        /// Executa el tractament del string que envia per serial la balança.
+        /// </summary>
+        /// <param name="data"></param>
+        public void tactamentPesBascula(string data)
+        {
+            string[] pesos;
+            valors = new List<string>();
+
+            Console.WriteLine("\r");
+            Console.WriteLine(valors.Count);
+            Console.WriteLine("\r");
+
+            //textBox_detall.Text = Data + "\r \n";
+            pesos = data.Split(new[] { '\r', '\u0002', '\u0003' });
+
+            foreach (string s in pesos)
+            {
+                if (s.Length > 6)
+                {
+                    string pes = s.Remove(0, 1);
+                    pes = pes.Remove(pes.Length - 1);
+                    pes = pes.Replace(" ", "");
+                    valors.Add(pes);
+                    Console.WriteLine(pes);
+                }
+            }
+
+
+            Console.WriteLine("\r");
+            Console.WriteLine(valors.Count);
+            Console.WriteLine("\r");
+
+            primerValor = valors[0];
+
+            bool iguals = valors.TrueForAll(EndsWithSaurus);
+
+            if (iguals)
+            {
+                decimal pesada = (Convert.ToDecimal(primerValor) / 1000);
+
+                novaPesada(pesada);
+            }
+
+
+
+            Console.WriteLine("======== {0} ========", primerValor);
+            Console.WriteLine("======== {0} ========", iguals);
+        }
+
+        private void novaPesada(decimal pes)
+        {
+            if (pes == 0)
+            {
+                zeroPesat = true;
+                gestorAlbaraWindow.label_pesBascula.Content = string.Format("- {0} -", pes.ToString());
+
+                
+                if (Caixa_QuantitatFalta == 0)
+                {
+                    System.Windows.MessageBox.Show("Change Box", "Stop", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+
+                    Caixa_QuantitatFet = 0;
+
+                    
+
+                    if (producteSeleccionat.unitatCaixa <= liniaComandaActual.quantitat.GetValueOrDefault())
+                        Caixa_QuantitatFalta = producteSeleccionat.unitatCaixa.GetValueOrDefault();
+                    else
+                        Caixa_QuantitatFalta = liniaComandaActual.quantitat.GetValueOrDefault();
+
+                    Total_CaixesFetes++;
+
+                    if (Total_CaixesPendents == 0)
+                    {
+                        System.Windows.MessageBox.Show("The line item has been successfully completed.", "Stop", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+                        //Proces de tencar el serial port correctament i seleccionar una altre linia de comanda.
+                        basculaR232.close();
+                    }
+                }
+
+                return;
+            }
+
+            if (zeroPesat)
+            {
+                liniaAlbaraActual = new liniaalbara();
+
+                Caixa_QuantitatFet++;
+                Total_QuantitatFet++;
+
+                liniaAlbaraActual.albara = albaraActual;
+                liniaAlbaraActual.producteNom = producteSeleccionat.nom;
+                liniaAlbaraActual.caixa = 
+
+                Caixa_pesTotal += pes;
+                Total_PesTotal += pes;
+
+                gestorAlbaraWindow.label_pesBascula.Content = string.Format("{0}", pes.ToString());
+
+                
+
+                zeroPesat = false;
+            }
+        }
+
+
+        /// <summary>
+        /// Actua sobre la Linia de comanda Seleccionada i comença el proces de pesatge; També actualitza
+        /// els labels de la pantalla.
+        /// </summary>
+        /// <param name="liniaComandaSeleccionada">Linia de comanda Seleccionada per executar.</param>
+        internal int processaLiniaComanda(liniacomanda liniaComandaSeleccionada)
+        {
+            if (liniaComandaSeleccionada == null) return 1;
+
+            gestorAlbaraWindow.dataGrid_LiniesComandes.IsEnabled = false;
+
+            liniaComandaActual = liniaComandaSeleccionada;
+
+            calculaValors(liniaComandaSeleccionada.quantitat, liniaComandaSeleccionada.Producte_id);
+
+            obreBascula();
+
+            return 0;
+        }
+
         private void calculaValors(int? quantitat, int producte_id)
         {
-            producte p = new TProducte(context).getByID(producte_id);
+            producteSeleccionat = new TProducte(context).getByID(producte_id);
 
-            gestorAlbaraWindow.lbl_nomProducte.Content = p.nom.ToUpper();
+            gestorAlbaraWindow.lbl_nomProducte.Content = producteSeleccionat.nom.ToUpper();
 
             //Totals
 
@@ -334,14 +378,14 @@ namespace WarehouseSentinel.Controllers.Albara
             Total_PesTotal = 0;
             Total_CaixesFetes = 0;
 
-            if (quantitat % p.unitatCaixa == 0)
+            if (quantitat % producteSeleccionat.unitatCaixa == 0)
             {
-                Total_CaixesPendents = quantitat.GetValueOrDefault() / p.unitatCaixa.GetValueOrDefault();
+                Total_CaixesPendents = quantitat.GetValueOrDefault() / producteSeleccionat.unitatCaixa.GetValueOrDefault();
                 caixesTotals = Total_CaixesPendents;
             }
             else
             {
-                Total_CaixesPendents = quantitat.GetValueOrDefault() / p.unitatCaixa.GetValueOrDefault() + 1;
+                Total_CaixesPendents = quantitat.GetValueOrDefault() / producteSeleccionat.unitatCaixa.GetValueOrDefault() + 1;
                 caixesTotals = Total_CaixesPendents;
             }
 
@@ -349,9 +393,9 @@ namespace WarehouseSentinel.Controllers.Albara
 
             Caixa_QuantitatFet = 0;
 
-            if (p.unitatCaixa <= quantitat.GetValueOrDefault())
+            if (producteSeleccionat.unitatCaixa <= quantitat.GetValueOrDefault())
             {
-                Caixa_QuantitatFalta = p.unitatCaixa.GetValueOrDefault();
+                Caixa_QuantitatFalta = producteSeleccionat.unitatCaixa.GetValueOrDefault();
             }
             else
             {
