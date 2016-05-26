@@ -302,7 +302,7 @@ namespace WarehouseSentinel.Controllers.Albara
 
                     Caixa_QuantitatFet = 0;
 
-                    
+                    Caixa_pesTotal = 0;
 
                     if (producteSeleccionat.unitatCaixa <= liniaComandaActual.quantitat.GetValueOrDefault())
                         Caixa_QuantitatFalta = producteSeleccionat.unitatCaixa.GetValueOrDefault();
@@ -316,6 +316,7 @@ namespace WarehouseSentinel.Controllers.Albara
                         System.Windows.MessageBox.Show("The line item has been successfully completed.", "Stop", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
                         //Proces de tencar el serial port correctament i seleccionar una altre linia de comanda.
                         basculaR232.close();
+                        gestorAlbaraWindow.dataGrid_LiniesComandes.IsEnabled = true;
                     }
                 }
 
@@ -331,7 +332,7 @@ namespace WarehouseSentinel.Controllers.Albara
 
                 liniaAlbaraActual.albara = albaraActual;
                 liniaAlbaraActual.producteNom = producteSeleccionat.nom;
-                liniaAlbaraActual.caixa = 
+                //liniaAlbaraActual.caixa = 
 
                 Caixa_pesTotal += pes;
                 Total_PesTotal += pes;

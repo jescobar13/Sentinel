@@ -41,6 +41,7 @@ namespace WarehouseSentinel.Controllers
             context = new SentinelDBEntities();
             tComanda = new TComanda(context);
             tLiniaComanda = new TLiniaComanda(context);
+
             this.gestorComandesWindow = gestorComandesWindow;
             this.gestorComandesWindow.Show();
         }
@@ -73,6 +74,37 @@ namespace WarehouseSentinel.Controllers
             cif = "S3959337A";
 
             return tComanda.getByCIFClient(cif);
+        }
+
+        internal IEnumerable donemLiniesComandaByCodiComanda(int codi)
+        {
+            return tLiniaComanda.getByCodiComanda(codi);
+        }
+
+        internal bool guardaComanda(comanda c)
+        {
+            try
+            {
+                tComanda.modify(c);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        internal bool eliminaComanda(comanda c)
+        {
+            try
+            {
+                tComanda.remove(c);
+                return true;
+            }
+            catch
+            {
+                return true;
+            }
         }
     }
 }

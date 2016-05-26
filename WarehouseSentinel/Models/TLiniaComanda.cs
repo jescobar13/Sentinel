@@ -64,6 +64,14 @@ namespace WarehouseSentinel.Models
                     select tLiniacomanda)
                     .ToList();
         }
+
+        internal IEnumerable getByCodiComanda(int codi)
+        {
+            return (from tLiniaComanda in context.liniacomanda
+                    where tLiniaComanda.Comanda_codi == codi
+                    select tLiniaComanda)
+                    .ToList();
+        }
     }
 }
 

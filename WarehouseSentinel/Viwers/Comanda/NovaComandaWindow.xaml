@@ -45,7 +45,7 @@
                 <Border BorderBrush="Silver" BorderThickness="1" />
 
                 <ListView x:Name="listView_liniesComanda" Margin="10,10,233,10"
-                          ItemsSource="{Binding Source=list}" IsEnabled="False">
+                          ItemsSource="{Binding Source=list}" IsEnabled="False" SelectionChanged="listView_liniesComanda_SelectionChanged">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn x:Name="Columna_Persona" Header="Product" Width="120" DisplayMemberBinding="{Binding producte.nom}"/>
@@ -60,13 +60,13 @@
                     <Label x:Name="label7" Content="Product Data" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="154" HorizontalContentAlignment="Center" FontSize="13.333" FontStyle="Italic"/>
 
                     <Label x:Name="label7_Copy" Content="Name:" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Width="44"/>
-                    <Label x:Name="label_nomProducte" Content="---" HorizontalAlignment="Left" Margin="59,59,0,0" VerticalAlignment="Top" Width="149" HorizontalContentAlignment="Right" FontWeight="Bold"/>
+                    <Label x:Name="lbl_nomProducte" Content="---" HorizontalAlignment="Left" Margin="59,59,0,0" VerticalAlignment="Top" Width="149" HorizontalContentAlignment="Right" FontWeight="Bold"/>
 
                     <Label x:Name="label7_Copy1" Content="Price (kg):" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="65"/>
-                    <Label x:Name="label_preuKg" Content="---" HorizontalAlignment="Left" Margin="117,90,0,0" VerticalAlignment="Top" Width="91" HorizontalContentAlignment="Right" FontWeight="Bold"/>
+                    <Label x:Name="lbl_preuKg" Content="---" HorizontalAlignment="Left" Margin="117,90,0,0" VerticalAlignment="Top" Width="91" HorizontalContentAlignment="Right" FontWeight="Bold"/>
 
                     <Label x:Name="label7_Copy2" Content="Units per Box: " HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top" Width="102"/>
-                    <Label x:Name="label8_unitatCaixa" Content="---" HorizontalAlignment="Left" Margin="117,121,0,0" VerticalAlignment="Top" Width="91" HorizontalContentAlignment="Right" FontWeight="Bold"/>
+                    <Label x:Name="lbl_unitatCaixa" Content="---" HorizontalAlignment="Left" Margin="117,121,0,0" VerticalAlignment="Top" Width="91" HorizontalContentAlignment="Right" FontWeight="Bold"/>
 
 
                 </Grid>

@@ -16,7 +16,7 @@
             <Label x:Name="label_Copy" Content="Selected Product: " HorizontalAlignment="Right" Margin="0,10,211,0" VerticalAlignment="Top"/>
             <Label x:Name="label_producteSeleccionat" Content="" Margin="0,10,10,0" FontWeight="Bold" HorizontalAlignment="Right" Width="201" Height="26" VerticalAlignment="Top"/>
 
-            <DataGrid x:Name="dataGrid_productes" Margin="10,41,10,45" SelectionChanged="dataGrid_productes_SelectionChanged" Loaded="dataGrid_productes_Loaded"/>
+            <DataGrid x:Name="dataGrid_productes" Margin="10,41,10,45" SelectionChanged="dataGrid_productes_SelectionChanged" Loaded="dataGrid_productes_Loaded" IsReadOnly="True"/>
 
             <Label x:Name="label1" Content="Price kg.: " HorizontalAlignment="Left" Margin="10,0,0,14" VerticalAlignment="Bottom"/>
             <TextBox x:Name="textbox_preuKg" HorizontalAlignment="Left" Height="23" Margin="75,0,0,13" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="57"/>

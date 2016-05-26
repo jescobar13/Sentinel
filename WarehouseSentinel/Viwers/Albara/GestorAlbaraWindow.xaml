@@ -32,7 +32,7 @@
 
                     <DataGrid.Columns>
 
-                        <DataGridTextColumn Width="100" Header="Order ID" Binding="{Binding ComandaID}"/>
+                        <DataGridTextColumn Width="100" Header="Order ID" Binding="{Binding ComandaID, StringFormat=D6}"/>
                         <DataGridTextColumn Width="100" Header="Client ID" Binding="{Binding ClientCIF}"/>
                         <DataGridTextColumn Width="200" Header="Client" Binding="{Binding ClientNom}"/>
                         <DataGridTextColumn Width="300" Header="Desti" Binding="{Binding Localitat}"/>

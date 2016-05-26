@@ -53,8 +53,15 @@ namespace WarehouseSentinel.Controllers.Albara
 
         internal void close()
         {
-            serialPort.Close();
-            serialPort = null;
+            try
+            {
+                serialPort.Close();
+                serialPort = null;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)

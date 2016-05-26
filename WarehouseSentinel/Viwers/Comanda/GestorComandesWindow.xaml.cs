@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WarehouseSentinel.Controllers;
+using WarehouseSentinel.Models;
 using WarehouseSentinel.Viwers.Producta;
 using WarehouseSentinel.Viwers.Reports;
 
@@ -57,6 +58,13 @@ namespace WarehouseSentinel.Viwers.Comanda
             dataGrid_capcaleraComandes.ItemsSource = controller.donemComandes();
         }
 
+        private void actualitzaLiniesComandes()
+        {
+            if (comandaSeleccionada == null) return;
+            dataGrid_liniaComanda.ItemsSource = null;
+            dataGrid_liniaComanda.ItemsSource = controller.donemLiniesComandaByCodiComanda(comandaSeleccionada.codi);
+        }
+
         /// <summary>
         /// Obre la vista de administració de clients.
         /// </summary>
@@ -86,7 +94,7 @@ namespace WarehouseSentinel.Viwers.Comanda
         /// <param name="e"></param>
         private void btn_novaComanda_Click(object sender, RoutedEventArgs e)
         {
-            ComandaWindow comandaWindow = new ComandaWindow(controller.getBaseContext(), new Models.comanda());
+            ComandaWindow comandaWindow = new ComandaWindow(controller.getBaseContext(), new comanda());
             comandaWindow.ShowDialog();
             actualitzaCapcaleresComandes();
         }
@@ -101,6 +109,41 @@ namespace WarehouseSentinel.Viwers.Comanda
         {
             mainWindowController.registreSortida();
             mainWindowController.visualitzaMainWindow();
+        }
+
+        private comanda comandaSeleccionada;
+
+        private void dataGrid_capcaleraComandes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dataGrid_capcaleraComandes.SelectedItems.Count > 1) return;
+
+            comandaSeleccionada = dataGrid_capcaleraComandes.SelectedItem as comanda;
+
+            actualitzaLiniesComandes();
+        }
+
+
+
+        private void btn_ModificarComanda_Click(object sender, RoutedEventArgs e)
+        {
+            comanda c = dataGrid_capcaleraComandes.SelectedItem as comanda;
+            c.estat = "edit";
+            if(!controller.guardaComanda(c))return;
+
+            ComandaWindow comandaWindow = new ComandaWindow(controller.getBaseContext(), c);
+            comandaWindow.ShowDialog();
+            actualitzaCapcaleresComandes();
+        }
+
+        private void btn_EliminarComanda_Click(object sender, RoutedEventArgs e)
+        {
+            comanda c = dataGrid_capcaleraComandes.SelectedItem as comanda;
+            if (controller.eliminaComanda(c))
+                MessageBox.Show("The order has been successfully removed.", "Infromation",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            else
+                MessageBox.Show("The order has not been successfully removed.", "Infromation",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

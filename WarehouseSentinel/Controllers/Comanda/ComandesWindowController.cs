@@ -139,5 +139,18 @@ namespace WarehouseSentinel.Controllers
                     where searchTerm.Matches(v.nom).Count > 0
                     select v);
         }
+
+        internal bool eliminaLinaComanda(liniacomanda liniacomanda)
+        {
+            try
+            {
+                tLiniaComanda.remove(liniacomanda);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

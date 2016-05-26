@@ -59,9 +59,33 @@ namespace WarehouseSentinel.Viwers.Comanda
         /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (comanda.estat != null && comanda.estat.Equals("edit"))
+                {
+                    btn_selecClient.IsEnabled = false;
+                    listView_liniesComanda.IsEnabled = true;
+                    btn_novaLiniaComanda.IsEnabled = true;
+                    btn_eliminarLiniaComanda.IsEnabled = true;
+                    btn_acceptarComanda.IsEnabled = true;
 
-            datePicker_dataComanda.Text = string.Format("{0:dd/MM/yyyy}", comanda.dataComanda);
-            datePicker_dataEntrega.Text = string.Format("{0:dd/MM/yyyy}", comanda.dataEntrega);
+                    datePicker_dataComanda.Text = string.Format("{0:dd/MM/yyyy}", comanda.dataComanda);
+                    datePicker_dataEntrega.Text = string.Format("{0:dd/MM/yyyy}", comanda.dataEntrega);
+
+                    label_CIF.Content = comanda.client.CIF;
+                    label_codiPostal.Content = comanda.client.codiPostal;
+                    label_cognom.Content = comanda.client.cognom;
+                    label_nomEmpresa.Content = comanda.client.nom;
+                    label_pais.Content = comanda.client.pais;
+
+                    actualitzaLiniesComanda(comanda);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error loading data. This window will be close.", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                Close();
+            }
 
         }
 
@@ -90,7 +114,7 @@ namespace WarehouseSentinel.Viwers.Comanda
 
             if (datePicker_dataComanda.Text.Equals("") || datePicker_dataEntrega.Text.Equals(""))
             {
-                MessageBox.Show("Selecciona les dates corresponents.", "Informacio",
+                MessageBox.Show("Selec all dates.", "Information",
                     MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
@@ -172,7 +196,26 @@ namespace WarehouseSentinel.Viwers.Comanda
         /// <param name="e"></param>
         private void btn_eliminarLiniaComanda_Click(object sender, RoutedEventArgs e)
         {
+            if(listView_liniesComanda.SelectedItems.Count == 1)
+            {
+                if (controller.eliminaLinaComanda(listView_liniesComanda.SelectedItem as liniacomanda))
+                    MessageBox.Show("The line has been deleted successfully.", "Information", 
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                else
+                    MessageBox.Show("The line hasn't been deleted successfully.", "Information", 
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                foreach(liniacomanda li in listView_liniesComanda.SelectedItems)
+                    if(!controller.eliminaLinaComanda(li))
+                        MessageBox.Show("There was a problem deleting a line.", "Information", 
+                            MessageBoxButton.OK, MessageBoxImage.Information);
 
+                MessageBox.Show(listView_liniesComanda.SelectedItems.Count + " deleted records correctly", "Information",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            actualitzaLiniesComanda(comanda);
         }
 
         /// <summary>
@@ -182,18 +225,28 @@ namespace WarehouseSentinel.Viwers.Comanda
         /// <param name="e"></param>
         private void btn_acceptarComanda_Click(object sender, RoutedEventArgs e)
         {
-            if (comanda.estat.Equals("construccio")){
-                if(MessageBox.Show("The order is the pending queue.", "Information", 
-                    MessageBoxButton.OKCancel, MessageBoxImage.Information) 
-                    == MessageBoxResult.Cancel) return;
+            if (MessageBox.Show("The order is the pending queue.", "Information",
+                MessageBoxButton.OKCancel, MessageBoxImage.Information)
+                == MessageBoxResult.Cancel) return;
 
-                comanda.estat = "pendent";
-                controller.modificaComanda(comanda);
-                Close();
-            }
+            comanda.estat = "pendent";
+            controller.modificaComanda(comanda);
+            Close();
         }
 
+        private void listView_liniesComanda_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listView_liniesComanda.SelectedItems.Count > 1) return;
 
+            liniacomanda li = listView_liniesComanda.SelectedItem as liniacomanda;
+
+            lbl_nomProducte.Content = li.producte.nom;
+            lbl_preuKg.Content = string.Format("{0} €", li.preuKg.ToString());
+            lbl_unitatCaixa.Content = string.Format("{0} u.", li.producte.unitatCaixa.ToString());
+        }
     }
+
+
 }
+
 
