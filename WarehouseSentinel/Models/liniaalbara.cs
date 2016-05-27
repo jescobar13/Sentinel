@@ -15,7 +15,7 @@ namespace WarehouseSentinel.Models
     public partial class liniaalbara
     {
         public int id { get; set; }
-        public string codiTracabilitat { get; set; }
+        public Nullable<float> pes { get; set; }
         public string producteNom { get; set; }
         public int Albara_codi { get; set; }
         public int Albara_Comanda_codi { get; set; }

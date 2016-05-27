@@ -31,5 +31,12 @@ namespace WarehouseSentinel.Models
             context.albara.Remove(a);
             context.SaveChanges();
         }
+
+        internal albara getAlbara(comanda comandaActual)
+        {
+            return (from a in context.albara
+                    where a.Comanda_codi == comandaActual.codi
+                    select a).FirstOrDefault();
+        }
     }
 }

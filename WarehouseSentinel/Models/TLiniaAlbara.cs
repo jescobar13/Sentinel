@@ -56,19 +56,16 @@ namespace WarehouseSentinel.Models
 
         internal int? getQuantitatProductesByCodiCaixa(int codiCaixa)
         {
-            var t = from a in context.liniaalbara
-                    where a.caixa == codiCaixa
-                    group a by a.id into grp
-                    select new { cnt = grp.Count() };
-
-            return t.Select(x => x.cnt).FirstOrDefault();
+            return (from a in context.liniaalbara
+                     where a.caixa == codiCaixa
+                     select a).ToList().Count;
         }
 
         internal int? getMaxIdCaixa()
         {
             //var t = from a in context.liniaalbara
             //        group a by a.caixa into grp
-            //        select new { max = grp.Max() };
+            //        select new { max = grp.Max(a.caixa) };
 
             //var prova = t.Select(x => x.max).FirstOrDefault().caixa;
             //return prova;
@@ -76,6 +73,26 @@ namespace WarehouseSentinel.Models
             return (from a in context.liniaalbara
                     group a by a.caixa into grp
                     select grp.Max(l => l.caixa)).FirstOrDefault();
+        }
+
+        internal float? sumaTotsPesos(int codiCaixa)
+        {
+            return (from a in context.liniaalbara
+                    where a.caixa == codiCaixa
+                    select a).ToList()
+                    .Sum(x => x.pes);
+
+            //float pes = 0;
+
+            //List<liniaalbara> llista = (from l in context.liniaalbara
+            //                            where l.caixa == codiCaixa
+            //                            select l).ToList();
+            //foreach (liniaalbara l in llista)
+            //{
+            //    pes += l.pes.GetValueOrDefault() ;
+            //}
+
+            //return pes;
         }
     }
 }

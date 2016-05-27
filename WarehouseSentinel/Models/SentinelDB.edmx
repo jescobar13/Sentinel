@@ -66,7 +66,7 @@
             <PropertyRef Name="Albara_Comanda_Client_Contacte_id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="codiTracabilitat" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="pes" Type="float" />
           <Property Name="producteNom" Type="varchar" MaxLength="45" />
           <Property Name="Albara_codi" Type="int" Nullable="false" />
           <Property Name="Albara_Comanda_codi" Type="int" Nullable="false" />
@@ -369,7 +369,7 @@
             <PropertyRef Name="Albara_Comanda_Client_Contacte_id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="codiTracabilitat" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="pes" Type="Single" />
           <Property Name="producteNom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Albara_codi" Type="Int32" Nullable="false" />
           <Property Name="Albara_Comanda_codi" Type="Int32" Nullable="false" />
@@ -594,7 +594,7 @@
                 <ScalarProperty Name="Albara_Comanda_codi" ColumnName="Albara_Comanda_codi" />
                 <ScalarProperty Name="Albara_codi" ColumnName="Albara_codi" />
                 <ScalarProperty Name="producteNom" ColumnName="producteNom" />
-                <ScalarProperty Name="codiTracabilitat" ColumnName="codiTracabilitat" />
+                <ScalarProperty Name="pes" ColumnName="pes" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
