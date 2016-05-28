@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarehouseSentinel.Viwers.Albara"
         mc:Ignorable="d"
-        Title="GestorAlbaraWindow" Height="819.678" Width="1246.016" WindowState="Maximized" Closing="Window_Closing">
+        Title="GestorAlbaraWindow" Height="819.678" Width="1246.016" WindowState="Maximized" Closing="Window_Closing" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>

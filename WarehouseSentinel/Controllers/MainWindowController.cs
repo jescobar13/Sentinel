@@ -100,12 +100,19 @@ namespace WarehouseSentinel.Controllers
         {
             if (usuariLogat.permisos.Equals("gestor"))
             {
-                GestorComandesWindow gestorComandes = new GestorComandesWindow(this);
+                new GestorComandesWindow(this);
                 mainWindow.Hide();
             }
-            else if(usuariLogat.permisos.Equals("magatzem"))
+            else if (usuariLogat.permisos.Equals("magatzem"))
             {
-                GestorAlbaraWindow gestorComandes = new GestorAlbaraWindow(this);
+                new GestorAlbaraWindow(this);
+                mainWindow.Hide();
+            }
+            else if (usuariLogat.permisos.Equals("administrator"))
+            {
+                new GestorAlbaraWindow(this);
+                new GestorComandesWindow(this);
+
                 mainWindow.Hide();
             }
         }

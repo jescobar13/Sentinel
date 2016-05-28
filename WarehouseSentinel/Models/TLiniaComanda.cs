@@ -72,6 +72,13 @@ namespace WarehouseSentinel.Models
                     select tLiniaComanda)
                     .ToList();
         }
+
+        internal int? sumTotesLesQuantitats(int comandaID)
+        {
+            return (from a in context.liniacomanda
+                    where a.Comanda_codi == comandaID
+                    select a).ToList().Sum(x => x.quantitat);
+        }
     }
 }
 

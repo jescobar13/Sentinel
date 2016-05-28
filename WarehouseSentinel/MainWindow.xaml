@@ -15,7 +15,7 @@
         <TextBox x:Name="textBox_user" HorizontalAlignment="Left" Height="23" Margin="195,333,0,0" TextWrapping="Wrap" Text="ppi" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <PasswordBox x:Name="passwordBox" Height="23" HorizontalAlignment="Left" Margin="195,364,0,0" VerticalAlignment="Top" Width="120" Password="ppi" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-        <Button x:Name="btn_logIn" Content="Connect" HorizontalAlignment="Left" Margin="104,409,0,0" VerticalAlignment="Top" Width="240" Height="32" Click="btn_logIn_Click"/>
+        <Button x:Name="btn_logIn" Content="Connect" HorizontalAlignment="Left" Margin="104,409,0,0" VerticalAlignment="Top" Width="240" Height="32" Click="btn_logIn_Click" IsDefault="True"/>
         <Label x:Name="label1" Content="Log In:" HorizontalAlignment="Left" Margin="104,293,0,0" VerticalAlignment="Top" Width="86" Height="34" FontSize="14" FontStyle="Italic"/>
         <Button x:Name="btn_cancel" Content="Cancel / Exit" HorizontalAlignment="Left" Margin="104,446,0,0" VerticalAlignment="Top" Width="240" Height="32" Click="btn_cancel_Click"/>
 

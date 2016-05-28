@@ -33,15 +33,6 @@ namespace WarehouseSentinel.Models
             context.SaveChanges();
         }
 
-        internal int? getNumCaixa()
-        {
-            return (from tLiniaAlbara in context.liniaalbara
-                    select tLiniaAlbara)
-                    .OrderByDescending(i => i.caixa)
-                    .FirstOrDefault()
-                    .caixa;
-        }
-
         internal int? getCodiCaixaBuida(albara albaraActual, producte producteActual)
         {
             var prova = from a in context.liniaalbara
@@ -54,10 +45,17 @@ namespace WarehouseSentinel.Models
             return prova.Where(x => x.cnt < producteActual.unitatCaixa).Select(x => x.idcaixa).FirstOrDefault();
         }
 
-        internal int? getQuantitatProductesByCodiCaixa(int codiCaixa)
+        internal int? getQuantitatProductesByAlbara(int idProducte)
         {
             return (from a in context.liniaalbara
-                     where a.caixa == codiCaixa
+                    where a.idProducte == idProducte
+                    select a).ToList().Count();
+        }
+
+        internal int? getQuantitatProductesByCodiCaixa(int codiCaixa, int producteSeleccionat)
+        {
+            return (from a in context.liniaalbara
+                     where a.caixa == codiCaixa && a.idProducte == producteSeleccionat
                      select a).ToList().Count;
         }
 
@@ -93,6 +91,13 @@ namespace WarehouseSentinel.Models
             //}
 
             //return pes;
+        }
+
+        internal int getQuantitatProductesByComanda(int codi)
+        {
+            return (from a in context.liniaalbara
+                    where a.Albara_Comanda_codi == codi
+                    select a).ToList().Count();
         }
     }
 }

@@ -4,6 +4,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -58,6 +59,7 @@ namespace WarehouseSentinel.Viwers.Albara
         {
             mainWindowController.registreSortida();
             mainWindowController.visualitzaMainWindow();
+            stopTimer();
         }
 
         private void dataGrid_capcaleraComandes_Loaded(object sender, RoutedEventArgs e)
@@ -74,6 +76,7 @@ namespace WarehouseSentinel.Viwers.Albara
             {
                 CapComandaSelected = dataGrid_capcaleraComandes.SelectedItem as CapComanda;
                 dataGrid_capcaleraComandes.IsEnabled = false;
+                dataGrid_LiniesComandes.IsEnabled = true;
                 actualitzaLiniesComanda(CapComandaSelected);
                 controller.comandaSelec(CapComandaSelected.ComandaID);
             }
@@ -94,6 +97,29 @@ namespace WarehouseSentinel.Viwers.Albara
 
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            preparaTimer();
+            //playTimer();
+        }
+
+        Timer aTimer;
+
+        void preparaTimer()
+        {
+            aTimer = new Timer();
+            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            aTimer.Interval = 5000;
+        }
+
+        void playTimer() { aTimer.Start(); }
+        void stopTimer() { aTimer.Stop(); }
+
+        private void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            dataGrid_capcaleraComandes.ItemsSource = null;
+            dataGrid_capcaleraComandes.ItemsSource = GestorAlbaraWindowController.actualitzaCapcaleresComandes();
+        }
 
     }
 }

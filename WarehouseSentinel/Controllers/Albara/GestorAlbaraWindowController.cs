@@ -147,6 +147,9 @@ namespace WarehouseSentinel.Controllers.Albara
                 OnValorsGestorAlbaraChanged(new EventArgs());
             }
         }
+
+        Timer aTimer;
+
         /// <summary>
         /// Constructor. Controller de la vista Gestor Albara
         /// </summary>
@@ -162,6 +165,7 @@ namespace WarehouseSentinel.Controllers.Albara
             tAlbara = new TAlbara(context);
             tLiniaAlbara = new TLiniaAlbara(context);
         }
+
 
         internal void closeGestorAlbaraWindow()
         {
@@ -179,7 +183,21 @@ namespace WarehouseSentinel.Controllers.Albara
                     capcaleresComanda.Add(new CapComanda(c));
                 }
             }
+            return capcaleresComanda;
+        }
 
+        internal static IEnumerable actualitzaCapcaleresComandes()
+        {
+            TComanda tComanda = new TComanda(new SentinelDBEntities());
+            List<CapComanda> capcaleresComanda = new List<CapComanda>();
+
+            foreach (comanda c in tComanda.getAll())
+            {
+                if (c.estat.Equals("pendent"))
+                {
+                    capcaleresComanda.Add(new CapComanda(c));
+                }
+            }
             return capcaleresComanda;
         }
 
@@ -222,8 +240,17 @@ namespace WarehouseSentinel.Controllers.Albara
             if (codiCaixa == 0)
                 codiCaixa = tLiniaAlbara.getMaxIdCaixa().GetValueOrDefault() + 1;
 
-            QuantitatFetCaixa = tLiniaAlbara.getQuantitatProductesByCodiCaixa(codiCaixa).GetValueOrDefault();
-            QuantitatProducteActual = liniaComandaActual.quantitat.GetValueOrDefault() - QuantitatFetCaixa;
+            QuantitatFetCaixa = tLiniaAlbara.getQuantitatProductesByCodiCaixa(codiCaixa, producteSeleccionat.id).GetValueOrDefault();
+            QuantitatProducteActual = liniaComandaActual.quantitat.GetValueOrDefault() - tLiniaAlbara.getQuantitatProductesByAlbara(producteSeleccionat.id).GetValueOrDefault();
+
+            if (QuantitatProducteActual == 0)
+            {
+                System.Windows.MessageBox.Show("This line item is finished.", "Information", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+                gestorAlbaraWindow.dataGrid_LiniesComandes.IsEnabled = true;
+
+                return 0;
+            }
+
 
             PesTotalCaixa = tLiniaAlbara.sumaTotsPesos(codiCaixa).GetValueOrDefault();
 
@@ -232,7 +259,7 @@ namespace WarehouseSentinel.Controllers.Albara
             if (producteSeleccionat.unitatCaixa < QuantitatProducteActual)
                 QuantitatFaltaCaixa = producteSeleccionat.unitatCaixa.GetValueOrDefault() - QuantitatFetCaixa;
             else
-                QuantitatFaltaCaixa = QuantitatProducteActual - QuantitatFetCaixa;
+                QuantitatFaltaCaixa = QuantitatProducteActual;
 
             obreBascula();
 
@@ -241,17 +268,8 @@ namespace WarehouseSentinel.Controllers.Albara
 
         internal void obreBascula()
         {
-            if (basculaR232 == null)
-            {
-                basculaR232 = new BasculaR232("COM6", 9600, Parity.None, 8, StopBits.One, this);
-                basculaR232.connect();
-            }
-            else
-            {
-                basculaR232.close();
-                basculaR232 = null;
-                obreBascula();
-            }
+            basculaR232 = new BasculaR232("COM6", 9600, Parity.None, 8, StopBits.One, this);
+            basculaR232.connect();
         }
 
         /// <summary>
@@ -308,6 +326,33 @@ namespace WarehouseSentinel.Controllers.Albara
         {
             if (pes == 0)
             {
+                if (QuantitatProducteActual == 0)
+                {
+                    gestorAlbaraWindow.dataGrid_LiniesComandes.IsEnabled = true;
+                    System.Windows.MessageBox.Show("You closed this command line. Select another line please.", "Information",
+                        System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+                    QuantitatProducteActual = -1;
+
+                    int numProductesComanda = tLiniaComanda.sumTotesLesQuantitats(comandaActual.codi).GetValueOrDefault();
+                    int numProductesAlbara = tLiniaAlbara.getQuantitatProductesByComanda(comandaActual.codi);
+
+                    if (numProductesAlbara == numProductesComanda)
+                    {
+                        gestorAlbaraWindow.dataGrid_capcaleraComandes.IsEnabled = true;
+                        gestorAlbaraWindow.dataGrid_LiniesComandes.IsEnabled = false;
+
+                        comandaActual.estat = "acabada";
+                        tComanda.modify(comandaActual);
+
+                        gestorAlbaraWindow.dataGrid_capcaleraComandes.ItemsSource = donemCapcaleresComandes();
+
+                        System.Windows.MessageBox.Show("The order has been successfully completed. Please select another command.", "Information",
+                            System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+                    }
+
+                    return;
+                }
+
                 gestorAlbaraWindow.label_pesBascula.Content = string.Format("- {0} -", pes);
                 zeroPesat = true;
                 return;

@@ -40,8 +40,6 @@ namespace WarehouseSentinel.Controllers.Albara
         /// </summary>
         public void connect()
         {
-            if (serialPort != null && serialPort.IsOpen) close();
-
             serialPort = new SerialPort(PortName, BaudRate, Parity, DataBits, StopBits);
             Handshake = Handshake.None;
             serialPort.ReadTimeout = 500;
@@ -55,7 +53,7 @@ namespace WarehouseSentinel.Controllers.Albara
         {
             try
             {
-                serialPort.Close();
+                serialPort.DataReceived -= new SerialDataReceivedEventHandler(serialPort_DataReceived);
                 serialPort = null;
             }
             catch(Exception ex)
