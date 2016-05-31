@@ -128,7 +128,7 @@ namespace WarehouseSentinel.Viwers.Comanda
         {
             comanda c = dataGrid_capcaleraComandes.SelectedItem as comanda;
             c.estat = "edit";
-            if(!controller.guardaComanda(c))return;
+            if (!controller.guardaComanda(c)) return;
 
             ComandaWindow comandaWindow = new ComandaWindow(controller.getBaseContext(), c);
             comandaWindow.ShowDialog();
@@ -144,6 +144,54 @@ namespace WarehouseSentinel.Viwers.Comanda
             else
                 MessageBox.Show("The order has not been successfully removed.", "Infromation",
                     MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void radioButton_visualitzaPendents_Checked(object sender, RoutedEventArgs e)
+        {
+            actualitzaDataGridFiltratPer("pendent");
+
+        }
+
+        private void radioButton_visualitzaConstruccio_Checked(object sender, RoutedEventArgs e)
+        {
+            actualitzaDataGridFiltratPer("construccio");
+
+        }
+
+        private void radioButton_visualitzaEditats_Checked(object sender, RoutedEventArgs e)
+        {
+            actualitzaDataGridFiltratPer("edit");
+
+        }
+
+        private void radioButton_visualitzaAcabada_Checked(object sender, RoutedEventArgs e)
+        {
+            actualitzaDataGridFiltratPer("acabada");
+        }
+
+        private void radioButton_visualitzaTots_Checked(object sender, RoutedEventArgs e)
+        {
+            actualitzaCapcaleresComandes();
+        }
+
+        private void actualitzaDataGridFiltratPer(string mode)
+        {
+            dataGrid_capcaleraComandes.ItemsSource = null;
+            dataGrid_capcaleraComandes.ItemsSource = controller.donemComandes(mode);
+        }
+
+        private void textBox_filtre_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            FiltratComandaPer filtra = FiltratComandaPer.CIF;
+
+            if (radioButton_filtreNom.IsChecked == true)
+                filtra = FiltratComandaPer.NOM;
+
+            if (radioButton_filtreCIF.IsChecked == true)
+                filtra = FiltratComandaPer.CIF;
+
+            dataGrid_capcaleraComandes.ItemsSource = null;
+            dataGrid_capcaleraComandes.ItemsSource = controller.donemClientsByPattern(textBox_filtre.Text, filtra);
         }
     }
 }

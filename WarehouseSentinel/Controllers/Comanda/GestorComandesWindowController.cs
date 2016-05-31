@@ -3,12 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using WarehouseSentinel.Models;
 using WarehouseSentinel.Viwers.Comanda;
 
 namespace WarehouseSentinel.Controllers
 {
+    public enum FiltraComandaPer
+    {
+        CIF, NOM
+    }
+
     public class GestorComandesWindowController
     {
         /// <summary>
@@ -25,6 +31,8 @@ namespace WarehouseSentinel.Controllers
         /// LiniesComanda de la base de dades.
         /// </summary>
         private TLiniaComanda tLiniaComanda;
+
+        private List<comanda> memoria;
 
         private GestorComandesWindow gestorComandesWindow;
 
@@ -61,7 +69,22 @@ namespace WarehouseSentinel.Controllers
         /// <returns>Llista de comandes.</returns>
         internal IEnumerable donemComandes()
         {
-            return tComanda.getAll();
+            if (memoria == null)
+                memoria = new List<comanda>();
+
+            memoria.Clear();
+            memoria = tComanda.getAll();
+            return memoria;
+        }
+
+        internal IEnumerable donemComandes(string mode)
+        {
+            if (memoria == null)
+                memoria = new List<comanda>();
+
+            memoria.Clear();
+            memoria = tComanda.getAll(mode);
+            return memoria;
         }
 
         /// <summary>
@@ -105,6 +128,42 @@ namespace WarehouseSentinel.Controllers
             {
                 return true;
             }
+        }
+
+        /// <summary>
+        /// Serveix els clients que coincideixen amb el patro passat.
+        /// </summary>
+        /// <param name="text">patro</param>
+        /// <param name="filtra">Filtrat per CIF / NOM</param>
+        /// <returns>Llista de Clients</returns>
+        internal IEnumerable donemClientsByPattern(string text, FiltratComandaPer filtra)
+        {
+            Regex searchTerm;
+            IEnumerable<comanda> coinciden;
+
+            switch (filtra)
+            {
+                case FiltratComandaPer.NOM:
+                    searchTerm = new Regex("(" + text + ")|" + text + "([a-z]|[A-Z])");
+
+                    coinciden = (from v in memoria
+                                 where searchTerm.Matches(v.client.nom).Count > 0
+                                 select v);
+
+                    return coinciden;
+                    break;
+
+                case FiltratComandaPer.CIF:
+                    searchTerm = new Regex("(" + text + ")|" + text + "([a-z]|[A-Z]|[0-9])");
+
+                    coinciden = (from v in memoria
+                                 where searchTerm.Matches(v.Client_CIF).Count > 0
+                                 select v);
+
+                    return coinciden;
+                    break;
+            }
+            return null;
         }
     }
 }

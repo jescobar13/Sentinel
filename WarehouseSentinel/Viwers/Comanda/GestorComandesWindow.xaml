@@ -7,7 +7,7 @@
         mc:Ignorable="d"
           Title="Sentinel: Comandes" Height="800" Width="1150" WindowState="Maximized" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
-        <DockPanel LastChildFill="False" Margin="5">
+        <DockPanel LastChildFill="False" Margin="5,5,5,619">
 
             <Border DockPanel.Dock="Top" Margin="0,0,0,5"
                     BorderBrush="Silver" BorderThickness="1">
@@ -25,7 +25,6 @@
                 <ToolBar Name="barradHeines" >
 
                     <Button x:Name="btn_novaComanda" Content="Nova Comanda" Click="btn_novaComanda_Click"/>
-                    <Button x:Name="btn_report" Content="Report" Click="btn_report_Click"/>
 
                     <Separator/>
 
@@ -33,12 +32,33 @@
 
             </Border>
 
-            <Border DockPanel.Dock="Top" Margin="0,5"
-                    BorderBrush="Silver" BorderThickness="1" Height="50">
 
+            <Grid DockPanel.Dock="Top" Margin="0,5"
+                    Height="50">
 
+                <Grid HorizontalAlignment="Left" Width="446">
+                    <Border BorderBrush="Silver" BorderThickness="1"/>
 
-            </Border>
+                    <Label x:Name="label_Copy" Content="View:" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="68" FontStyle="Italic" Margin="10,11,0,0"/>
+                    <RadioButton GroupName="Visualitza" x:Name="radioButton_visualitzaPendents" Content="Pending" Margin="70,17,0,11" HorizontalAlignment="Left" Width="70" Checked="radioButton_visualitzaPendents_Checked"/>
+                    <RadioButton GroupName="Visualitza" x:Name="radioButton_visualitzaConstruccio" Content="In Construction" Margin="145,17,0,11" HorizontalAlignment="Left" Width="103" Checked="radioButton_visualitzaConstruccio_Checked"/>
+                    <RadioButton GroupName="Visualitza" x:Name="radioButton_visualitzaEditats" Content="Edit" Margin="253,17,0,11" HorizontalAlignment="Left" Width="52" Checked="radioButton_visualitzaEditats_Checked"/>
+                    <RadioButton GroupName="Visualitza" x:Name="radioButton_visualitzaAcabada" Content="Finished" Margin="310,17,0,11" HorizontalAlignment="Left" Width="74" Checked="radioButton_visualitzaAcabada_Checked"/>
+                    <RadioButton GroupName="Visualitza" x:Name="radioButton_visualitzaTots" Content="All" Margin="389,17,0,11" HorizontalAlignment="Left" Width="52" Checked="radioButton_visualitzaTots_Checked"/>
+
+                </Grid>
+
+                <Grid HorizontalAlignment="Right" Width="447">
+                    <Border BorderBrush="Silver" BorderThickness="1" />
+
+                    <TextBox x:Name="textBox_filtre" Height="30" Margin="0,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="textBox_filtre_TextChanged" HorizontalAlignment="Right" Width="197"/>
+                    <Label x:Name="label" Content="Filter by:" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="68" FontStyle="Italic"/>
+
+                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtreNom" Content="Name" Margin="78,16,0,12" HorizontalAlignment="Left" Width="51"/>
+                    <RadioButton GroupName="Filtre" x:Name="radioButton_filtreCIF" Content="VAT" Margin="157,16,0,12" HorizontalAlignment="Left" Width="46" IsChecked="True"/>
+                </Grid>
+
+            </Grid>
 
         </DockPanel>
 

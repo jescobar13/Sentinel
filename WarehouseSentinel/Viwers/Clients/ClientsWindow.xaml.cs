@@ -130,22 +130,22 @@ namespace WarehouseSentinel.Viwers
         /// <param name="e"></param>
         private void textBox_filtre_TextChanged(object sender, TextChangedEventArgs e)
         {
-            FiltratPer filtra = FiltratPer.CIF;
+            FiltratComandaPer filtra = FiltratComandaPer.CIF;
 
             if (radioButton_filtreNom.IsChecked == true)
-                filtra = FiltratPer.NOM;
+                filtra = FiltratComandaPer.NOM;
 
             if (radioButton_filtreCIF.IsChecked == true)
-                filtra = FiltratPer.CIF;
+                filtra = FiltratComandaPer.CIF;
 
             if (radioButton_filtreCodiPostal.IsChecked == true)
-                filtra = FiltratPer.CODIPOSTAL;
+                filtra = FiltratComandaPer.CODIPOSTAL;
 
             if (radioButton_filtreCognom.IsChecked == true)
-                filtra = FiltratPer.COGNOM;
+                filtra = FiltratComandaPer.COGNOM;
 
             if (radioButton_filtrePais.IsChecked == true)
-                filtra = FiltratPer.PAIS;
+                filtra = FiltratComandaPer.PAIS;
 
             dataGrid_clients.ItemsSource = null;
             dataGrid_clients.ItemsSource = controller.donemClientsByPattern(textBox_filtre.Text, filtra);

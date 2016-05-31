@@ -9,7 +9,7 @@ using WarehouseSentinel.Models;
 
 namespace WarehouseSentinel.Controllers
 {
-    public enum FiltratPer
+    public enum FiltratComandaPer
     {
         CIF, NOM, COGNOM, PAIS, CODIPOSTAL, ESTAT
     }
@@ -106,14 +106,14 @@ namespace WarehouseSentinel.Controllers
         /// <param name="text">patro</param>
         /// <param name="filtra">Filtrat per CIF / NOM</param>
         /// <returns>Llista de Clients</returns>
-        internal IEnumerable donemClientsByPattern(string text, FiltratPer filtra)
+        internal IEnumerable donemClientsByPattern(string text, FiltratComandaPer filtra)
         {
             Regex searchTerm;
             IEnumerable<client> coinciden;
 
             switch (filtra)
             {
-                case FiltratPer.NOM:
+                case FiltratComandaPer.NOM:
                     searchTerm = new Regex("(" + text + ")|" + text + "([a-z]|[A-Z])");
 
                     coinciden = (from v in memoria
@@ -123,7 +123,7 @@ namespace WarehouseSentinel.Controllers
                     return coinciden;
                     break;
 
-                case FiltratPer.CIF:
+                case FiltratComandaPer.CIF:
                     searchTerm = new Regex("(" + text + ")|" + text + "([a-z]|[A-Z]|[0-9])");
 
                     coinciden = (from v in memoria

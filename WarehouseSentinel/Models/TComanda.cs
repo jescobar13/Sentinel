@@ -56,7 +56,7 @@ namespace WarehouseSentinel.Models
         /// Llista les comandes a la base de dades.
         /// </summary>
         /// <returns>Llista de comandes.</returns>
-        internal IEnumerable getAll()
+        internal List<comanda> getAll()
         {
             return (from taulaComandes in context.comanda
                     select taulaComandes).ToList();
@@ -68,6 +68,13 @@ namespace WarehouseSentinel.Models
                     where tComanda.codi == comandaID
                     select tComanda)
                     .FirstOrDefault();
+        }
+
+        internal List<comanda> getAll(string mode)
+        {
+            return (from taulaComandes in context.comanda
+                    where taulaComandes.estat.Equals(mode)
+                    select taulaComandes).ToList();
         }
 
         /// <summary>
