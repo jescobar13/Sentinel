@@ -18,13 +18,18 @@
         </Grid.ColumnDefinitions>
 
         <Grid Margin="5,5,5,0" Grid.Column="0" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="243*"/>
+                <ColumnDefinition Width="242*"/>
+            </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="301*"/>
-                <RowDefinition Height="478*"/>
+                <RowDefinition Height="303*"/>
+                <RowDefinition Height="331*"/>
+                <RowDefinition Height="150*"/>
             </Grid.RowDefinitions>
 
-            <Grid Background="#FFE5E5E5" Margin="0" Grid.Row="0">
+            <Grid Background="#FFE5E5E5" Margin="0" Grid.Row="0" Grid.ColumnSpan="2">
                 <DataGrid x:Name="dataGrid_capcaleraComandes" Margin="10"
                           ItemsSource="{Binding Source=list}" AutoGenerateColumns="False"
                           CanUserResizeColumns="True" MinColumnWidth="70" IsReadOnly="True"
@@ -37,14 +42,14 @@
                         <DataGridTextColumn Width="200" Header="Client" Binding="{Binding ClientNom}"/>
                         <DataGridTextColumn Width="300" Header="Desti" Binding="{Binding Localitat}"/>
 
-                        
+
 
                     </DataGrid.Columns>
 
                 </DataGrid>
             </Grid>
 
-            <Grid Background="#FFE5E5E5" Margin="0" Grid.Row="1">
+            <Grid Background="#FFE5E5E5" Grid.Row="1" Grid.ColumnSpan="2">
                 <DataGrid x:Name="dataGrid_LiniesComandes" Margin="10"
                           ItemsSource="{Binding Source=list}" AutoGenerateColumns="False"
                           CanUserResizeColumns="True" MinColumnWidth="70" IsReadOnly="True"
@@ -63,7 +68,7 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        
+
                         <DataGridTextColumn Header="Prod ID" Binding="{Binding Producte_id}"/>
                         <DataGridTextColumn Header="Product" Binding="{Binding producte.nom}"/>
                         <DataGridTextColumn Width="100" Header="QTY" Binding="{Binding quantitat}"/>
@@ -72,6 +77,8 @@
 
                 </DataGrid>
             </Grid>
+            <Button x:Name="btn_Cancela" Content="CANCEL" Margin="10,5,12,10" Grid.Row="2" IsEnabled="False" Click="btn_Cancela_Click"/>
+            <Button x:Name="btn_accepta" Content="CONFIRM" Grid.Column="1" Margin="10,5,10,10" Grid.Row="2" IsEnabled="False" Click="btn_accepta_Click"/>
         </Grid>
 
         <Grid Margin="5" Grid.Column="1">
@@ -116,7 +123,7 @@
             <Grid Background="Black" Grid.Row="2"  Grid.Column="2" Margin="2,2,2,2" Grid.RowSpan="2">
                 <Label Grid.Row="1" x:Name="label_pesBascula" Content="X.XXX" Grid.Column="2" Margin="0,0,0,0" VerticalContentAlignment="Center" FontSize="55" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold"/>
             </Grid>
-            
+
             <Label x:Name="lbl_caixa_unitatsPendents" Content="X" Grid.Column="0" Margin="0,0,0,0" Grid.Row="3" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center"/>
             <Label x:Name="lbl_caixa_unitatsFetes" Content="X" Grid.Column="1" Margin="0,0,0,0" Grid.Row="3" VerticalContentAlignment="Center" FontSize="35" HorizontalContentAlignment="Center"/>
 

@@ -121,5 +121,14 @@ namespace WarehouseSentinel.Viwers.Albara
             dataGrid_capcaleraComandes.ItemsSource = GestorAlbaraWindowController.actualitzaCapcaleresComandes();
         }
 
+        private void btn_Cancela_Click(object sender, RoutedEventArgs e)
+        {
+            controller.liniaCancelada = true;
+        }
+
+        private void btn_accepta_Click(object sender, RoutedEventArgs e)
+        {
+            controller.liniaValida = true;
+        }
     }
 }

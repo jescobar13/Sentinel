@@ -322,10 +322,17 @@ namespace WarehouseSentinel.Controllers.Albara
             Console.WriteLine("======== {0} ========", iguals);
         }
 
+        public bool liniaValida = false;
+        public bool liniaCancelada = false;
+
         private void novaPesada(float pes)
         {
+            bool esPossibleGuardar = false;
+
             if (pes == 0)
             {
+
+
                 if (QuantitatProducteActual == 0)
                 {
                     gestorAlbaraWindow.dataGrid_LiniesComandes.IsEnabled = true;
@@ -392,13 +399,33 @@ namespace WarehouseSentinel.Controllers.Albara
                 PesTotalCaixa += pes;
                 PesTotalTotal += pes;
 
-                try
-                {
-                    tLiniaAlbara.add(liniaAlbaraActual);
-                }
-                catch (Exception ex) { Console.WriteLine(ex.Message); }
+                gestorAlbaraWindow.btn_accepta.IsEnabled = true;
+                gestorAlbaraWindow.btn_Cancela.IsEnabled = true;
 
-                zeroPesat = false;
+                while (!esPossibleGuardar)
+                {
+                    if (liniaValida)
+                    {
+                        try
+                        {
+                            tLiniaAlbara.add(liniaAlbaraActual);
+                        }
+                        catch (Exception ex) { Console.WriteLine(ex.Message); }
+
+                        liniaValida = false;
+                        zeroPesat = false;
+                        esPossibleGuardar = true;
+                    }
+                    else if (liniaCancelada)
+                    {
+                        System.Windows.MessageBox.Show("Line canceled.", "Information", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+                        liniaCancelada = false;
+                        esPossibleGuardar = false;
+                    }
+                }
+
+                gestorAlbaraWindow.btn_accepta.IsEnabled = false;
+                gestorAlbaraWindow.btn_Cancela.IsEnabled = false;
             }
         }
 
