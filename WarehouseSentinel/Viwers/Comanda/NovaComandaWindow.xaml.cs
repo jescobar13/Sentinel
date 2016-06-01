@@ -238,7 +238,10 @@ namespace WarehouseSentinel.Viwers.Comanda
         {
             if (listView_liniesComanda.SelectedItems.Count > 1) return;
 
+
             liniacomanda li = listView_liniesComanda.SelectedItem as liniacomanda;
+
+            if (li == null) return;
 
             lbl_nomProducte.Content = li.producte.nom;
             lbl_preuKg.Content = string.Format("{0} €", li.preuKg.ToString());

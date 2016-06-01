@@ -150,6 +150,11 @@ namespace WarehouseSentinel.Controllers.Albara
 
         Timer aTimer;
 
+        internal void setNullLiniaAlbaraActual()
+        {
+            liniaAlbaraActual = null;
+        }
+
         /// <summary>
         /// Constructor. Controller de la vista Gestor Albara
         /// </summary>
@@ -261,7 +266,7 @@ namespace WarehouseSentinel.Controllers.Albara
             else
                 QuantitatFaltaCaixa = QuantitatProducteActual;
 
-            obreBascula();
+            //obreBascula();
 
             return 0;
         }
@@ -327,7 +332,6 @@ namespace WarehouseSentinel.Controllers.Albara
 
         private void novaPesada(float pes)
         {
-            bool esPossibleGuardar = false;
 
             if (pes == 0)
             {
@@ -359,6 +363,8 @@ namespace WarehouseSentinel.Controllers.Albara
 
                     return;
                 }
+                //gestorAlbaraWindow.btn_accepta.IsEnabled = false;
+                //gestorAlbaraWindow.btn_Cancela.IsEnabled = false;
 
                 gestorAlbaraWindow.label_pesBascula.Content = string.Format("- {0} -", pes);
                 zeroPesat = true;
@@ -399,34 +405,27 @@ namespace WarehouseSentinel.Controllers.Albara
                 PesTotalCaixa += pes;
                 PesTotalTotal += pes;
 
-                gestorAlbaraWindow.btn_accepta.IsEnabled = true;
-                gestorAlbaraWindow.btn_Cancela.IsEnabled = true;
+                //gestorAlbaraWindow.btn_accepta.IsEnabled = true;
+                //gestorAlbaraWindow.btn_Cancela.IsEnabled = true;
 
-                while (!esPossibleGuardar)
-                {
-                    if (liniaValida)
-                    {
-                        try
-                        {
-                            tLiniaAlbara.add(liniaAlbaraActual);
-                        }
-                        catch (Exception ex) { Console.WriteLine(ex.Message); }
-
-                        liniaValida = false;
-                        zeroPesat = false;
-                        esPossibleGuardar = true;
-                    }
-                    else if (liniaCancelada)
-                    {
-                        System.Windows.MessageBox.Show("Line canceled.", "Information", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
-                        liniaCancelada = false;
-                        esPossibleGuardar = false;
-                    }
-                }
-
-                gestorAlbaraWindow.btn_accepta.IsEnabled = false;
-                gestorAlbaraWindow.btn_Cancela.IsEnabled = false;
+                guardaLiniaAlbara();
             }
+        }
+
+        //private liniaalbara liniaalbaraMemoria;
+
+        public void guardaLiniaAlbara()
+        {
+            
+            try
+            {
+                //if (liniaalbaraMemoria == null) liniaalbaraMemoria = new liniaalbara();
+                //if (liniaalbaraMemoria == liniaAlbaraActual) return;
+
+                //liniaalbaraMemoria = liniaAlbaraActual;
+                tLiniaAlbara.add(liniaAlbaraActual);
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
 
         string primerValor = "5";

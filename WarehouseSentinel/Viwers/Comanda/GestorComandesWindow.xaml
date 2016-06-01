@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarehouseSentinel.Viwers.Comanda"
         mc:Ignorable="d"
-          Title="Sentinel: Comandes" Height="800" Width="1150" WindowState="Maximized" Loaded="Window_Loaded" Closing="Window_Closing">
+          Title="Sentinel: Orders" Height="800" Width="1150" WindowState="Maximized" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
-        <DockPanel LastChildFill="False" Margin="5,5,5,619">
+        <DockPanel LastChildFill="False" Margin="5">
 
             <Border DockPanel.Dock="Top" Margin="0,0,0,5"
                     BorderBrush="Silver" BorderThickness="1">
                 <Menu x:Name="menu" Margin="0,0,0,0" Padding="4">
 
                     <MenuItem x:Name="menuItem_obrirClients" Header="Clients" Click="MenuItem_Click" />
-                    <MenuItem x:Name="menuItem_obrirProductes" Header="Productes" Click="menuItem_obrirProductes_Click"/>
+                    <MenuItem x:Name="menuItem_obrirProductes" Header="Products" Click="menuItem_obrirProductes_Click"/>
 
                 </Menu>
             </Border>
@@ -24,7 +24,7 @@
 
                 <ToolBar Name="barradHeines" >
 
-                    <Button x:Name="btn_novaComanda" Content="Nova Comanda" Click="btn_novaComanda_Click"/>
+                    <Button x:Name="btn_novaComanda" Content="New Order" Click="btn_novaComanda_Click"/>
 
                     <Separator/>
 
@@ -95,8 +95,8 @@
                                         <ColumnDefinition Width="1*"/>
                                         <ColumnDefinition Width="1*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Button x:Name="btn_ModificarComanda" Grid.Column="0" Margin="5,0,5,5" VerticalAlignment="Top" Content="Modificar" Height="30" Click="btn_ModificarComanda_Click"/>
-                                    <Button x:Name="btn_EliminarComanda" Grid.Column="1" Margin="5,0,5,5" VerticalAlignment="Top" Content="Modificar" Height="30" Click="btn_EliminarComanda_Click"/>
+                                    <Button x:Name="btn_ModificarComanda" Grid.Column="0" Margin="5,0,5,5" VerticalAlignment="Top" Content="Modify" Height="30" Click="btn_ModificarComanda_Click"/>
+                                    <Button x:Name="btn_EliminarComanda" Grid.Column="1" Margin="5,0,5,5" VerticalAlignment="Top" Content="Remove" Height="30" Click="btn_EliminarComanda_Click"/>
                                 </Grid>
                             </Border>
                         </DataTemplate>

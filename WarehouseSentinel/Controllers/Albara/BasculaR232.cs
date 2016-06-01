@@ -40,13 +40,20 @@ namespace WarehouseSentinel.Controllers.Albara
         /// </summary>
         public void connect()
         {
-            serialPort = new SerialPort(PortName, BaudRate, Parity, DataBits, StopBits);
-            Handshake = Handshake.None;
-            serialPort.ReadTimeout = 500;
-            serialPort.WriteTimeout = 500;
-            serialPort.RtsEnable = true;
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
-            serialPort.Open();
+            try
+            {
+                serialPort = new SerialPort(PortName, BaudRate, Parity, DataBits, StopBits);
+                Handshake = Handshake.None;
+                serialPort.ReadTimeout = 500;
+                serialPort.WriteTimeout = 500;
+                serialPort.RtsEnable = true;
+                serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
+                serialPort.Open();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show("Internal Error: Message = " + ex.Message, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         internal void close()
@@ -56,7 +63,7 @@ namespace WarehouseSentinel.Controllers.Albara
                 serialPort.DataReceived -= new SerialDataReceivedEventHandler(serialPort_DataReceived);
                 serialPort = null;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }

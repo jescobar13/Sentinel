@@ -123,12 +123,13 @@ namespace WarehouseSentinel.Viwers.Albara
 
         private void btn_Cancela_Click(object sender, RoutedEventArgs e)
         {
-            controller.liniaCancelada = true;
+            controller.setNullLiniaAlbaraActual();
+            MessageBox.Show("Las line aborted.", "Information.", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void btn_accepta_Click(object sender, RoutedEventArgs e)
         {
-            controller.liniaValida = true;
+            //controller.guardaLiniaAlbara();
         }
     }
 }
